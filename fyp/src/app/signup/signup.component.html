@@ -1,0 +1,132 @@
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<section class="wrapper">
+    <div class="container">
+        <div class="col-sm-8 offset-sm-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4 text-center">
+            <div class="logo">
+                <img src="../assets/images/logo.png" class="img-fluid" alt="logo">
+            </div>
+            <form class="rounded bg-white shadow p-5">
+                <h3 class="text-dark fw-bold fs-4 mb-2">Create an Account</h3>
+                <div class="fw-normal text-muted mb-2">
+                    Already have an Account? <a href="#" class="text-primary fw-bold text-decoration-none">Signin here</a>
+                </div>
+                <div class="text-muted text-center text-uppercase mb-2">or</div>
+
+                <a href="#" class="btn btn-light login_with w-100 mb-4">
+                    <img src="../assets/images/google-icon.svg" class="img-fluid me-3" alt="">Signin with Google
+                  </a>
+
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingFirstName" placeholder="name@example.com">
+                    <label for="floatingFirstName">First Name</label>
+                  </div>
+
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingLastName" placeholder="name@example.com">
+                    <label for="floatingLastName">Last Name</label>
+                  </div>
+
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput">Email address</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword">Password</label>
+                    <span class="password-info mt-2">
+                        use 8 or more characters with a mix of letters, numbers & symbols.
+                      </span>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="floatingConfirmPassword" placeholder="Password">
+                    <label for="floatingConfirmPassword">Confirm Password</label>
+                  </div>
+
+                 <div class="form-check d-flex align-items-center">
+                    <input  class="form-check-input" type="checkbox" id="gridCheck" checked>
+                    <label class="form-check-label ms-2" for="gridCheck">
+                        I Agree <a href="#">Terms and Conditions</a>.
+                    </label>
+                  </div>
+                  
+                  
+                  <button type="submit" class="btn btn-primary submit_btn w-100 my-4">Continue</button>
+                 
+            </form>
+        </div>
+    </div>
+</section> -->
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<section class="wrapper">
+    <div class="container">
+        <div class="col-sm-8 offset-sm-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4 ">
+            <form class="rounded bg-white shadow p-5">
+                <div class="row">
+                    <div class="col-auto">
+                        <a routerLink="/"><i class="bi bi-arrow-left "  style="font-size: x-large; color: green;"></i></a>
+                    </div>
+                    <!-- &nbsp;&nbsp;&nbsp;&nbsp; -->
+                    <div class="col-auto mx-auto ms-5">
+                        <div class="col-auto">
+                            <button type="button"   disabled style="width:auto ; border-color: chartreuse; "><i style="font-size: 30px; color: chartreuse; border-color: chartreuse;">SKILL MENTOR</i></button>
+                          </div>
+                    </div>
+                </div>
+                    <br>
+                    <br>
+                <h3 class="text-dark text-center fw-bold fs-4 mb-2"> Sign Up with Skill Mentor</h3>
+               
+                <div class="fw-normal text-muted ms-4">
+                    Already have an Account? <a routerLink="/login" class="text-success text-center fw-bold text-decoration-none">Signin here</a>
+                </div>
+           
+                 <br>
+                 <br>
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingFirstName" placeholder="name@example.com">
+                    <label for="floatingFirstName">First Name</label>
+                  </div>
+
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingLastName" placeholder="name@example.com">
+                    <label for="floatingLastName">Last Name</label>
+                  </div>
+
+                <div class="form-floating mb-3">
+                    <input type="email"  class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput">Email address</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword">Password</label>
+                    <span class="password-info mt-2">
+                        use 8 or more characters with a mix of letters, numbers & symbols.
+                      </span>
+                  </div>
+                
+
+                 <div class="form-check d-flex align-items-center">
+                    <input  class="form-check-input" type="checkbox" id="gridCheck" checked>
+                    <label class="form-check-label ms-2 bt-success" for="gridCheck">
+                        I Agree <a href="#" class="text-success" >Terms and Conditions</a>.
+                    </label>
+                 </div>
+                  
+                  
+                  <button type="submit" routerLink="/login" class="btn btn-success submit_btn w-100 my-4">Sign Up</button>    
+            </form>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+

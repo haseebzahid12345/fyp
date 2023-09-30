@@ -1,0 +1,88 @@
+
+
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Footer</title>
+    <!-- Add Bootstrap CSS link -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Add Font Awesome for icons (you can use your preferred icon library) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles for the footer */
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer a {
+            color: #fff;
+        }
+
+        .footer-icons {
+            text-align: center;
+        }
+
+        .footer-icons i {
+            font-size: 20px;
+            margin-left: 10px;
+        }
+
+        .footer-icons i:first-child {
+            margin-left: 0;
+        }
+
+        /* Add padding to the bottom of the body to account for the fixed footer */
+        body {
+            padding-bottom: 60px; /* Adjust this value as needed */
+        }
+    </style>
+</head>
+<body>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-3 text-left">
+                    <a href="#" routerLink="/home" class="footer-icons">
+                        &nbsp; <fa-icon class="fa-2x" [icon]="house"></fa-icon>
+                        <br>
+                        Home
+                    </a>
+                </div>
+                <div class="col-3 text-center">
+                    <a routerLink="/filterstudent" class="footer-icons">
+                        &nbsp; <fa-icon class="fa-2x" [icon]="search"></fa-icon>
+                        <br>
+                        Search
+                    </a>
+                </div>
+                <div class="col-3 text-right">
+                    <a  routerLink="/setting" class="footer-icons">
+                     <fa-icon class="fa-2x" [icon]="profile"></fa-icon>
+                        <br>
+                    Profile
+                    </a>
+                </div>
+                <div class="col-3 text-right">
+                    <a  routerLink="/urgentoptions" class="footer-icons">
+                     <fa-icon  class="fa-2x" [icon]="urgent"></fa-icon>
+                        <br>
+                    Urgent
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Add Bootstrap JS and jQuery scripts (make sure to include them) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
