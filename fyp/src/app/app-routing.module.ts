@@ -24,9 +24,14 @@ import { SettingComponent } from './setting/setting.component';
 import { SettingteacherComponent } from './settingteacher/settingteacher.component';
 import { SignupComponent } from './signup/signup.component';
 import { UrgentoptionsComponent } from './urgentoptions/urgentoptions.component';
+import { RateusComponent } from './rateus/rateus.component';
 
 import { StartComponent } from './start/start.component';
 const routes: Routes = [
+  {
+    path: 'rateus',
+    component:RateusComponent,
+  },
   {
     path: 'urgentoptions',
     component:UrgentoptionsComponent,

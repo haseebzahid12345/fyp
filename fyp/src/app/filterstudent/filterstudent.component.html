@@ -3,7 +3,11 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    </head>
     <style>
      
         .fixed-header {
@@ -32,175 +36,123 @@
         }
     </style>
 
-<body>
+
     <!-- Fixed Header -->
+
+
+
+<body>
+
     <header class="fixed-header">
         <nav class="navbar navbar-expand-lg ">
-            <a routerLink="/home" class="navbar-brand" href="#"> &nbsp; &nbsp; <fa-icon class="fa" [icon]="back"></fa-icon> </a>
-            <span class="navbar-text" style="font-size: x-large;">Filter Teacher</span>
+            <a routerLink="/urgentoptions" class="navbar-brand" href="#"> &nbsp; &nbsp; <fa-icon class="fa" [icon]="back"></fa-icon> </a>
+            <span class="navbar-text" style="font-size: x-large;"> Filter Teacher </span>
         </nav>
     </header>
 
-  
+    <br>
+    <br>
+    <br>
+  <div class="container mt-4">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
 
+        <!-- Shadow Container -->
+        <div class="shadow p-3">
 
+          <!-- Form -->
+          <form>
 
+            <!-- Form Title -->
+            <h4 class="text-center mb-4 text-white" style="background-color: black ">Filter (Teachers)</h4>
 
-
-
-
-
-
-<section class="wrapper">
-    <div class="container">
-        <div class="col-sm-8 offset-sm-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4 text-center">
-            <form class="rounded bg-white shadow p-5">
-                <h3 class="text-dark fw-bold fs-4 mb-5">Filters</h3>
-                <div class="mb-3">
-                    <label for="#" class="align-items-start fw-medium">Tution Type</label>
-                </div>
-                <button type="submit" class="btn btn-light submit_btn  ">Online</button>
-                <button type="submit" class="btn btn-light submit_btn   ms-3">Offline</button>
-                <hr>
-                <div class="mb-3">
-                    <label for="#" class="align-items-start mt-3 fw-medium">Gender</label>
-                </div>
-                <button type="submit" class="btn btn-light submit_btn  ">Male</button>
-                <button type="submit" class="btn btn-light submit_btn   ms-3">Female</button>
-
-                <div class="mb-3">
-                    <label for="#" class="align-items-start mt-3 fw-medium">Gender</label>
-                </div>
-                <!-- Example split danger button -->
-                <div class="btn-group">
-                    <button type="button" class="btn btn-light">City</button>
-                    <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        <span class="visually-hidden">Toggle Dropdown</span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">1</a></li>
-                        <li><a class="dropdown-item" href="#">2</a></li>
-                        <li><a class="dropdown-item" href="#">3</a></li>
-                        <li><a class="dropdown-item" href="#">4</a></li>
-                    </ul>
-                </div>
-                <div class="mb-3">
-                    <label for="#" class="align-items-start mt-3 fw-medium">Location</label>
-                </div>
-                <!-- Example split danger button -->
-                <div class="btn-group">
-                    <button type="button" class="btn btn-light">Subject</button>
-                    <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        <span class="visually-hidden">Toggle Dropdown</span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">1</a></li>
-                        <li><a class="dropdown-item" href="#">2</a></li>
-                        <li><a class="dropdown-item" href="#">3</a></li>
-                        <li><a class="dropdown-item" href="#">4</a></li>
-                    </ul>
-                </div>
-                <div class="mb-3">
-                    <label for="#" class="align-items-start mt-3 fw-medium">Price Range</label>
-                </div>
-                <div class="input-group mb-3">
-                    <span class="input-group-text">Rs</span>
-                    <span class="input-group-text">0.00</span>
-                    <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
-                  </div>
-                  <div class="text-muted text-center text-uppercase mb-2">To</div>
-                  <div class="input-group">
-                    <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
-                    <span class="input-group-text">Rs</span>
-                    <span class="input-group-text">0.00</span>
-                  </div>
-
-
-            </form>
-
-        </div>
-    </div>
-</section>
-
-
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    
-    <!-- Add Font Awesome for icons (you can use your preferred icon library) -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0-beta3/css/all.min.css" rel="stylesheet">
-    <style>
-        /* Custom styles for the footer */
-        .footer {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-
-        .footer a {
-            color: #fff;
-        }
-
-        .footer-icons {
-            text-align: center;
-        }
-
-        .footer-icons i {
-            font-size: 20px;
-            margin-left: 10px;
-        }
-
-        .footer-icons i:first-child {
-            margin-left: 0;
-        }
-
-        /* Add padding to the bottom of the body to account for the fixed footer */
-        body {
-            padding-bottom: 60px; /* Adjust this value as needed */
-        }
-    </style>
-</head>
-<body>
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row justify-content-between align-items-center">
-                <div class="col-6 text-left">
-                    <a>
-                        <button type="submit" class="btn btn-primary submit_btn " style="width:200px;">Apply</button>
-             
-                    
-                  
-                    </a>
-                </div>
-                <div class="col-6 text-center">
-                    <a >
-                        <button type="submit" class="btn btn-secondary submit_btn  " style="width:200px;">Reset</button>
-                 
-                    
-                    </a>
-                </div>
-             
+            <!-- Form Fields -->
+            <div class="mb-3">
+              <label for="Tuition Type" class="form-label">Tuition Type:</label>
+              <select class="form-select" id="Tuition Type">
+                <option selected>online or offline</option>
+                <option value="male">online</option>
+                <option value="female">offline</option>
+              </select>
+           
             </div>
+
+            <div class="mb-3">
+              <label for="gender" class="form-label">Gender:</label>
+              <select class="form-select" id="gender">
+                <option selected>Select gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+   
+            <div class="mb-3">
+              <label for="time" class="form-label">Time:</label>
+              <input type="time" class="form-control" id="time">
+            </div>
+
+            <div class="mb-3">
+              <label for="money" class="form-label">Money:</label>
+              <input type="number" class="form-control" id="money" placeholder="Enter money">
+            </div>
+
+            <div class="mb-3">
+              <label for="topics" class="form-label">Topics:</label>
+              <input type="text" class="form-control" id="topics" placeholder="Enter topics">
+            </div>
+
+            <div class="mb-3">
+              <label for="city" class="form-label">City:</label>
+              <select class="form-select" id="city">
+                  <option selected>Select city</option>
+                  <option value="lahore">Lahore</option>
+                  <option value="karachi">Karachi</option>
+                  <option value="islamabad">Islamabad</option>
+                  <option value="rawalpindi">Rawalpindi</option>
+                  <option value="faisalabad">Faisalabad</option>
+                  <option value="multan">Multan</option>
+                  <option value="peshawar">Peshawar</option>
+                  <option value="quetta">Quetta</option>
+                  <option value="sialkot">Sialkot</option>
+                  <option value="gujranwala">Gujranwala</option>
+                  <option value="sargodha">Sargodha</option>
+                  <option value="bahawalpur">Bahawalpur</option>
+                  <option value="sukkur">Sukkur</option>
+                  <option value="mirpurkhas">Mirpur Khas</option>
+                  <option value="hyderabad">Hyderabad</option>
+                  <option value="larkana">Larkana</option>
+                  <option value="sheikhupura">Sheikhupura</option>
+                  <option value="jhang">Jhang</option>
+                  <option value="rahim-yar-khan">Rahim Yar Khan</option>
+              </select>
+          </div>
+          
+
+            
+
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+              <button type="button" class="btn btn-secondary me-md-2">Reset</button>
+              <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+
+          </form>
+
         </div>
-    </footer>
-    <!-- Add Bootstrap JS and jQuery scripts (make sure to include them) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
-</html>
+
+
+
+
 
 

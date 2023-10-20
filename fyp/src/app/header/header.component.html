@@ -1,91 +1,39 @@
-<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Custom Navbar</title>
-    =
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-        <style>
-            
-            .navbar {
-                background-color: #98FB98; 
-            }
-    
-            .navbar-nav .nav-link {
-                color: white; 
-                transition: color 0.3s, text-decoration 0.3s;
-            }
-    
-            .navbar-nav .nav-link:hover {
-                color: green;
-                text-decoration: underline;
-            }
-        </style>
-    </head>
-    <body>
-        <nav class="navbar navbar-expand-lg">
-            <div class="container">
-              <button type="button" disabled style="width: auto; border-color: chartreuse;">
-                <i style="font-size: 30px; color: chartreuse; border-color: chartreuse;">
-                    SKILL MENTOR
-                </i>
-            </button>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a routerLink="/home" class="nav-link" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a routerLink="/aboutus" class="nav-link" href="#">About Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a routerLink="/contactus" class="nav-link" href="#">Contact Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a routerLink="/preferences" class="nav-link" href="#">Preferences</a>
-                        </li>
-                        <li class="nav-item">
-                            <a  routerLink="/setting" class="nav-link" href="#">Setting</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                        </li>
-                    </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-                </div>
-            </div>
-        </nav>
-    
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    </body>
-    </html>
-     -->
+<!DOCTYPE html>
+<html>
 
-     
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #3A3E4B;">
+        <div class="container px-5">
+            <a class="navbar-brand" href="#">
+                <img src="assets\images\logo2.svg" alt="Logo" height="50" class="d-inline-block align-top" />
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <a routerLink="/filterstudent"  >
+                        <fa-icon class="fa-2x" [icon]="filter" style="color:gray ; " ></fa-icon>
+                    </a>
+                </ul>
+                
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="search-bar">
+                    <input type="text" placeholder="Search..." class="search-input" />
+                    <button class="search-button">
+                        <fa-icon class="fa" [icon]="search"></fa-icon>
+                    </button>
+                </div>
+
+                <img src="assets\images\profile_dropdown_logo\user.png" (clickOutside)="clickedOutside()"
+                    class="user_pic" (click)="toggleMenu()" />
+            </div>
+        </div>
+    </nav>
+</body>
+
+</html>

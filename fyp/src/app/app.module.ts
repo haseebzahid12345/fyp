@@ -30,6 +30,7 @@ import { CommunityandlegalComponent } from './communityandlegal/communityandlega
 import { StartComponent } from './start/start.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { UrgentoptionsComponent } from './urgentoptions/urgentoptions.component';
+import { RateusComponent } from './rateus/rateus.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { UrgentoptionsComponent } from './urgentoptions/urgentoptions.component'
     SignupComponent,
     CommunityandlegalComponent,
     StartComponent,
-    UrgentoptionsComponent
+    UrgentoptionsComponent,
+    RateusComponent
   ],
   imports: [
     BrowserModule,

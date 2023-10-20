@@ -1,42 +1,111 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-<body>
+<!-- <body>
   <div class="container my-5 py-4 bg-light rounded">
-
-   <form class="rounded bg-white shadow p-5">
-
-      <div class="row justify-content-center">
-        <div class="col-auto">
-          <button type="button"    disabled style="width:auto ; border-color: royalblue; "><i style="font-size: 30px; color: royalblue; border-color: royalblue;">SKILL MENTOR</i></button>
-        </div>
-        </div>
-        <br>
-        <br>
-      <hr>
-    <br>
-    <br>
+    <form class="rounded bg-white shadow p-5 text-center">
+      <div class="d-flex align-items-center justify-content-center mb-3 pb-1">
+        <img src="assets\images\logo2.svg" alt="Logo" height="60" />
+      </div>
       
+      <br>
+      <hr>
+      <br>
       <div class="row justify-content-center">
         <div class="col-auto">
-          <button type="button" routerLink="/filterteacher"  class="btn btn-outline-primary" style="width:250px ;  height:50px">SEND REQUEST </button>
+          <button type="button" routerLink="/filterteacher" class="btn btn-outline-primary" style="width:250px; height:50px">SEND REQUEST </button>
         </div>
-        </div>
-        <br>
-        <br>
-        <div class="row justify-content-center">
+      </div>
+      <br>
+      <br>
+      <div class="row justify-content-center">
         <div class="col-auto">
-          <button type="button" routerLink="/signup"  class="btn btn-outline-primary" style="width:250px ; height:50px">REMOVE REQUEST</button>
+          <button type="button" routerLink="/signup" class="btn btn-outline-primary" style="width:250px; height:50px">REMOVE REQUEST</button>
         </div>
+      </div>
+      <br>
+      <br>
+      <div class="row justify-content-center">
+        <div class="col-auto">
+          <button type="button" routerLink="/requestforstudents" class="btn btn-outline-primary" style="width:250px; height:50px">SEE REQUESTS</button>
         </div>
-        <br>
-        <br>
-        <div class="row justify-content-center">
-            <div class="col-auto">
-              <button type="button" routerLink="/requestforstudents"  class="btn btn-outline-primary" style="width:250px ; height:50px">SEE REQUESTS</button>
-            </div>
-            </div>
-      <hr class="hr-line">
-   </form>
-    </div>
- <app-footer></app-footer>
+      </div>
+    </form>
+  </div>
+  <app-footer></app-footer>
+</body>
 
 
+
+
+ -->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .rocket {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      background: url('assets/images/') no-repeat center/cover;
+      animation: moveRocket 5s linear infinite;
+    }
+    
+    @keyframes moveRocket {
+      0% {
+        transform: translate(0, 0);
+      }
+      25% {
+        transform: translate(200px, 0);
+      }
+      50% {
+        transform: translate(200px, 200px);
+      }
+      75% {
+        transform: translate(0, 200px);
+      }
+      100% {
+        transform: translate(0, 0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container my-5 py-4 bg-light rounded" style="position: relative;">
+    <div class="rocket"></div>
+    <form class="rounded bg-white shadow p-5 text-center">
+      <div class="d-flex align-items-center justify-content-center mb-3 pb-1">
+        <img src="assets\images\logo2.svg" alt="Logo" height="60" />
+      </div>
+      
+      <br>
+      <hr>
+      <br>
+      <div class="row justify-content-center">
+        <div class="col-auto">
+          <button type="button" routerLink="/filterteacher" class="btn btn-outline-primary" style="width:250px; height:50px">SEND REQUEST</button>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="row justify-content-center">
+        <div class="col-auto">
+          <button type="button" routerLink="/signup" class="btn btn-outline-primary" style="width:250px; height:50px">REMOVE REQUEST</button>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="row justify-content-center">
+        <div class="col-auto">
+          <button type="button" routerLink="/requestforstudents" class="btn btn-outline-primary" style="width:250px; height:50px">SEE REQUESTS</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <app-footer></app-footer>
+</body>
+</html>
