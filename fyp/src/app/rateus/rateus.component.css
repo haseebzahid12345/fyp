@@ -1,0 +1,10 @@
+.star-rating span {
+    cursor: pointer;
+    font-size: 24px;
+    margin-right: 5px;
+  }
+  
+  .star-rating span.selected {
+    color: #f1c40f;
+  }
+  
