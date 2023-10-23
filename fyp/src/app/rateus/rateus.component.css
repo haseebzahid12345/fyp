@@ -1,10 +1,30 @@
+.star-rating {
+  display: flex;
+  justify-content: center; /* Center the star rating horizontally */
+  align-items: center; /* Center the star rating vertically */
+  margin-top: 20px; /* Adjust the top margin for spacing */
+}
+
 .star-rating span {
-    cursor: pointer;
-    font-size: 24px;
-    margin-right: 5px;
+  cursor: pointer;
+  font-size: 24px;
+  margin-right: 5px;
+  display: inline-block;
+}
+
+.star-rating span.selected {
+  color: #f1c40f;
+}
+
+/* Adjust the star size based on the screen size */
+@media screen and (max-width: 768px) {
+  .star-rating span {
+    font-size: 20px;
   }
-  
-  .star-rating span.selected {
-    color: #f1c40f;
+}
+
+@media screen and (max-width: 576px) {
+  .star-rating span {
+    font-size: 16px;
   }
-  
+}

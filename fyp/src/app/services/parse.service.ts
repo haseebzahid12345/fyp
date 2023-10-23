@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import * as Parse from 'parse' ;
-// npm install parse --save
-// npm install @types/parse --save-dev
 
 @Injectable({
   providedIn: 'root'
@@ -16,4 +14,10 @@ export class ParseService {
     const params ={firstname,lastname,email,password};
     await Parse.Cloud.run("addUser" , params)
    }
+   async login(email: string, password: string) {
+    const params ={email,password};
+    await Parse.Cloud.run("login" , params)
+  
+  }
+  
 }
