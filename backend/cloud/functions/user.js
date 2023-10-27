@@ -26,12 +26,12 @@ Parse.Cloud.define("login", async (request) => {
 
   if (user) {
         console.log('2ujiujoijojoijoiojoijoi');
-      
-    return user.toJSON();
+      	console.log(user);
+    return 1;
   } else {
       console.log('error 2');
     // Login failed. You can return an error message.
-    throw "Invalid credentials";
+      return 0;
   }
 });
 

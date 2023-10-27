@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { ParseService } from '../services/parse.service';// Update with the actual path
+import { ParseService } from '../services/parse.service'; // Update with the actual path
 import { Router } from '@angular/router';
+import * as Parse from 'parse' ;
+
 
 @Component({
   selector: 'app-login',
@@ -8,20 +10,28 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
-  constructor(private parseService: ParseService) { }
-
- 
+  constructor(private parseService: ParseService, private router: Router)
+   { 
+    Parse.initialize('myAppId', 'myMasterKey');
+(Parse as any).serverURL = 'http://localhost:1336/parse';
+console.log("Comnstructor");
+this.test();
+    
+   }
+test()
+{
+  this.onLogin("abc@gmail.com", "123");
+}
   onLogin(email: string, password: string) {
-    this.parseService.login(email, password).then((user) => {
-      // this.router.navigate(['/home']);
-      alert('Login successful ');
-      console.log('1');
-    }).catch((error:any) => {
-      alert('incorrect name or password');
-      // Handle login error, display an error message to the user, etc.
-      console.error("Login failed: " + error.message);
-      console.log('error 1');
-   
-    });
+    console.log("in login");
+    Parse.Cloud.run("login", {email: email, password: password}).then((user: any) => {
+      console.log("Function called");
+      if(user==1){
+        alert('Login successful ');
+        // Use the router here to navigate after successful login
+        //this.router.navigate(['/home']);
+      }
+     
+    })
   }
 }
