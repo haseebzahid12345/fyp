@@ -16,8 +16,20 @@ export class ParseService {
    }
    async login(email: string, password: string) {
     const params ={email,password};
-    await Parse.Cloud.run("login" , params)
-  
-  }
-  
+    const response = await Parse.Cloud.run("login" , params);
+    if(response.status === 1) {
+      this.currentUser = response;
+    }
+    return response.status;
+}
+
+  private currentUser: any;
+
+get user() {
+  return this.currentUser;
+}
+
+set user(value: any) {
+  this.currentUser = value;
+}
 }

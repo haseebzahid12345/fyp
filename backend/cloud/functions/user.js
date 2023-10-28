@@ -17,7 +17,6 @@ Parse.Cloud.define("addUser" , async (request) => {
 Parse.Cloud.define("login", async (request) => {
   const { email, password } = request.params;
 
-  // Perform a query to check if the email and password match a registered user.
   const query = new Parse.Query("MUser");
   query.equalTo("email", email);
   query.equalTo("password", password);
@@ -25,13 +24,16 @@ Parse.Cloud.define("login", async (request) => {
   const user = await query.first();
 
   if (user) {
-        console.log('2ujiujoijojoijoiojoijoi');
-      	console.log(user);
-    return 1;
+    return {
+      status: 1,
+      firstname: user.get('firstname'),
+    };
   } else {
-      console.log('error 2');
+    console.log('error 2');
     // Login failed. You can return an error message.
-      return 0;
+    return {
+      status: 0
+    };
   }
 });
 

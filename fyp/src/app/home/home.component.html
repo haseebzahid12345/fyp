@@ -13,6 +13,9 @@
         <div class="col-sm-6 col-md-6 col-lg-6 col-6">
             <div class="card text-center shadow">
                 <div class="card-body">
+                  <div *ngIf="user">
+                    <h1>Welcome, {{ user.firstname }}!</h1>
+                  </div>
                     <img src="../assets/images/google-icon.svg" class="img-fluid rounded-circle" alt="">
                     <h3 class="card-title py-2">Hassan Nisar</h3>
                     <p lass="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>

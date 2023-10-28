@@ -15,23 +15,30 @@ export class LoginComponent {
     Parse.initialize('myAppId', 'myMasterKey');
 (Parse as any).serverURL = 'http://localhost:1336/parse';
 console.log("Comnstructor");
-this.test();
-    
    }
-test()
-{
-  this.onLogin("abc@gmail.com", "123");
-}
-  onLogin(email: string, password: string) {
-    console.log("in login");
-    Parse.Cloud.run("login", {email: email, password: password}).then((user: any) => {
-      console.log("Function called");
-      if(user==1){
-        alert('Login successful ');
-        // Use the router here to navigate after successful login
-        //this.router.navigate(['/home']);
-      }
-     
-    })
+
+ async onLogin(email: string, password: string) {
+    // console.log("in login");
+    // Parse.Cloud.run("login", {email: email, password: password}).then((user: any) => {
+      const user = await this.parseService.login(email, password);
+  if (user==1) {
+    alert('Login successful ');
+    this.router.navigate(['/home']);
+   
+  } if(user==0) {
+    // handle login failure
+    alert('incorrect name or password');
+  }
+      // this.parseService.login(email, password).then((user:any) => {
+      // console.log("Function called");
+      // console.log(user);
+    //   if(user==1){
+    //     alert('Login successful ');
+    //     this.router.navigate(['/home']);
+    //   }
+    //   if(user==0){
+    
+    //   };
+    // })
   }
 }
