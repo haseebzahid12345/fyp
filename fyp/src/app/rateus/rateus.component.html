@@ -1,11 +1,50 @@
-<div class="container mt-5 text-center"> <!-- Added 'text-center' class to center align the content -->
-    <h2>Rate Us</h2>
-    <p>Please select your rating:</p>
-    <div class="star-rating">
-      <span *ngFor="let star of [1, 2, 3, 4, 5]; let i = index" (click)="updateRating(i + 1)">
-        <span [class.selected]="i + 1 <= selectedRating" class="star">&#9733;</span>
-      </span>
-    </div>
-    <p>Your rating: <span id="selectedRating">{{ selectedRating }}</span> stars</p>
-  </div>
+
+
+  <section>
+    <div class="container py-5 ">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-8 col-lg-6">
+          <div class="card" style="border-radius: 1rem">
+            <div class="card-body p-4 p-lg-5 text-black">
   
+  
+              <div class="d-flex align-items-center mb-3 pb-1">
+                <img src="assets\images\logo2.svg" alt="Logo" height="60" />
+              </div>
+     
+              <form>
+                <div class="container mt-5 text-center"> <!-- Added 'text-center' class to center align the content -->
+                  <h2>Rate Us</h2>
+                  <p>This is sample rating click "Rate Us" to rate us:</p>
+                  <div class="star-rating">
+                    <span *ngFor="let star of [1, 2, 3, 4, 5]; let i = index" (click)="updateRating(i + 1)">
+                      <span [class.selected]="i + 1 <= selectedRating" class="star">&#9733;</span>
+                    </span>
+                  </div>
+                  <h3>{{ getRatingText(selectedRating) }}</h3> 
+                  <p>Your rating: <span id="selectedRating">{{ selectedRating }}</span> stars</p>
+                </div>
+                <div class="container mt-5 "> <!-- Added 'text-center' class to center align the content -->
+                  <h3>For Improvement</h3>
+                
+                  <button class="btn btn-primary btn-lg btn-block" type="button"  [routerLink]="['/contactus']">
+                    Contact Us
+                  </button>
+                  <br>
+                  <br>
+                  <h3>Go For Rating</h3>
+                 
+                  <button class="btn btn-primary btn-lg btn-block" type="button" >
+                    Rate Us
+                  </button>
+             
+               
+                </div>
+                  
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

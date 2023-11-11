@@ -46,8 +46,13 @@
                 Already have an account?
                 <a href="#" [routerLink]="['/login']" style="color: #0d1785">Login</a>
               </p>
-              <a href="#!" style="color: #2d37a3">Terms of use.</a>
-              <a href="#!" style="color: #2533c7">Privacy policy</a>
+              <div class="form-check mb-4">
+                <input class="form-check-input" type="checkbox" id="privacyCheckbox">
+                <label class="form-check-label" for="privacyCheckbox">
+                  I agree to the <a href="#!" style="color: #2533c7" [routerLink]="['/policy']">Privacy Policy</a>
+                </label>
+              </div>
+             
             </form>
           </div>
         </div>

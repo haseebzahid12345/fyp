@@ -31,6 +31,13 @@ import { StartComponent } from './start/start.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { UrgentoptionsComponent } from './urgentoptions/urgentoptions.component';
 import { RateusComponent } from './rateus/rateus.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { AboutappComponent } from './aboutapp/aboutapp.component';
+import { FavoritesComponent } from './favorites/favorites.component';
+import { AccountsettingComponent } from './accountsetting/accountsetting.component';
+import { DeleteaccountComponent } from './deleteaccount/deleteaccount.component';
+import { UpdateaccountComponent } from './updateaccount/updateaccount.component';
+
 
 @NgModule({
   declarations: [
@@ -61,7 +68,14 @@ import { RateusComponent } from './rateus/rateus.component';
     CommunityandlegalComponent,
     StartComponent,
     UrgentoptionsComponent,
-    RateusComponent
+    RateusComponent,
+    PrivacyPolicyComponent,
+    AboutappComponent,
+    FavoritesComponent,
+    AccountsettingComponent,
+    DeleteaccountComponent,
+    UpdateaccountComponent,
+
   ],
   imports: [
     BrowserModule,

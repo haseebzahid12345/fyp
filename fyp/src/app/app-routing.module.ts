@@ -25,12 +25,36 @@ import { SettingteacherComponent } from './settingteacher/settingteacher.compone
 import { SignupComponent } from './signup/signup.component';
 import { UrgentoptionsComponent } from './urgentoptions/urgentoptions.component';
 import { RateusComponent } from './rateus/rateus.component';
-
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { StartComponent } from './start/start.component';
+import { AboutappComponent } from './aboutapp/aboutapp.component';
+import { FavoritesComponent } from './favorites/favorites.component';
+import { AccountsettingComponent } from './accountsetting/accountsetting.component';
+import { UpdateaccountComponent } from './updateaccount/updateaccount.component';
 const routes: Routes = [
+  {
+    path: 'updateaccount',
+    component:UpdateaccountComponent,
+  },
+  {
+    path: 'accountsetting',
+    component:AccountsettingComponent,
+  },
+  {
+    path: 'favourites',
+    component:FavoritesComponent,
+  },
+  {
+    path: 'aboutapp',
+    component:AboutappComponent,
+  },
   {
     path: 'rateus',
     component:RateusComponent,
+  },
+  {
+    path: 'policy',
+    component:PrivacyPolicyComponent,
   },
   {
     path: 'urgentoptions',

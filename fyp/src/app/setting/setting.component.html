@@ -70,12 +70,14 @@
                  <tr>
                  
                    <td>
-                     <a href="#">
-                       <i class="bi bi-search"></i>
-                       Name    
+                     <a href="#" *ngIf="user" style="font-size: larger;">
+                 
+                   
+                         {{ user.firstname }}
+                    
                      </a>
                    </td>
-                 
+            
                    <td>
                      <a href="#">
                      <i class="bi bi-chevron-right"></i>
@@ -84,7 +86,7 @@
                  </tr>
                  <tr>
                    <td>
-                     <a href="#">
+                     <a routerLink="/accountsetting">
                        <i class="bi bi-person"></i>
                        Account Settings
                      </a>
@@ -95,7 +97,7 @@
                  </tr>
                  <tr>
                    <td>
-                     <a href="#">
+                     <a routerLink="/favourites">
                        <i class="bi bi-star"></i>
                        Favourites
                      </a>
@@ -134,7 +136,7 @@
                  </tr>
                  <tr>
                    <td>
-                     <a href="#">
+                     <a routerLink="/policy">
                        <i class="bi bi-file-earmark-text"></i>
                        Terms and Privacy Policy
                      </a>
@@ -156,7 +158,7 @@
                  </tr>
                  <tr>
                   <td>
-                    <a routerLink="/aboutus">
+                    <a routerLink="/aboutapp">
                       <i class="bi bi-info-circle"></i>
                       About App
                     </a>

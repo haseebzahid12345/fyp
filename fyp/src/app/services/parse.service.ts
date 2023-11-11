@@ -14,6 +14,8 @@ export class ParseService {
     const params ={firstname,lastname,email,password};
     await Parse.Cloud.run("addUser" , params)
    }
+
+   
    async login(email: string, password: string) {
     const params ={email,password};
     const response = await Parse.Cloud.run("login" , params);
@@ -31,5 +33,18 @@ get user() {
 
 set user(value: any) {
   this.currentUser = value;
+}
+async deleteCurrentUser() {
+  console.log('Current user:', this.currentUser ,  );
+  if (this.currentUser && this.currentUser.objectId) {
+    console.log( this.currentUser.id)
+    alert('your account has been deleted!');
+    await Parse.Cloud.run("deleteUser", { objectId: this.currentUser.objectId });
+   
+    // this.currentUser = null; // Reset current user
+  } else {
+    // throw new Error("No user is currently logged in.");
+    alert('No user is currently logged in.');
+  }
 }
 }
