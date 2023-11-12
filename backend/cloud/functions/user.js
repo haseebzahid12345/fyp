@@ -58,4 +58,21 @@ Parse.Cloud.define("deleteUser", async (request) => {
 });
 
 
+
+Parse.Cloud.define("updateUser", async (request) => {
+  const { objectId, firstname, lastname } = request.params;
+
+  const query = new Parse.Query("MUser");
+  const user = await query.get(objectId, { useMasterKey: true });
+
+  if (user) {
+    user.set("firstname", firstname);
+    user.set("lastname", lastname);
+    await user.save(null, { useMasterKey: true });
+    return { status: 1 }; // Indicate success
+  } else {
+    return { status: 0 }; // User not found
+  }
+});
+
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       

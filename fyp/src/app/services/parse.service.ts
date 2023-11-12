@@ -47,4 +47,13 @@ async deleteCurrentUser() {
     alert('No user is currently logged in.');
   }
 }
+
+async updateCurrentUser(firstname: string, lastname: string) {
+  if (this.currentUser && this.currentUser.objectId) {
+    const params = { objectId: this.currentUser.objectId, firstname, lastname };
+    await Parse.Cloud.run("updateUser", params);
+  } else {
+    alert('No user is currently logged in.');
+  }
+}
 }
