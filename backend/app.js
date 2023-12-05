@@ -16,9 +16,6 @@ const api = ParseServer({
     allowClientClassCreation: true
 });
 
-
-
-
 app.use(cors());
 
 

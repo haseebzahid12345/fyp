@@ -10,6 +10,8 @@ export class ParseService {
     Parse.initialize('myAppId', 'myMasterKey');
 (Parse as any).serverURL = 'http://localhost:1336/parse';
    }
+
+
    async signup(firstname:string , lastname:string , email:string ,password:string  ){
     const params ={firstname,lastname,email,password};
     await Parse.Cloud.run("addUser" , params)
@@ -30,10 +32,10 @@ export class ParseService {
 get user() {
   return this.currentUser;
 }
-
 set user(value: any) {
   this.currentUser = value;
 }
+
 async deleteCurrentUser() {
   console.log('Current user:', this.currentUser ,  );
   if (this.currentUser && this.currentUser.objectId) {
