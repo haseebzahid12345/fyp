@@ -75,4 +75,74 @@ Parse.Cloud.define("updateUser", async (request) => {
   }
 });
 
+
+
+// Parse.Cloud.define("getTeacherData", async (request) => {
+//     const query1 = new Parse.Query('create_gig');
+//     const query2 = new Parse.Query('MUserT');
+    
+//     const results1 = await query1.find();  // Fix typo in variable name (change 'results' to 'results1')
+//     const results2 = await query2.find();  // Fix typo in variable name (change 'quer2' to 'query2')
+
+//     const gigData = results1.map(result => ({
+//         gigtitle: result.get('gigtitle'),
+//     }));
+
+//     const userData = results2.map(result => ({
+//         firstname: result.get('firstname'),
+//         // Add other properties you need from the MUserT class
+//     }));
+
+//     return [...gigData, ...userData ];
+   
+// });
+
+
+// Parse.Cloud.define("getTeacherData", async (request) => {
+//   const query1 = new Parse.Query('create_gig');
+//   const query2 = new Parse.Query('MUserT');
+  
+//   const results1 = await query1.find();
+//   const results2 = await query2.find();
+
+//   const combinedData = [];
+
+//   for (let i = 0; i < Math.max(results1.length, results2.length); i++) {
+//       const gigItem = results1[i] ? { gigtitle: results1[i].get('gigtitle') } : {};
+//       const userItem = results2[i] ? { firstname: results2[i].get('firstname') } : {};
+
+//       combinedData.push({ ...gigItem, ...userItem });
+//   }
+
+//   return combinedData;
+// });
+
+
+Parse.Cloud.define("getTeacherData", async (request) => {
+  const query1 = new Parse.Query('create_gig');
+  const query2 = new Parse.Query('MUserT');
+  
+  const results1 = await query1.find();
+  const results2 = await query2.find();
+
+  const combinedData = [];
+
+  for (let i = 0; i < results1.length; i++) {
+      const gigUserId = results1[i].get('userId');
+      const matchingUser = results2.find(user => user.id === gigUserId);
+
+      if (matchingUser) {
+          const gigItem = { gigtitle: results1[i].get('gigtitle') };
+          const userItem = { firstname: matchingUser.get('firstname') };
+
+          combinedData.push({ ...gigItem, ...userItem });
+      }
+  }
+
+  return combinedData;
+});
+
+
+
+
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       

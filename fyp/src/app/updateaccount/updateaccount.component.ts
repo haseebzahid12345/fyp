@@ -11,7 +11,6 @@ export class UpdateaccountComponent {
   async updateUser(firstname: string, lastname: string) {
     try {
       await this.parseService.updateCurrentUser(firstname, lastname);
-      alert('Account updated successfully!');
     } catch (error) {
       console.error('Error while updating account:', error);
     }
