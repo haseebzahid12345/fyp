@@ -119,28 +119,71 @@ Parse.Cloud.define("updateUser", async (request) => {
 
 
 Parse.Cloud.define("getTeacherData", async (request) => {
-  const query1 = new Parse.Query('create_gig');
-  const query2 = new Parse.Query('MUserT');
-  
-  const results1 = await query1.find();
-  const results2 = await query2.find();
+  const cardQuery = new Parse.Query("Card");
 
-  const combinedData = [];
-
-  for (let i = 0; i < results1.length; i++) {
-      const gigUserId = results1[i].get('userId');
-      const matchingUser = results2.find(user => user.id === gigUserId);
-
-      if (matchingUser) {
-          const gigItem = { gigtitle: results1[i].get('gigtitle') };
-          const userItem = { firstname: matchingUser.get('firstname') };
-
-          combinedData.push({ ...gigItem, ...userItem });
-      }
-  }
+  const cards = await cardQuery.find();
+  const combinedData = cards.map(card => {
+      return {
+           objectId: card.id,
+          gigtitle: card.get("title"),
+          gigprice: card.get("price"),
+          firstname: card.get("name")
+      };
+  });
 
   return combinedData;
 });
+
+
+Parse.Cloud.define("addFavourite", async (request) => {
+  const { teacherObjectId, currentUserObjectId } = request.params;
+
+  const Favourite = Parse.Object.extend("favourites");
+  const query = new Parse.Query(Favourite);
+  query.equalTo("teacherId", teacherObjectId);
+  query.equalTo("userId", currentUserObjectId);
+
+  const existingEntry = await query.first();
+  if (existingEntry) {
+    // Entry already exists
+    return { status: 0, message: 'It is already added ' };
+  }
+
+  // If no existing entry, create a new one
+  const favourite = new Favourite();
+  favourite.set("teacherId", teacherObjectId);
+  favourite.set("userId", currentUserObjectId);
+
+  await favourite.save();
+  return { status: 1, message: ' Added to your favourites' };
+});
+
+
+Parse.Cloud.define("getFavorites", async (request) => {
+  const { userId } = request.params;
+
+  const Favourite = Parse.Object.extend("favourites");
+  const favoriteQuery = new Parse.Query(Favourite);
+  favoriteQuery.equalTo("userId", userId);
+
+  const favorites = await favoriteQuery.find();
+  const cardIds = favorites.map(f => f.get("teacherId"));
+
+  const Card = Parse.Object.extend("Card");
+  const cardQuery = new Parse.Query(Card);
+  cardQuery.containedIn("objectId", cardIds);
+
+  const cards = await cardQuery.find();
+  return cards.map(card => {
+    return {
+      objectId: card.id,
+      gigtitle: card.get("title"),
+      gigprice: card.get("price"),
+      firstname: card.get("name")
+    };
+  });
+});
+
 
 
 

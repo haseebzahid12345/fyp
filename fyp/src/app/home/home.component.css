@@ -1,0 +1,82 @@
+/* Styles for the overall card body */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  /* Styles for the image container */
+  .image-container {
+    flex-grow: 1; /* Adjust this value to change the size ratio */
+    background-color: grey; /* Default background color for when there's no image */
+    height: 200px; /* Default height, adjust as needed */
+  }
+  
+  /* Styles for the information container */
+  .info-container {
+    flex-grow: 1; /* Adjust this value to change the size ratio */
+  }
+  
+  /* Styles for the profile information section */
+  .profile-info {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  /* Styles for the profile image */
+  .profile-image {
+    border-radius: 50%; /* Makes the image circular */
+    width: 60px; /* Adjust size as needed */
+    height: 60px; /* Adjust size as needed */
+    margin-right: 10px; /* Space between image and text */
+  }
+  
+  /* Container for the name and title */
+  .name-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  /* Styles for the name (H3) element */
+  .card-name {
+    margin-bottom: 0; /* Remove default margin to bring title closer */
+  }
+  
+  /* Styles for the title (P) element */
+  .card-title {
+    margin-top: 0; /* Remove default margin */
+  }
+  
+  /* Styles for the price position */
+  .price-position {
+    position: absolute;
+    bottom: 10px; /* adjust as needed */
+    right: 10px; /* adjust as needed */
+  }
+  
+
+  .card-object-id {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #333;
+    background-color: #f0f0f0;
+    padding: 3px 6px;
+    border-radius: 3px;
+    font-size: 0.8em;
+}
+
+
+
+/* Styles for the heart icon */
+.heart-icon {
+    margin-left: auto; /* Aligns icon to the right */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+  }
+  
+  /* Styles when the heart icon is active */
+  .heart-active {
+    color: red; /* Change color to red when active */
+  }
+  

@@ -114,9 +114,7 @@ export class ParseService {
     if (this.currentUser && this.currentUser.objectId) {
       console.log(this.currentUser.id);
       alert('Your account has been deleted!');
-     
-      await  Parse.Cloud.run('deleteUser', { objectId: this.currentUser.objectId });
-      localStorage.removeItem(this.USER_KEY);
+      await  Parse.Cloud.run('deleteUser', { objectId: this.currentUser.objectId }); 
       // Remove user from local storage on logout
       
     } else {
@@ -150,6 +148,11 @@ export class ParseService {
     }
   }
 
+  async addFavourite(teacherObjectId: string, currentUserObjectId: string): Promise<any> {
+    const params = { teacherObjectId, currentUserObjectId };
+    return await Parse.Cloud.run('addFavourite', params);
+  }
+  
 
   async getTeacherData(): Promise<any[]> {
     try {
@@ -163,6 +166,23 @@ export class ParseService {
         throw error; // Propagate the error to the calling code if needed
     }
   }
+
+  async getFavorites(): Promise<any[]> {
+    try {
+      if (this.currentUser && this.currentUser.objectId) {
+        const params = { userId: this.currentUser.objectId };
+        const results = await Parse.Cloud.run("getFavorites", params);
+        console.log('Favorites from Cloud Code:', results);
+        return results;
+      } else {
+        throw new Error('No user is currently logged in.');
+      }
+    } catch (error) {
+      console.error('Error fetching favorites from Cloud Code', error);
+      throw error;
+    }
+  }
+  
 
 }
 

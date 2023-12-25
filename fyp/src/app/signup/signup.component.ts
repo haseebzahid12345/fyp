@@ -20,19 +20,7 @@ export class SignupComponent {
     
      alert('user created successfully ');
      this.router.navigate(['/login']);
-    // // this.passwordError = '';
-    // this.emailError = '';
-   
-    // if (!this.emailPattern.test(email)) {
-    //   this.emailError = 'Incorrect email format (e.g., abc@gmail.com)';
-    //   return;
-    // }
 
-
-    // if (!this.passwordPattern.test(password)) {
-    //   this.passwordError = 'Password should be 8 characters long with letters and numbers';
-    //   return;
-    // }
      await this.service.signup(firstname,lastname,email,password)
      return true;
 
