@@ -2,8 +2,7 @@ Parse.Cloud.define("addUser" , async (request) => {
     const MUser = Parse.Object.extend("MUser");
     const user = new MUser();   
 
-    user.set("firstname" , request.params.firstname);
-    user.set("lastname" , request.params.lastname);
+    user.set("name" , request.params.name);
     user.set("email" , request.params.email);
     user.set("password" , request.params.password);
 
@@ -183,6 +182,29 @@ Parse.Cloud.define("getFavorites", async (request) => {
     };
   });
 });
+
+
+// In your Parse Server cloud code (e.g., main.js)
+Parse.Cloud.define("removeFavorite", async (request) => {
+  const { objectId } = request.params;
+
+  // Targeting the 'Favourite' class
+  const Favourite = Parse.Object.extend("Favourite");
+  const query = new Parse.Query(Favourite);
+
+  // Find the favorite object by its objectId
+  query.equalTo("objectId", objectId);
+  const favoriteObject = await query.first({ useMasterKey: true });
+
+  if (favoriteObject) {
+    // Delete the favorite object
+    await favoriteObject.destroy({ useMasterKey: true });
+    return { success: true, message: "Favorite removed successfully." };
+  } else {
+    throw new Error("Favorite object not found");
+  }
+});
+
 
 
 

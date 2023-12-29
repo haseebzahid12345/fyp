@@ -51,9 +51,11 @@
                         <div class="price-position">
                           <p class="card-text">Rs:{{ data.gigprice }}</p>
                         </div>
+
                       </div>
                     </div>
                   </div>
+                  <button (click)="removeFavorite(data.objectId)" class="btn btn-danger">Remove</button>
                 </div>
               </div>
 

@@ -16,15 +16,11 @@
 
 
               <div class="form-outline mb-4">
-                <input type="name" id="f" class="form-control form-control-lg" #firstname />
-                <label class="form-label" for="f">First Name</label>
+                <input type="name" id="f" class="form-control form-control-lg" #name />
+                <label class="form-label" for="f">Name</label>
               </div>
 
-              <div class="form-outline mb-4">
-                <input type="name" id="f" class="form-control form-control-lg" #lastname />
-                <label class="form-label" for="f">Last Name</label>
-              </div>
-
+             
               <div class="form-outline mb-4">
                 <input type="email" id="f" class="form-control form-control-lg" #email />
                 <label class="form-label" for="f">Email address</label>
@@ -36,7 +32,7 @@
               </div>
 
               <div class="pt-1 mb-4">
-                <button class="btn btn-dark btn-lg btn-block" type="submit" (click)="signup(firstname.value,lastname.value, email.value,password.value)">
+                <button class="btn btn-dark btn-lg btn-block" type="submit" (click)="signup(name.value, email.value,password.value)">
                   Signup
                 </button>
               </div>

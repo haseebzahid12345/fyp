@@ -15,13 +15,13 @@ export class SignupComponent {
   // passwordError: string = '';
   constructor (private router: Router , private service:ParseService) {}
   
-  async signup(firstname: string , lastname : string , email:string  , password:string )
+  async signup(name: string , email:string  , password:string )
   {
     
      alert('user created successfully ');
      this.router.navigate(['/login']);
 
-     await this.service.signup(firstname,lastname,email,password)
+     await this.service.signup(name,email,password)
      return true;
 
   }

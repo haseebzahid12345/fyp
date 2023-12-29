@@ -85,8 +85,8 @@ export class ParseService {
     }
   }
 
-  async signup(firstname: string, lastname: string, email: string, password: string) {
-    const params = { firstname, lastname, email, password };
+  async signup(name: string, email: string, password: string) {
+    const params = { name , email, password };
     await Parse.Cloud.run('addUser', params);  
   }
 
@@ -183,6 +183,14 @@ export class ParseService {
     }
   }
   
+  async removeFavorite(objectId: string): Promise<void> {
+    try {
+      await Parse.Cloud.run('removeFavorite', { objectId });
+    } catch (error) {
+      console.error('Error removing favorite from the database', error);
+      throw error;
+    }
+  }
 
 }
 
