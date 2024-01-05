@@ -148,16 +148,16 @@ export class ParseService {
     }
   }
 
-  async addFavourite(teacherObjectId: string, currentUserObjectId: string): Promise<any> {
-    const params = { teacherObjectId, currentUserObjectId };
+  async addFavourite(CardObjectId: string, currentUserObjectId: string): Promise<any> {
+    const params = { CardObjectId, currentUserObjectId };
     return await Parse.Cloud.run('addFavourite', params);
   }
   
 
-  async getTeacherData(): Promise<any[]> {
+  async getCardData(): Promise<any[]> {
     try {
 
-        const results = await Parse.Cloud.run("getTeacherData");
+        const results = await Parse.Cloud.run("getCardData");
         console.log('Results from Cloud Code:', results);
         
         return results;
@@ -176,6 +176,7 @@ export class ParseService {
         return results;
       } else {
         throw new Error('No user is currently logged in.');
+        alert ('no user is currently log in');
       }
     } catch (error) {
       console.error('Error fetching favorites from Cloud Code', error);
@@ -185,7 +186,9 @@ export class ParseService {
   
   async removeFavorite(objectId: string): Promise<void> {
     try {
-      await Parse.Cloud.run('removeFavorite', { objectId });
+       const response = await Parse.Cloud.run('removeFavorite', { objectId });
+      
+       alert('succefful detete favourite');
     } catch (error) {
       console.error('Error removing favorite from the database', error);
       throw error;

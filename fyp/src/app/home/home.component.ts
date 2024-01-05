@@ -17,14 +17,14 @@ export class HomeComponent implements OnInit{
 
 
 ngOnInit() {
-  this.loadTeacherData();
+  this.loadCardData();
   this.user = this.parseService.user;
 }
 
-async loadTeacherData(){
+async loadCardData(){
   try {
     console.log('inside function');
-    const responseData = await this.parseService.getTeacherData();
+    const responseData = await this.parseService.getCardData();
     console.log(responseData);
     this.teacherData = responseData;
     console.log('inside function q');

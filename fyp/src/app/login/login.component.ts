@@ -9,6 +9,7 @@ import * as Parse from 'parse' ;
   templateUrl: './login.component.html' // Update with the actual path
 })
 export class LoginComponent {
+  
 
   constructor(private parseService: ParseService, private router: Router)
    { 

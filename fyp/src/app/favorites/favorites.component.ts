@@ -42,12 +42,15 @@ export class FavoritesComponent implements OnInit {
 
   async removeFavorite(objectId: string): Promise<void> {
     try {
-      const response = await Parse.Cloud.run('removeFavorite', { objectId });
       console.log(objectId);
+     
+       await this.parseService.removeFavorite(objectId);
+      
       console.log('inside favourutes removal');
-      if (response.success) {
-        alert('It has been removed from favourites');
-      }
+      // if (response) {
+      //   alert('It has been removed from favourites');
+      // }
+      
     } catch (error) {
       console.error('Error removing favorite from the database', error);
       alert(objectId);

@@ -13,7 +13,21 @@ export class SignupComponent {
 
   // emailError: string = '';
   // passwordError: string = '';
-  constructor (private router: Router , private service:ParseService) {}
+  user: any;
+  private readonly USER_KEY = 'currentUser';
+  private currentUser: any;
+ 
+  constructor (private router: Router , private parseService:ParseService) {
+    const storedUser = localStorage.getItem(this.USER_KEY);
+    if (storedUser) {
+      this.currentUser = JSON.parse(storedUser);
+    }
+  }
+
+  ngOnInit() {
+    this.user = this.parseService.user;
+    localStorage.removeItem(this.USER_KEY);
+  }
   
   async signup(name: string , email:string  , password:string )
   {
@@ -21,7 +35,7 @@ export class SignupComponent {
      alert('user created successfully ');
      this.router.navigate(['/login']);
 
-     await this.service.signup(name,email,password)
+     await this.parseService.signup(name,email,password)
      return true;
 
   }
