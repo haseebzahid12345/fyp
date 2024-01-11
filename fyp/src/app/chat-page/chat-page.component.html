@@ -1,0 +1,66 @@
+<!-- 
+  <section>
+    <div class="container py-5 ">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-8 col-lg-6">
+          <div class="card" style="border-radius: 1rem">
+            <div class="card-body p-4 p-lg-5 text-black">
+  
+  
+              <div class="d-flex align-items-center mb-3 pb-1">
+                <img src="assets\images\logo2.svg" alt="Logo" height="60" />
+              </div>
+              <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px">
+               message box
+              </h5>
+              <form>
+ 
+<div class="chat-container">
+  <div class="chat-header">
+    <h3>{{ cardName}}</h3>
+  </div>
+  <div class="chat-messages">
+  </div>
+  <div class="chat-input">
+    <input type="text" [(ngModel)]="messageText" placeholder="Type a message" >
+    <button (click)="onSendMessage(messageText)">Send</button>
+  </div>
+</div>
+  
+            
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ -->
+
+
+  <div class="chat-container">
+    <!-- Chat Header with Name -->
+    <div class="chat-header">
+      <h2>{{ cardName }}</h2>
+    </div>
+  
+    <!-- Messages Container -->
+    <div class="chat-messages" #scrollContainer>
+<!--   
+      <div *ngFor="let message of messages" class="message"
+       [ngClass]="{'sent': isMessageSentByCurrentUser(message), 'received': !isMessageSentByCurrentUser(message)}"> -->
+       
+      <div *ngFor="let message of messages" class="message">
+    <div class="message-content">
+      {{ message.text }}
+      <div class="message-time">{{ message.createdAt | date:'shortTime' }}</div>
+    </div>
+  </div>
+    </div>
+  
+     <div class="chat-input">
+      <textarea [(ngModel)]="messageText" placeholder="Type a message"></textarea>
+      <button (click)="onSendMessage(messageText)">Send</button>
+    </div>
+  </div>

@@ -40,14 +40,14 @@ toggleHeart(data: any) {
 
     this.addToFavourites(data).finally(() => {
       // Deactivate the heart icon after the operation (regardless of success or failure)
-      data.heartActive = false;
+      data.heartActive = true;
     });
   }
 }
 
 async addToFavourites(data: any): Promise<void> {
   try {
-    const response = await this.parseService.addFavourite(data.objectId, this.user.objectId);
+    const response = await this.parseService.addFavourite(data.objectId , this.user.objectId);
     alert(response.message); // Show the message from the response
   } catch (error) {
     console.error('Error adding to favourites', error);

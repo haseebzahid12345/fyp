@@ -37,6 +37,9 @@ import { FavoritesComponent } from './favorites/favorites.component';
 import { AccountsettingComponent } from './accountsetting/accountsetting.component';
 import { DeleteaccountComponent } from './deleteaccount/deleteaccount.component';
 import { UpdateaccountComponent } from './updateaccount/updateaccount.component';
+import { CardDetailComponent } from './card-detail/card-detail.component';
+import { FormsModule } from '@angular/forms';
+import { ChatPageComponent } from './chat-page/chat-page.component';
 
 
 @NgModule({
@@ -75,12 +78,16 @@ import { UpdateaccountComponent } from './updateaccount/updateaccount.component'
     AccountsettingComponent,
     DeleteaccountComponent,
     UpdateaccountComponent,
+    CardDetailComponent,
+    ChatPageComponent,
+   
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -58,7 +58,7 @@
   </div>  -->
   <div class="container">
     <div class="row mt-5 pt-5">
-      <div *ngFor="let data of teacherData; let i = index" class="col-sm-6 col-md-6 col-lg-6 col-6 mb-4">
+      <div *ngFor="let data of teacherData; let i = index" class="col-sm-6 col-md-6 col-lg-6 col-6 mb-4" [routerLink]="['/card-detail', data.objectId]">
         <div class="card text-center shadow">
           <div class="card-body d-flex flex-column position-relative">
             <!-- Displaying the Unique ObjectId -->

@@ -8,9 +8,9 @@ import { ParseService } from '../services/parse.service';
 })
 export class UpdateaccountComponent {
   constructor(private parseService: ParseService) {}
-  async updateUser(firstname: string, lastname: string) {
+  async updateUser(name: string) {
     try {
-      await this.parseService.updateCurrentUser(firstname, lastname);
+      await this.parseService.updateCurrentUser(name);
     } catch (error) {
       console.error('Error while updating account:', error);
     }

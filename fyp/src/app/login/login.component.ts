@@ -30,16 +30,6 @@ console.log("Comnstructor");
     // handle login failure
     alert('incorrect name or password');
   }
-      // this.parseService.login(email, password).then((user:any) => {
-      // console.log("Function called");
-      // console.log(user);
-    //   if(user==1){
-    //     alert('Login successful ');
-    //     this.router.navigate(['/home']);
-    //   }
-    //   if(user==0){
-    
-    //   };
-    // })
+
   }
 }

@@ -1,10 +1,11 @@
 Parse.Cloud.define("addUser" , async (request) => {
     const MUser = Parse.Object.extend("MUser");
-    const user = new MUser();   
+    const user = new MUser(); 
 
     user.set("name" , request.params.name);
     user.set("email" , request.params.email);
     user.set("password" , request.params.password);
+    
 
     const reuslt = await user.save();
     return reuslt;
@@ -23,19 +24,20 @@ Parse.Cloud.define("login", async (request) => {
   const user = await query.first();
 
   if (user) {
+    user.set("lastLogin", new Date()); // Set the last login date
+    await user.save(null, { useMasterKey: true });
+
     return {
       status: 1,
       name: user.get('name'),
-       objectId: user.id 
+      objectId: user.id 
     };
   } else {
     console.log('error 2');
-    // Login failed. You can return an error message.
-    return {
-      status: 0
-    };
+    return { status: 0 };
   }
 });
+
 
 
 
@@ -59,14 +61,13 @@ Parse.Cloud.define("deleteUser", async (request) => {
 
 
 Parse.Cloud.define("updateUser", async (request) => {
-  const { objectId, firstname, lastname } = request.params;
+  const { objectId, name } = request.params;
 
   const query = new Parse.Query("MUser");
   const user = await query.get(objectId, { useMasterKey: true });
 
   if (user) {
-    user.set("firstname", firstname);
-    user.set("lastname", lastname);
+    user.set("name", name);
     await user.save(null, { useMasterKey: true });
     return { status: 1 }; // Indicate success
   } else {
@@ -215,6 +216,111 @@ Parse.Cloud.define("removeFavorite", async (request) => {
     throw new Error("Error in removing favorite");
   }
 });
+
+
+// In your Parse Server Cloud Code (user.js)
+Parse.Cloud.define("getCardById", async (request) => {
+  const { id } = request.params;
+  const Card = Parse.Object.extend("Card");
+  const query = new Parse.Query(Card);
+
+  try {
+    const card = await query.get(id);
+    return {
+      status: 1,
+      data: card,
+    };
+  } catch (error) {
+    console.error('Error fetching card by ID', error);
+    return {
+      status: 0,
+      message: "Error fetching card by ID",
+      error: error.message,
+    };
+  }
+});
+
+Parse.Cloud.define("sendMessage", async (request) => {
+  const { senderId, receiverId, text } = request.params;
+
+  // Find or create a conversation
+  let conversation = await findOrCreateConversation(senderId, receiverId);
+
+  // Create a message in the Message class
+  const Message = Parse.Object.extend("Message");
+  const message = new Message();
+
+  message.set("sender", { "__type": "Pointer", "className": "MUser", "objectId": senderId });
+  message.set("receiver", { "__type": "Pointer", "className": "MUserT", "objectId": receiverId });
+  message.set("conversation", { "__type": "Pointer", "className": "Conversation", "objectId": conversation.id });
+  message.set("text", text);
+  
+  // Save the message
+  await message.save();
+
+  // Return the message object
+  return {
+    message: message,
+
+    conversationId: conversation.id
+  };
+});
+
+async function findOrCreateConversation(senderId, receiverId) {
+  const Conversation = Parse.Object.extend("Conversation");
+  const query = new Parse.Query(Conversation);
+
+  // Use a compound query to find if a conversation already exists between the two users
+  const query1 = new Parse.Query(Conversation);
+  query1.equalTo("participant1", { "__type": "Pointer", "className": "MUser", "objectId": senderId });
+  query1.equalTo("participant2", { "__type": "Pointer", "className": "MUserT", "objectId": receiverId });
+
+  const query2 = new Parse.Query(Conversation);
+  query2.equalTo("participant1", { "__type": "Pointer", "className": "MUserT", "objectId": receiverId });
+  query2.equalTo("participant2", { "__type": "Pointer", "className": "MUser", "objectId": senderId });
+
+  const mainQuery = Parse.Query.or(query1, query2);
+  let conversation = await mainQuery.first();
+
+  if (!conversation) {
+    // Create a new conversation if one does not exist
+    conversation = new Conversation();
+    conversation.set("participant1", { "__type": "Pointer", "className": "MUser", "objectId": senderId });
+    conversation.set("participant2", { "__type": "Pointer", "className": "MUserT", "objectId": receiverId });
+    await conversation.save();
+  }
+
+  return conversation;
+}
+
+
+// In your Cloud Code (user.js)
+Parse.Cloud.define("getMessages", async (request) => {
+  const { conversationId } = request.params;
+  const Message = Parse.Object.extend("Message");
+  const query = new Parse.Query(Message);
+  query.equalTo("conversation", { "__type": "Pointer", "className": "Conversation", "objectId": conversationId });
+  query.include("sender");
+  query.include("receiver");
+  query.descending("createdAt"); // Optionally, sort the messages
+
+  try {
+    const messages = await query.find();
+    return messages.map(message => {
+      return {
+        objectId: message.id,
+        text: message.get("text"),
+        senderId: message.get("sender").id,
+        receiverId: message.get("receiver").id,
+        createdAt: message.get("createdAt"),
+      };
+    });
+  } catch (error) {
+    console.error('Error fetching messages', error);
+    return [];
+  }
+});
+
 
 
 

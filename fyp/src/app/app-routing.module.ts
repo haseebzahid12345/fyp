@@ -31,7 +31,18 @@ import { AboutappComponent } from './aboutapp/aboutapp.component';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { AccountsettingComponent } from './accountsetting/accountsetting.component';
 import { UpdateaccountComponent } from './updateaccount/updateaccount.component';
+import { CardDetailComponent } from './card-detail/card-detail.component';
+import { ChatPageComponent } from './chat-page/chat-page.component';
+
 const routes: Routes = [
+  {
+  path: 'chat/:id', 
+  component: ChatPageComponent
+  },
+  {
+    path: 'card-detail/:id',
+     component: CardDetailComponent 
+  },
   {
     path: 'updateaccount',
     component:UpdateaccountComponent,

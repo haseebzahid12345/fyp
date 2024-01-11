@@ -8,19 +8,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./start.component.css']
 })
 export class StartComponent {
-  user: any;
-  private readonly USER_KEY = 'currentUser';
-  private currentUser: any;
+  // user: any;
+  // private readonly USER_KEY = 'currentUser';
+  // private currentUser: any;
   constructor(private parseService: ParseService ,  private router: Router) {
-    const storedUser = localStorage.getItem(this.USER_KEY);
-    if (storedUser) {
-      this.currentUser = JSON.parse(storedUser);
-    }
+    // const storedUser = localStorage.getItem(this.USER_KEY);
+    // if (storedUser) {
+    //   this.currentUser = JSON.parse(storedUser);
+    // }
   }
 
-  ngOnInit() {
-    this.user = this.parseService.user;
-    localStorage.removeItem(this.USER_KEY);
-  }
+  // ngOnInit() {
+  //   this.user = this.parseService.user;
+  //   localStorage.removeItem(this.USER_KEY);
+  // }
 
 }

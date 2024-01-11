@@ -66,6 +66,7 @@
 
 import { Injectable } from '@angular/core';
 import * as Parse from 'parse';
+import { Message } from '../chat-page/message.model';
 
 @Injectable({
   providedIn: 'root'
@@ -88,6 +89,7 @@ export class ParseService {
   async signup(name: string, email: string, password: string) {
     const params = { name , email, password };
     await Parse.Cloud.run('addUser', params);  
+    
   }
 
   async login(email: string, password: string) {
@@ -138,9 +140,9 @@ export class ParseService {
     }
   }
 
-  async updateCurrentUser(firstname: string, lastname: string) {
+  async updateCurrentUser(name: string) {
     if (this.currentUser && this.currentUser.objectId) {
-      const params = { objectId: this.currentUser.objectId, firstname, lastname };
+      const params = { objectId: this.currentUser.objectId , name};
       alert('Account Updated Successfully !!!');
       await Parse.Cloud.run('updateUser', params);
     } else {
@@ -177,7 +179,7 @@ export class ParseService {
       } else {
         throw new Error('No user is currently logged in.');
         alert ('no user is currently log in');
-      }
+      }  
     } catch (error) {
       console.error('Error fetching favorites from Cloud Code', error);
       throw error;
@@ -195,5 +197,37 @@ export class ParseService {
     }
   }
 
+  async getCardById(id: string): Promise<any> {
+    try {
+      const response = await Parse.Cloud.run('getCardById', { id });
+      return response;
+    } catch (error) {
+      console.error('Error fetching card by ID from Cloud Code', error);
+      throw error;
+    }
+  }
+
+
+  async sendMessage(senderId: string, receiverId: string, text: string) {
+    try {
+      const message = await Parse.Cloud.run('sendMessage', { senderId, receiverId, text });
+      return message;
+    } catch (error) {
+      console.error('Error sending message', error);
+      throw error;
+    }
+  }
+
+
+  async getMessages(conversationId: string): Promise<Message[]> {
+    try {
+      const messages = await Parse.Cloud.run('getMessages', { conversationId });
+      console.log(messages);
+      return messages;
+    } catch (error) {
+      console.error('Error getting messages', error);
+      throw error;
+    }
+  }
 }
 
