@@ -40,6 +40,27 @@ Parse.Cloud.define("login", async (request) => {
 
 
 
+Parse.Cloud.define("getConversationID", async (request) => {
+  const { TeacherID, StudentID  } = request.params;
+
+  const query = new Parse.Query("Conversation");
+  query.equalTo("participant2", TeacherID);
+  query.equalTo("participant1", StudentID);
+
+  const conversation = await query.first();
+
+  if (conversation) {
+    
+    return {
+    
+      objectId: conversation.id, 
+    };
+  } else {
+    return { message: 'No conversation found', objectId: null };
+   
+  }
+});
+
 
 Parse.Cloud.define("deleteUser", async (request) => {
   const objectId = request.params.objectId;
@@ -240,9 +261,10 @@ Parse.Cloud.define("getCardById", async (request) => {
   }
 });
 
+
 Parse.Cloud.define("sendMessage", async (request) => {
   const { senderId, receiverId, text } = request.params;
-
+ 
   // Find or create a conversation
   let conversation = await findOrCreateConversation(senderId, receiverId);
 
@@ -250,9 +272,15 @@ Parse.Cloud.define("sendMessage", async (request) => {
   const Message = Parse.Object.extend("Message");
   const message = new Message();
 
+
   message.set("sender", { "__type": "Pointer", "className": "MUser", "objectId": senderId });
   message.set("receiver", { "__type": "Pointer", "className": "MUserT", "objectId": receiverId });
   message.set("conversation", { "__type": "Pointer", "className": "Conversation", "objectId": conversation.id });
+  const nullPointer = { "__type": "Pointer", "className": "MUser", "objectId": "nullIndicator" };
+  const nullPointer1 = { "__type": "Pointer", "className": "MUserT", "objectId": "nullIndicator" };
+  message.set("sender1", nullPointer1);
+  message.set("receiver1", nullPointer);
+
   message.set("text", text);
   
   // Save the message
@@ -302,16 +330,20 @@ Parse.Cloud.define("getMessages", async (request) => {
   query.equalTo("conversation", { "__type": "Pointer", "className": "Conversation", "objectId": conversationId });
   query.include("sender");
   query.include("receiver");
-  query.descending("createdAt"); // Optionally, sort the messages
+  query.ascending("createdAt"); // Optionally, sort the messages
 
   try {
     const messages = await query.find();
     return messages.map(message => {
+      const sender = message.get("sender");
+      const receiver = message.get("receiver");
       return {
         objectId: message.id,
         text: message.get("text"),
-        senderId: message.get("sender").id,
-        receiverId: message.get("receiver").id,
+       
+        senderId: sender ? sender.id : null,
+        receiverId: receiver ? receiver.id : null,
+         sender1:message.get("sender1"),
         createdAt: message.get("createdAt"),
       };
     });
@@ -320,6 +352,11 @@ Parse.Cloud.define("getMessages", async (request) => {
     return [];
   }
 });
+
+
+
+
+
 
 
 

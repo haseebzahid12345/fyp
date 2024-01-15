@@ -6,5 +6,6 @@ export interface Message {
     receiverId: string;
     conversationId?: string;
     createdAt?: Date;
+    sender1: string;
   }
   

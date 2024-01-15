@@ -4,6 +4,7 @@ import { faHouse } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faJetFighterUp } from '@fortawesome/free-solid-svg-icons';
+import { faMessage } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -18,4 +19,5 @@ export class FooterComponent {
  profile = faUser;
  search = faSearch;
  urgent = faJetFighterUp;
+ message = faMessage;
 }

@@ -14,7 +14,9 @@ export class CardDetailComponent implements OnInit {
   cardTitle: string = '';
   cardId: string = '';
   cardName: string = '';
-  cardMakerID: string = '';
+  TeacherID: string = '';
+  StudentID: string = '';
+  ConversationID: any;
   constructor(private route: ActivatedRoute, private parseService: ParseService) {}
 
   ngOnInit() {
@@ -30,8 +32,10 @@ async getCardDetails() {
     if (cardDetails.status === 1) {
       this.cardTitle = cardDetails.data.get("title");
       this.cardName = cardDetails.data.get("name");
-      this.cardMakerID = cardDetails.data.get("object_Id_Of_signUpTeacher")
-
+      this.TeacherID = cardDetails.data.get("object_Id_Of_signUpTeacher");
+      // this.StudentID = await this.parseService.user.objectId;
+      // // this.ConversationID = await this.getConversationID(this.TeacherID, this.StudentID);
+      // console.log(this.ConversationID,'123','successs');
       // Handle other card details
     } else {
       // Handle the error case
@@ -41,6 +45,13 @@ async getCardDetails() {
     // Handle the error
   }
 }
+
+// async getConversationID(TeacherID : string ,  StudentID :  string ){
+//   const id_get = await this.parseService.getConversationID(TeacherID, StudentID);
+//   console.log(id_get);
+//     return id_get;
+   
+// }
 
 
 
