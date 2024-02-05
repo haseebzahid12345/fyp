@@ -33,12 +33,17 @@ import { AccountsettingComponent } from './accountsetting/accountsetting.compone
 import { UpdateaccountComponent } from './updateaccount/updateaccount.component';
 import { CardDetailComponent } from './card-detail/card-detail.component';
 import { ChatPageComponent } from './chat-page/chat-page.component';
+import { MessageTableComponent } from './message-table/message-table.component';
 
 const routes: Routes = [
   {
-  path: 'chat/:id', 
+  path: 'chat-page/:id', 
   component: ChatPageComponent
   },
+  {
+    path: 'message-table', 
+    component: MessageTableComponent
+    },
   {
     path: 'card-detail/:id',
      component: CardDetailComponent 

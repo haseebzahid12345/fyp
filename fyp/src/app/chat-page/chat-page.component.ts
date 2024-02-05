@@ -12,43 +12,40 @@ export class ChatPageComponent {
   // lastSeen: Date = '';
   messages: Message[] = [];
   messageText: string = '';
-  cardName: string = '';
+  teacherName: string = '';
   cardId: string = '';
   TeacherID: string = '';
   StudentID:string = '';
+  teacherCatchId:string = '';
 
   conversationId: string = ''; 
   constructor(private route: ActivatedRoute, private parseService: ParseService) {}
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
+      // this.cardId = '';
        this.cardId = params.get('id') as string;
-      //  console.log(this.conversationId);
+      //  this.teacherCatchId = params.get('id1') as string;
+      //  console.log(this.teacherCatchId);
+       console.log(this.cardId);
    
        this.getCardDetails();
-      // this.conversationId = this.route.snapshot.paramMap.get('conversationId') as string;
-     
-      // Fetch chat partner's name using cardId
-      // Fetch messages for this chat
+      
     });
   }
 
   async loadMessages() {
-    // if (!this.conversationId) return;
+    if (!this.conversationId) return;
     this.messages = await this.parseService.getMessages(this.conversationId);
     console.log('messages load', this.messages , this.conversationId);
     console.log(this.messages);
   }
 
-  async sendMessage() {
-    // Call the sendMessage method from ParseService
-    // Add the new message to the messages array
-    this.messageText = ''; // Clear the input after sending
-  }
+
 
   isMessageSentByCurrentUser(message: Message): boolean {
     // Assuming `message.sender1` holds the value for the 'sender1' field
-    return message.sender1 === 'nullIndicator' || message.senderId === this.StudentID;
+    return message.senderId === this.StudentID;
   }
   async onSendMessage(text: string ) {
     const senderId =  await this.parseService.user.objectId/* ID of the sender (student) */;
@@ -58,7 +55,7 @@ export class ChatPageComponent {
       const message = await this.parseService.sendMessage(senderId, receiverId, text);
       
       console.log(message.conversationId);
-      // this.conversationId = message.conversationId;
+      this.conversationId = message.conversationId;
    
     } catch (error) {
       // Handle the error here
@@ -66,11 +63,12 @@ export class ChatPageComponent {
   }
 
   async getCardDetails() {
-    try {
+     console.log('inside get card details');
       const cardDetails = await this.parseService.getCardById(this.cardId);
+      console.log(cardDetails,'123','successs');
       if (cardDetails.status === 1) {
        
-        this.cardName = cardDetails.data.get("name");
+        this.teacherName = cardDetails.data.get("name");
         this.TeacherID = cardDetails.data.get("object_Id_Of_signUpTeacher");
         this.StudentID = await this.parseService.user.objectId;
       const conversationResult = await this.getConversationID(this.TeacherID, this.StudentID);
@@ -85,13 +83,28 @@ export class ChatPageComponent {
       }
 
         // Handle other card details
-      } else {
-        console.log('Error loading card details');
+      } 
+      else {
+
+        
+          console.log(this.teacherCatchId);
+          const teacherDetails = await this.parseService.getTeacherById(this.cardId);
+           
+            this.teacherName = teacherDetails.data.get("firstname");
+            this.StudentID= await this.parseService.user.objectId;
+            const conversationResult = await this.getConversationID(this.cardId, this.StudentID);
+          if(conversationResult){
+            this.conversationId = conversationResult;
+            console.log(this.conversationId,'123','successs');
+            await this.loadMessages();
+    
+          }
+          else {
+            console.log('No conversation found');
+          }
+ 
       }
-    } catch (error) {
-      console.error('Error loading card details', error);
-      // Handle the error
-    }
+
   }
 
   async getConversationID(TeacherID : string ,  StudentID :  string ){

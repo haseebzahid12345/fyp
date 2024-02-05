@@ -1,42 +1,40 @@
 
 
 
+<section>
+  <div class="container py-5 ">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-8 col-lg-6">
+        <div class="card" style="border-radius: 1rem">
+          <div class="card-body p-4 p-lg-5 text-black">
 
-
-  <section>
-    <div class="container py-5 ">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-md-8 col-lg-6">
-          <div class="card" style="border-radius: 1rem">
-            <div class="card-body p-4 p-lg-5 text-black">
-  
 <!--   
-              <div class="d-flex align-items-center mb-3 pb-1">
-                <img src="assets\images\logo2.svg" alt="Logo" height="60" />
-              </div> -->
-              <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px">
-               message box
-              </h5>
-              <form>
+            <div class="d-flex align-items-center mb-3 pb-1">
+              <img src="assets\images\logo2.svg" alt="Logo" height="60" />
+            </div> -->
+            <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px">
+             message box
+            </h5>
+            <form>
 
-                <div>
-                  <h3>Card Title: {{ cardTitle }}</h3>
-                  <p>Card ID: {{ cardId }}</p>
-                  <p>Name: {{ cardName}}</p>
-                  <p>Teacher ID: {{ TeacherID}}</p>
-              
-                  <button    [routerLink]="['/chat', cardId]">Message</button>
-                  <!-- <button (click)="showChatBox = true"   [routerLink]="['/chat', cardId]">Message</button> -->
-                </div>
-              
+              <div>
+                <h3>Card Title: {{ cardTitle }}</h3>
+                <p>Card ID: {{ cardId }}</p>
+                <p>Name: {{ cardName}}</p>
+                <p>Teacher ID: {{ TeacherID}}</p>
             
-              
-              
+                <button    [routerLink]="['/chat-page', cardId]">Message</button>
+                <!-- <button (click)="showChatBox = true"   [routerLink]="['/chat', cardId]">Message</button> -->
+              </div>
             
-              </form>
-            </div>
+          
+            
+            
+          
+            </form>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>

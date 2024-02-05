@@ -14,7 +14,7 @@ export class ParseService {
 
   constructor() {
     Parse.initialize('myAppId', 'myMasterKey');
-    (Parse as any).serverURL = 'http://localhost:1336/';
+    (Parse as any).serverURL = 'http://localhost:1336/parse';
 
     // Retrieve the user from local storage on service initialization
     const storedUser = localStorage.getItem(this.USER_KEY);
@@ -25,13 +25,13 @@ export class ParseService {
 
   async signup(name: string, email: string, password: string) {
     const params = { name , email, password };
-    await Parse.Cloud.run('addUser', params);  
+    await Parse.Cloud.run('addUserStudent', params);  
     
   }
 
   async login(email: string, password: string) {
     const params = { email, password };
-    const response = await Parse.Cloud.run('login', params);
+    const response = await Parse.Cloud.run('loginStudent', params);
     if (response.status === 1) {
       this.currentUser = response;
       // Save user to local storage on successful login
@@ -42,7 +42,7 @@ export class ParseService {
 
   async getConversationID(TeacherID: string, StudentID: string) {
     const params = { TeacherID, StudentID };
-    const response = await Parse.Cloud.run('getConversationID', params);
+    const response = await Parse.Cloud.run('getConversationIDStudent', params);
     return response.objectId;
   }
 
@@ -59,7 +59,7 @@ export class ParseService {
     if (this.currentUser && this.currentUser.objectId) {
       console.log(this.currentUser.id);
       alert('Your account has been deleted!');
-      await  Parse.Cloud.run('deleteUser', { objectId: this.currentUser.objectId }); 
+      await  Parse.Cloud.run('deleteUserStudent', { objectId: this.currentUser.objectId }); 
       // Remove user from local storage on logout
       
     } else {
@@ -87,7 +87,7 @@ export class ParseService {
     if (this.currentUser && this.currentUser.objectId) {
       const params = { objectId: this.currentUser.objectId , name};
       alert('Account Updated Successfully !!!');
-      await Parse.Cloud.run('updateUser', params);
+      await Parse.Cloud.run('updateUserStudent', params);
     } else {
       alert('No user is currently logged in.');
     }
@@ -153,7 +153,7 @@ export class ParseService {
 
   async sendMessage(senderId: string, receiverId: string, text: string) {
     try {
-      const message = await Parse.Cloud.run('sendMessage', { senderId, receiverId, text });
+      const message = await Parse.Cloud.run('sendMessageStudent', { senderId, receiverId, text });
       return message;
     } catch (error) {
       console.error('Error sending message', error);
@@ -164,7 +164,7 @@ export class ParseService {
 
   async getMessages(conversationId: string): Promise<Message[]> {
     try {
-      const messages = await Parse.Cloud.run('getMessages', { conversationId });
+      const messages = await Parse.Cloud.run('getMessagesStudent', { conversationId });
       console.log(messages);
       return messages;
     } catch (error) {
@@ -173,9 +173,33 @@ export class ParseService {
     }
   }
 
+  async getTeacherNamesByIds(teacherIds: string[]): Promise<string[]> {
+    const params = { teacherIds };
+    const response = await Parse.Cloud.run('getTeacherNamesByIds', params);
+    console.log(response, 'name gets in parse')
+    return response;
 
+  }
 
+  async getTeacherById(id: string): Promise<any> {
+    try {
+      const response = await Parse.Cloud.run('TeacherDataByIds', { id });
+      return response;
+    } catch (error) {
+      console.error('Error fetching card by ID from Cloud Code', error);
+      throw error;
+    }
+  }
 
+  async getTeacherIdsByStudentId(studentId: string): Promise<string[]> {
+    const params = { studentId };
+    const studentIds = await Parse.Cloud.run('getTeacherIdsByStudent', params);
+    // Filter out any null or undefined values just in case
+    // return studentIds.filter(id => id != null && id !== undefined);
+    // In parse.service.ts
+  
+    return studentIds;
+  }
 
 }
 

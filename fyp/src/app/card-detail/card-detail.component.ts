@@ -1,6 +1,3 @@
-
-
-
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ParseService } from '../services/parse.service';
@@ -29,6 +26,7 @@ export class CardDetailComponent implements OnInit {
 async getCardDetails() {
   try {
     const cardDetails = await this.parseService.getCardById(this.cardId);
+    console.log(this.cardId);
     if (cardDetails.status === 1) {
       this.cardTitle = cardDetails.data.get("title");
       this.cardName = cardDetails.data.get("name");

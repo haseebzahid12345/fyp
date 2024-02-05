@@ -40,6 +40,7 @@ import { UpdateaccountComponent } from './updateaccount/updateaccount.component'
 import { CardDetailComponent } from './card-detail/card-detail.component';
 import { FormsModule } from '@angular/forms';
 import { ChatPageComponent } from './chat-page/chat-page.component';
+import { MessageTableComponent } from './message-table/message-table.component';
 
 
 @NgModule({
@@ -80,6 +81,7 @@ import { ChatPageComponent } from './chat-page/chat-page.component';
     UpdateaccountComponent,
     CardDetailComponent,
     ChatPageComponent,
+    MessageTableComponent,
    
 
   ],
