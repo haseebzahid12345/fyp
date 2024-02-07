@@ -1,39 +1,112 @@
 <!DOCTYPE html>
 <html>
 
+<head>
+  <!-- Add Bootstrap CSS link -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+  <!-- Add FontAwesome CSS link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha384-eol9C6s0V2a2u5fjt9Zc5cTX/Ap/wETb7FmZpOWefBJ4pbDw/jP3ypEX4b2UNyl3"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    .navbar {
+      background-color: #3A3E4B;
+    }
+
+    .navbar-brand img {
+      height: 50px;
+    }
+
+    .search-bar {
+      position: relative;
+      margin-right: 20px; /* Adjust the margin as needed */
+    }
+
+    .search-input {
+      width: 300px; /* Adjust the width as needed */
+      padding: 8px 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #20232a; /* YouTube search bar background color */
+      color: #fff; /* YouTube search bar text color */
+      outline: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .search-button {
+      position: absolute;
+      right: 0;
+      top: 0;
+      padding: 8px;
+      border: none;
+      border-radius: 0 5px 5px 0;
+      background-color: #20232a; /* YouTube search button background color */
+      color: #fff; /* YouTube search button icon color */
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    }
+
+    .search-button:hover {
+      background-color: #3A3E4B; /* Change background color on hover */
+      color: #fff; /* Change icon color on hover */
+      transform: scale(1.1); /* Add scale animation on hover */
+    }
+
+    .user_pic {
+      cursor: pointer;
+    }
+
+    .filter-icon {
+      color: gray; /* Initial color of the filter icon */
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .filter-icon:hover {
+      color: #fff; /* Change filter icon color to white on hover */
+      transform: scale(1.1); /* Add scale animation on hover */
+    }
+  </style>
+</head>
+
 <body>
-    <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #3A3E4B;">
-        <div class="container px-5">
-            <a class="navbar-brand" href="#">
-                <img src="assets\images\logo2.svg" alt="Logo" height="50" class="d-inline-block align-top" />
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container px-5">
+      <a class="navbar-brand" href="#">
+        <img src="assets\images\logo2.svg" alt="Logo" class="d-inline-block align-top" />
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a routerLink="/filterstudent" class="nav-link filter-icon">
+              <fa-icon class="fa-2x" [icon]="filter"></fa-icon>
             </a>
+          </li>
+        </ul>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <a routerLink="/filterstudent"  >
-                        <fa-icon class="fa-2x" [icon]="filter" style="color:gray ; " ></fa-icon>
-                    </a>
-                </ul>
-                
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <div class="search-bar">
-                    <input type="text" placeholder="Search..." class="search-input" />
-                    <button class="search-button">
-                        <fa-icon class="fa" [icon]="search"></fa-icon>
-                    </button>
-                </div>
-
-                <img src="assets\images\profile_dropdown_logo\user.png" (clickOutside)="clickedOutside()"
-                    class="user_pic" (click)="toggleMenu()" />
-            </div>
+        <div class="search-bar">
+          <input type="text" placeholder="Search..." class="search-input" />
+          <button class="search-button">
+            <fa-icon class="fa" [icon]="search"></fa-icon>
+          </button>
         </div>
-    </nav>
+
+        <img src="assets\images\profile_dropdown_logo\user.png" (clickOutside)="clickedOutside()" class="user_pic"
+          (click)="toggleMenu()" />
+      </div>
+    </div>
+  </nav>
+
+  <!-- Add Bootstrap's JavaScript if required (for some features, not related to the search bar) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

@@ -1,46 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
-  </head>
-  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Page Title</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .footer {
+      background-color: #343a40;
+      color: #fff;
+      padding: 8px 0; /* Further decreased padding to minimize height */
+    }
+
+    .footer-icons {
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      transition: transform 0.3s ease-in-out; /* Added animation transition */
+    }
+
+    .footer-icons:hover {
+      text-decoration: none; /* Remove underline on hover */
+      transform: scale(1.2); /* Added scale animation on hover */
+    }
+
+    .footer-icons fa-icon {
+      margin-bottom: 5px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .col-2 {
+      flex: 0 0 20%;
+      text-align: center;
+    }
+  </style>
+</head>
 
 <body>
-    <footer class="footer">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-2 text-center mb-3">
-            <a routerLink="/home" class="footer-icons">
-              <fa-icon class="fa-2x" [icon]="house"></fa-icon>
-              <br>Home
-            </a>
-          </div>
-          <div class="col-2 text-center mb-3">
-            <a routerLink="/filterstudent" class="footer-icons">
-              <fa-icon class="fa-2x" [icon]="search"></fa-icon>
-              <br>Search
-            </a>
-          </div>
-          <div class="col-2 text-center mb-3">
-            <a routerLink="/urgentoptions" class="footer-icons">
-              <fa-icon class="fa-2x" [icon]="urgent"></fa-icon>
-              <br>Urgent
-            </a>
-          </div>
-          <div class="col-2 text-center mb-3">
-            <a routerLink="/setting" class="footer-icons">
-              <fa-icon class="fa-2x" [icon]="profile"></fa-icon>
-              <br>Profile
-            </a>
-          </div>
-          <div class="col-2 text-center mb-3">
-            <a routerLink="/message-table" class="footer-icons">
-              <fa-icon class="fa-2x" [icon]="message"></fa-icon>
-              <br>Message
-            </a>
-          </div>
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-2 mb-3">
+          <a routerLink="/home" class="footer-icons">
+            <fa-icon class="fa-2x" [icon]="house"></fa-icon>
+            <br>Home
+          </a>
+        </div>
+        <div class="col-2 mb-3">
+          <a routerLink="/filterstudent" class="footer-icons">
+            <fa-icon class="fa-2x" [icon]="search"></fa-icon>
+            <br>Search
+          </a>
+        </div>
+        <div class="col-2 mb-3">
+          <a routerLink="/urgentoptions" class="footer-icons">
+            <fa-icon class="fa-2x" [icon]="urgent"></fa-icon>
+            <br>Urgent
+          </a>
+        </div>
+        <div class="col-2 mb-3">
+          <a routerLink="/setting" class="footer-icons">
+            <fa-icon class="fa-2x" [icon]="profile"></fa-icon>
+            <br>Profile
+          </a>
+        </div>
+        <div class="col-2 mb-3">
+          <a routerLink="/message-table" class="footer-icons">
+            <fa-icon class="fa-2x" [icon]="message"></fa-icon>
+            <br>Message
+          </a>
         </div>
       </div>
-    </footer>
-  </body>
-  
+    </div>
+  </footer>
+</body>
+
+</html>
