@@ -13,25 +13,38 @@
 
   <style>
     .navbar {
-      background-color: #3A3E4B;
+      background-color: transparent;
+      transition: background-color 0.5s ease, box-shadow 0.5s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .navbar:hover {
+      background-color: rgba(58, 62, 75, 0.8);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     }
 
     .navbar-brand img {
       height: 50px;
+      filter: brightness(0); /* Make the logo black by default */
+      transition: filter 0.3s ease; /* Add transition for smooth effect */
+    }
+
+    .navbar:hover .navbar-brand img {
+      filter: brightness(1); /* Change brightness on hover to off-white */
     }
 
     .search-bar {
       position: relative;
-      margin-right: 20px; /* Adjust the margin as needed */
+      margin-right: 20px;
     }
 
     .search-input {
-      width: 300px; /* Adjust the width as needed */
+      width: 300px;
       padding: 8px 16px;
       border: none;
       border-radius: 5px;
-      background-color: #20232a; /* YouTube search bar background color */
-      color: #fff; /* YouTube search bar text color */
+      background-color: #20232a;
+      color: #fff;
       outline: none;
       transition: background-color 0.3s ease, color 0.3s ease;
     }
@@ -43,16 +56,16 @@
       padding: 8px;
       border: none;
       border-radius: 0 5px 5px 0;
-      background-color: #20232a; /* YouTube search button background color */
-      color: #fff; /* YouTube search button icon color */
+      background-color: #20232a;
+      color: #fff;
       cursor: pointer;
       transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
     }
 
     .search-button:hover {
-      background-color: #3A3E4B; /* Change background color on hover */
-      color: #fff; /* Change icon color on hover */
-      transform: scale(1.1); /* Add scale animation on hover */
+      background-color: #3A3E4B;
+      color: #fff;
+      transform: scale(1.1);
     }
 
     .user_pic {
@@ -60,13 +73,13 @@
     }
 
     .filter-icon {
-      color: gray; /* Initial color of the filter icon */
+      color: gray;
       transition: color 0.3s ease, transform 0.3s ease;
     }
 
     .filter-icon:hover {
-      color: #fff; /* Change filter icon color to white on hover */
-      transform: scale(1.1); /* Add scale animation on hover */
+      color: #fff;
+      transform: scale(1.1);
     }
   </style>
 </head>
