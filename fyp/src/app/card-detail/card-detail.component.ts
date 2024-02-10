@@ -38,17 +38,17 @@ async getCardDetails() {
     if (cardDetails.status === 1) {
      console.log(cardDetails)
       this.cardTitle = cardDetails.data.title;
-      this.level1_price = cardDetails.data.level1_price;
+      this.level1_price = cardDetails.data.level_1_price;
       console.log(this.level1_price);
-      this.level1_description = cardDetails.data.level1_Description;
-      this.level2_price = cardDetails.data.level2_price;
-      this.level2_description = cardDetails.data.level2_Description;
-      // this.level3_price = cardDetails.data.level3_price;
-      // this.level3_description = cardDetails.data.level3_Description;
-      // this.experience = cardDetails.get.experience;
-      // this.level = cardDetails.get.level;
-      // this.type = cardDetails.get.type;
-      // this.skillLevel = cardDetails.get.skillLevel;
+      this.level1_description = cardDetails.data.level_1_Description;
+      this.level2_price = cardDetails.data.level_2_price;
+      this.level2_description = cardDetails.data.level_2_Description;
+      this.level3_price = cardDetails.data.level_3_price;
+      this.level3_description = cardDetails.data.level_3_Description;
+      this.experience = cardDetails.data.experience;
+      this.level = cardDetails.data.level;
+      this.type = cardDetails.data.type;
+       this.skillLevel = cardDetails.data.skillLevel;
     
       this.cardName = cardDetails.data.user.firstname;
      
