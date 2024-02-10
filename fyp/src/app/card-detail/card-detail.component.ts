@@ -11,9 +11,17 @@ export class CardDetailComponent implements OnInit {
   cardTitle: string = '';
   cardId: string = '';
   cardName: string = '';
-  TeacherID: string = '';
-  StudentID: string = '';
-  ConversationID: any;
+  level1_price : string = '';
+  level2_price : string = '';
+  level3_price : string = '';
+  level1_description : string = '';
+  level2_description : string = '';
+  level3_description: string = ''
+  experience: string = '';
+  level: string = '';
+  skillLevel : string = ''
+  type : string = ''
+
   constructor(private route: ActivatedRoute, private parseService: ParseService) {}
 
   ngOnInit() {
@@ -26,15 +34,24 @@ export class CardDetailComponent implements OnInit {
 async getCardDetails() {
   try {
     const cardDetails = await this.parseService.getCardById(this.cardId);
-    console.log(this.cardId);
+   
     if (cardDetails.status === 1) {
-      this.cardTitle = cardDetails.data.get("title");
-      this.cardName = cardDetails.data.get("name");
-      this.TeacherID = cardDetails.data.get("object_Id_Of_signUpTeacher");
-      // this.StudentID = await this.parseService.user.objectId;
-      // // this.ConversationID = await this.getConversationID(this.TeacherID, this.StudentID);
-      // console.log(this.ConversationID,'123','successs');
-      // Handle other card details
+     console.log(cardDetails)
+      this.cardTitle = cardDetails.data.title;
+      this.level1_price = cardDetails.data.level1_price;
+      console.log(this.level1_price);
+      this.level1_description = cardDetails.data.level1_Description;
+      this.level2_price = cardDetails.data.level2_price;
+      this.level2_description = cardDetails.data.level2_Description;
+      // this.level3_price = cardDetails.data.level3_price;
+      // this.level3_description = cardDetails.data.level3_Description;
+      // this.experience = cardDetails.get.experience;
+      // this.level = cardDetails.get.level;
+      // this.type = cardDetails.get.type;
+      // this.skillLevel = cardDetails.get.skillLevel;
+    
+      this.cardName = cardDetails.data.user.firstname;
+     
     } else {
       // Handle the error case
     }

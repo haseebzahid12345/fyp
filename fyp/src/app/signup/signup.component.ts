@@ -16,15 +16,16 @@ export class SignupComponent {
 
   async signup(name: string , email:string  , password:string )
   {
-    
-    
-
-     await this.parseService.signup(name,email,password);
-     alert('user created successfully ');
-     this.router.navigate(['/login']);
-   
-
+const result = await this.parseService.signup(name,email,password);
+    if (result.status===0)
+    {
+     alert(result.message);
+    }
+    else{
+    alert('user created successfully ');
+    this.router.navigate(['/login']);
+    }
+  
   }
-
 }
 

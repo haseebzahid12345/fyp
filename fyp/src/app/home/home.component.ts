@@ -24,7 +24,7 @@ ngOnInit() {
 async loadCardData(){
   try {
     console.log('inside function');
-    const responseData = await this.parseService.getCardData();
+    const responseData = await this.parseService.getGigData(this.user);
     console.log(responseData);
     this.teacherData = responseData;
     console.log('inside function q');

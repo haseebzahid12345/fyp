@@ -25,7 +25,8 @@ export class ParseService {
 
   async signup(name: string, email: string, password: string) {
     const params = { name , email, password };
-    await Parse.Cloud.run('addUserStudent', params);  
+    const status =  await Parse.Cloud.run('addUserStudent', params);  
+    return status;
     
   }
 
@@ -99,10 +100,10 @@ export class ParseService {
   }
   
 
-  async getCardData(): Promise<any[]> {
+  async getGigData(userId : string): Promise<any[]> {
     try {
-
-        const results = await Parse.Cloud.run("getCardData");
+        const params = {userId};
+        const results = await Parse.Cloud.run("getGigData" , params);
         console.log('Results from Cloud Code:', results);
         
         return results;
@@ -142,7 +143,7 @@ export class ParseService {
 
   async getCardById(id: string): Promise<any> {
     try {
-      const response = await Parse.Cloud.run('getCardById', { id });
+      const response = await Parse.Cloud.run('getGigById', { id });
       return response;
     } catch (error) {
       console.error('Error fetching card by ID from Cloud Code', error);
