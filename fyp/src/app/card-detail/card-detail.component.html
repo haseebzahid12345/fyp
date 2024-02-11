@@ -21,16 +21,18 @@
                 <h3>Card Title: {{ cardTitle }}</h3>
                 <p>Card ID: {{ cardId }}</p>
                 <p>Name: {{ cardName}}</p>
-                <p>{{level1_price}}</p>
-                <p>{{level2_price}}</p>
-                <p>{{level3_price}}</p>
-                <p>{{level1_description}}</p>
-                <p>{{level2_description}}</p>
-                <p>{{level3_description}}</p>
-                <p>{{level}}</p>
-                <p>{{skillLevel}}</p>
-                <p>{{type}}</p>
-                <p>{{experience}}</p>
+                <p>low price : {{level1_price}}</p>
+                <p>mid price :{{level2_price}}</p>
+                <p>high price :{{level3_price}}</p>
+                <p>low price description :{{level1_description}}</p>
+                <p>mid price description : {{level2_description}}</p>
+                <p>high price description : {{level3_description}}</p>
+                <p>skillLevel : {{skillLevel}}</p>
+                <p>type : {{type}}</p>
+                <p>experience : {{experience}}</p>
+                <p>category : {{category}}</p>
+                <p>subcategory : {{subcategory}}</p>
+
             
                 <button    [routerLink]="['/chat-page', cardId]">Message</button>
                 <!-- <button (click)="showChatBox = true"   [routerLink]="['/chat', cardId]">Message</button> -->

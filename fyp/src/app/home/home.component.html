@@ -10,52 +10,6 @@
 <body>
 
 
-  <!-- <div class="container shadow">
-    <div *ngFor="let data of teacherData; let i = index" class="row mt-5 pt-5">
-        <div  class="col-sm-6 col-md-6 col-lg-6 col-6">
-            <div class="card text-center shadow">
-                <div class="card-body">
-                    <h3 class="card-title py-2">{{ data[i]?.firstname}}</h3>
-                    <p class="card-text">{{ data[i]?.gigtitle }}</p>
-                    <button type="button" class="btn btn-primary"
-                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                        Custom button
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div  class="col-sm-6 col-md-6 col-lg-6 col-6">
-            <div class="card text-center shadow">
-                <div class="card-body">
-                    <h3 class="card-title py-2">{{ data[i+1]?.firstname}}</h3>
-                    <p class="card-text">{{ data[i+1]?.gigtitle }}</p>
-                    <button type="button" class="btn btn-primary"
-                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                        Custom button
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-
- <!-- <div class="container shadow">
-    <div  *ngFor="let data of teacherData ; let i = index" class="row mt-5 pt-5">
-        <div class="col-sm-6 col-md-6 col-lg-6 col-6">
-            <div class="card text-center shadow">
-                <div class="card-body">
-
-                    <h3 class="card-title py-2">{{ data.firstname}}</h3>
-                    <p class="card-text">{{ data.gigtitle }}</p>
-                    <button type="button" class="btn btn-primary"
-                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                        Custom button
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-  </div>  -->
   <div class="container">
     <div class="row mt-5 pt-5">
       <div *ngFor="let data of teacherData; let i = index" class="col-sm-6 col-md-6 col-lg-6 col-6 mb-4" [routerLink]="['/card-detail', data.objectId]">
@@ -82,7 +36,7 @@
                   <h3 class="card-name">{{ data.firstname }}</h3>
                   <p class="card-title">{{ data.title }}</p>
                 </div>
-                <fa-icon [ngClass]="{'heart-active': data.heartActive}" class="heart-icon fa-2x" [icon]="heart" (click)="toggleHeart(data)" ></fa-icon>
+                <fa-icon [ngClass]="{'heart-active': data.heartActive}" class="heart-icon fa-2x" [icon]="heart" (click)="toggleHeart(data)"></fa-icon>
            
 
 
@@ -99,37 +53,6 @@
   </div>
 
 
-    <!-- <div class="container shadow">
-      <div class="row mt-5 pt-5">
-          <div class="col-sm-6 col-md-6 col-lg-6 col-6" *ngFor="let data of teacherData; let i = index">
-              <div class="card text-center shadow">
-                  <div class="card-body">
-                      <h3 class="card-title py-2">{{ data[i]?.firstname }}</h3>
-                      <p class="card-text">{{ data[i]?.gigtitle }}</p>
-                      <button type="button" class="btn btn-primary"
-                          style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                          Custom button
-                      </button>
-                  </div>
-              </div>
-            
-              <ng-container *ngIf="teacherData[i + 1]">
-                  <div class="card text-center shadow mt-3">
-                      <div class="card-body">
-                          <h3 class="card-title py-2">{{ teacherData[i + 1]?.firstname }}</h3>
-                          <p class="card-text">{{ teacherData[i + 1]?.gigtitle }}</p>
-                          <button type="button" class="btn btn-primary"
-                              style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                              Custom button
-                          </button>
-                      </div>
-                  </div>
-              </ng-container>
-          </div>
-      </div>
-  </div>
-  
- -->
 
 
   

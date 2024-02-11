@@ -59,7 +59,6 @@ export class ParseService {
     console.log('Current user:', this.currentUser);
     if (this.currentUser && this.currentUser.objectId) {
       console.log(this.currentUser.id);
-      alert('Your account has been deleted!');
       await  Parse.Cloud.run('deleteUserStudent', { objectId: this.currentUser.objectId }); 
       // Remove user from local storage on logout
       
@@ -93,6 +92,15 @@ export class ParseService {
       alert('No user is currently logged in.');
     }
   }
+
+  async getCurrentUserName() {
+    if (this.currentUser && this.currentUser.objectId) {
+      const params = { objectId: this.currentUser.objectId };
+      const result = await Parse.Cloud.run('current_user_name' , params)
+      return result;
+     
+  }
+}
 
   async addFavourite(CardObjectId: string, currentUserObjectId: string): Promise<any> {
     const params = { CardObjectId, currentUserObjectId };
@@ -141,7 +149,7 @@ export class ParseService {
     }
   }
 
-  async getCardById(id: string): Promise<any> {
+  async getGigById(id: string): Promise<any> {
     try {
       const response = await Parse.Cloud.run('getGigById', { id });
       return response;

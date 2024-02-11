@@ -8,6 +8,21 @@ import { ParseService } from '../services/parse.service';
 })
 export class UpdateaccountComponent {
   constructor(private parseService: ParseService) {}
+  currentName: string = '';
+  ngOnInit() {
+    this.fetchCurrentUserName();
+  }
+
+  async fetchCurrentUserName() {
+    const result = await this.parseService.getCurrentUserName();
+    if (result.status===1) {
+      
+      this.currentName = result.name;
+      console.log(this.currentName);
+       // Set the current name if fetched
+    }
+  }
+
   async updateUser(name: string) {
     try {
       await this.parseService.updateCurrentUser(name);

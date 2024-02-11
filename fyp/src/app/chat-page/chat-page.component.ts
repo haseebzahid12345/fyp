@@ -64,12 +64,13 @@ export class ChatPageComponent {
 
   async getCardDetails() {
      console.log('inside get card details');
-      const cardDetails = await this.parseService.getCardById(this.cardId);
+      const cardDetails = await this.parseService.getGigById(this.cardId);
       console.log(cardDetails,'123','successs');
       if (cardDetails.status === 1) {
        
-        this.teacherName = cardDetails.data.get("name");
-        this.TeacherID = cardDetails.data.get("object_Id_Of_signUpTeacher");
+        this.teacherName = cardDetails.data.user.firstname;
+        this.TeacherID = cardDetails.data.user.userId;
+        console.log(cardDetails.data.user.userId);
         this.StudentID = await this.parseService.user.objectId;
       const conversationResult = await this.getConversationID(this.TeacherID, this.StudentID);
       if(conversationResult){

@@ -54,7 +54,4 @@ async addToFavourites(data: any): Promise<void> {
     // Handle error (e.g., show an error message)
   }
 }
-
-
-
 }

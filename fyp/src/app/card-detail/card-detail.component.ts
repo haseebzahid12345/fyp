@@ -19,8 +19,10 @@ export class CardDetailComponent implements OnInit {
   level3_description: string = ''
   experience: string = '';
   level: string = '';
-  skillLevel : string = ''
-  type : string = ''
+  skillLevel : string = '';
+  type : string = '';
+  category : string = '';
+  subcategory :  string = '';
 
   constructor(private route: ActivatedRoute, private parseService: ParseService) {}
 
@@ -33,13 +35,12 @@ export class CardDetailComponent implements OnInit {
 // In your Angular component (e.g., card-detail.component.ts)
 async getCardDetails() {
   try {
-    const cardDetails = await this.parseService.getCardById(this.cardId);
+    const cardDetails = await this.parseService.getGigById(this.cardId);
    
     if (cardDetails.status === 1) {
      console.log(cardDetails)
       this.cardTitle = cardDetails.data.title;
       this.level1_price = cardDetails.data.level_1_price;
-      console.log(this.level1_price);
       this.level1_description = cardDetails.data.level_1_Description;
       this.level2_price = cardDetails.data.level_2_price;
       this.level2_description = cardDetails.data.level_2_Description;
@@ -49,8 +50,9 @@ async getCardDetails() {
       this.level = cardDetails.data.level;
       this.type = cardDetails.data.type;
        this.skillLevel = cardDetails.data.skillLevel;
-    
       this.cardName = cardDetails.data.user.firstname;
+      this.category = cardDetails.data.category ;
+      this.subcategory = cardDetails.data.subcategory ;
      
     } else {
       // Handle the error case
