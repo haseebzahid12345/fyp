@@ -10,6 +10,7 @@
     
     body {
       padding-top: 56px; /* Adjust the padding-top based on your fixed header height */
+      background-color: #f8f9fa; /* Set a background color for the body */
     }
 
     .fixed-header {
@@ -18,7 +19,7 @@
       left: 0;
       right: 0;
       z-index: 1000;
-      background-color: #fff; /* Add a background color for better visibility */
+      background-color: #000; /* Set header background color to black */
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
@@ -26,27 +27,36 @@
       padding: 15px 20px; /* Adjust the padding as needed */
     }
 
+    .navbar-text {
+      font-size: x-large;
+      color: #ff0; /* Set header text color to yellow */
+    }
+
+    .router-link {
+      color: #fff; /* Set the color to white */
+      text-decoration: none; /* Remove underline, if any */
+    }
+
     .btn-reset,
     .btn-send {
       transition: all 0.3s ease-in-out;
-    }
-
-    .btn-reset {
-      margin-right: 10px;
+      width: 150px; /* Increase the width of the buttons */
+      height: 50px; /* Increase the height of the buttons */
+      margin: 10px 10px 10px 0; /* Add vertical and right margin to the buttons */
+      font-size: 18px; /* Adjust the font size */
+      border-radius: 8px; /* Add border-radius for a rounded look */
     }
 
     .btn-reset:hover,
     .btn-send:hover {
-      transform: scale(1.05);
+      transform: scale(1.1); /* Increased scale on hover */
     }
 
-    .btn-reset,
-    .btn-send {
-      width: 120px; /* Adjust the button width as needed */
-    }
-
-    .d-grid {
-      text-align: center; /* Center-align the buttons */
+    .d-flex-center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* Center vertically */
     }
   </style>
   <title>Your Professional Form</title>
@@ -56,26 +66,24 @@
 
   <header class="fixed-header">
     <nav class="navbar navbar-expand-lg">
-      <a routerLink="/urgentoptions" class="navbar-brand" href="#">
+      <a class="navbar-brand router-link" routerLink="/urgentoptions" href="#">
         <fa-icon class="fa" [icon]="back"></fa-icon>
       </a>
-      <span class="navbar-text" style="font-size: x-large;">Urgent Filter</span>
+      <span class="navbar-text">Urgent <span style="color: #ff0;"></span></span>
     </nav>
   </header>
 
-  <div class="container mt-4">
-    <div class="row justify-content-center">
+  <div class="container mt-4 d-flex-center">
+    <div class="row">
       <div class="col-md-8 col-lg-6">
-        <div class="shadow-p-3">
-          <form>
-            <h4 class="form-title">Filter (Teachers)</h4>
-            <!-- ... (other form fields) ... -->
-            <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-              <button type="button" class="btn btn-secondary btn-reset">Reset</button>
-              <button type="submit" class="btn btn-primary btn-send">Send Request</button>
-            </div>
-          </form>
+          
+        <!-- ... (other form fields) ... -->
+        
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button type="submit" class="btn btn-primary me-md-2" style="background-color: #ff0; color: #000;">Search</button>
+          <button type="button" class="btn btn-secondary" style="background-color: #000; color: #ff0;">Reset</button>
         </div>
+        
       </div>
     </div>
   </div>
@@ -88,4 +96,3 @@
 </body>
 
 </html>
-
