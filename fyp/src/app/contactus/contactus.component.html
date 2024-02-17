@@ -1,11 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
 
-<section style="background-color: #d3d3d3">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+  <style>
+    /* Added styles for header */
+    .header {
+      background-color: black;
+      padding: 30px; /* Increased height to 30px */
+      color: white;
+      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .router-link {
+      color: white;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Added Header -->
+  <div class="header">
+    <a href="#" class="router-link">
+      <i class="bi bi-arrow-left"></i> 
+    </a>
+  </div>
+
+  <section style="background-color: #d3d3d3">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col col-xl-10">
           <div class="card" style="border-radius: 1rem">
             <div class="row g-0">
-              <div class="col-md-6 col-lg-5 d-md-block">
+              <div class="col-md-6 col-lg-5 d-none d-md-block">
                 <img
                   src="assets\images\img4.jpg"
                   alt="contact form"
@@ -59,4 +95,8 @@
       </div>
     </div>
   </section>
-  
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
