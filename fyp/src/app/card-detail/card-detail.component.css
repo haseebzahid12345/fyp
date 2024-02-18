@@ -1,10 +1,51 @@
-div.chatbox {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-top: 20px;
-  }
-  
-  textarea {
-    width: 100%;
-    margin-bottom: 10px;
-  }
+body {
+  background-color: #f0f2f5;
+}
+
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: none;
+}
+
+.card-header {
+  background-color: orange;
+  font-size: 24px;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-info p {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+
+
+.btn-primary {
+  background-color: orange;
+  border-color: orange;
+}
+
+.btn-primary:hover {
+  background-color: orange;
+  border-color: orange;
+}
+
+/* Additional styles */
+textarea {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  resize: vertical; /* Allows vertical resize */
+}
+
+.chatbox {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+}

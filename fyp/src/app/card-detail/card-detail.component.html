@@ -1,48 +1,30 @@
-
-
-
 <section>
-  <div class="container py-5 ">
+  <div class="container py-5">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-md-8 col-lg-6">
-        <div class="card" style="border-radius: 1rem">
+        <div class="card" style="border-radius: 1rem; overflow: hidden;">
+          <div class="card-header  text-white text-center">
+            <h2 class="card-title mb-0">Card Details</h2>
+          </div>
           <div class="card-body p-4 p-lg-5 text-black">
 
-<!--   
-            <div class="d-flex align-items-center mb-3 pb-1">
-              <img src="assets\images\logo2.svg" alt="Logo" height="60" />
-            </div> -->
-            <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px">
-             message box
-            </h5>
-            <form>
-
-              <div>
-                <h3>Card Title: {{ cardTitle }}</h3>
-                <p>Card ID: {{ cardId }}</p>
-                <p>Name: {{ cardName}}</p>
-                <p>low price : {{level1_price}}</p>
-                <p>mid price :{{level2_price}}</p>
-                <p>high price :{{level3_price}}</p>
-                <p>low price description :{{level1_description}}</p>
-                <p>mid price description : {{level2_description}}</p>
-                <p>high price description : {{level3_description}}</p>
-                <p>skillLevel : {{skillLevel}}</p>
-                <p>type : {{type}}</p>
-                <p>experience : {{experience}}</p>
-                <p>category : {{category}}</p>
-                <p>subcategory : {{subcategory}}</p>
-
-            
-                <button    [routerLink]="['/chat-page', cardId]">Message</button>
-                <!-- <button (click)="showChatBox = true"   [routerLink]="['/chat', cardId]">Message</button> -->
-              </div>
-            
-          
-            
-            
-          
-            </form>
+            <!-- Card Content -->
+           
+            <div class="card-info">
+              <p><strong>Card Title:</strong> {{ cardTitle }}</p>
+              <p><strong>Card ID:</strong> {{ cardId }}</p>
+              <p><strong>Name:</strong> {{ cardName }}</p>
+              <p><strong>Price Levels:</strong> {{ level1_price }} | {{ level2_price }} | {{ level3_price }}</p>
+              <p><strong>Description:</strong> {{ level1_description }} | {{ level2_description }} | {{ level3_description }}</p>
+              <p><strong>Skill Level:</strong> {{ skillLevel }}</p>
+              <p><strong>Type:</strong> {{ type }}</p>
+              <p><strong>Experience:</strong> {{ experience }}</p>
+              <p><strong>Category:</strong> {{ category }}</p>
+              <p><strong>Subcategory:</strong> {{ subcategory }}</p>
+            </div>
+            <div class="text-center">
+              <button class="btn btn-primary" [routerLink]="['/chat-page', cardId]">Message</button>
+            </div>
           </div>
         </div>
       </div>

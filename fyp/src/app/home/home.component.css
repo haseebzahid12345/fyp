@@ -7,9 +7,19 @@
   
   /* Styles for the image container */
   .image-container {
-    flex-grow: 1; /* Adjust this value to change the size ratio */
+    display: flex; /* Ensures the container can use flex properties */
+    justify-content: center; /* Centers the image horizontally */
+    align-items: center; /* Centers the image vertically */
     background-color: grey; /* Default background color for when there's no image */
     height: 200px; /* Default height, adjust as needed */
+    width: 100%; /* Adjust the width as needed or set a specific width */
+    overflow: hidden; /* Ensures no part of the image spills out of the container */
+  }
+  
+  .image-container img {
+    height: 100%; /* Make the image height equal to the container's height */
+    width: 100%; /* Make the image width equal to the container's width */
+    object-fit: cover; /* Adjust this to 'contain' if you want to see the whole image without cutting */
   }
   
   /* Styles for the information container */
@@ -80,3 +90,14 @@
     color: red; /* Change color to red when active */
   }
   
+
+  /* .carousel-img {
+    height: 500px; 
+    object-fit: contain;
+    background-color: #000;
+  }
+  
+  .carousel-inner {
+    background-color: #000; 
+  }
+   */
