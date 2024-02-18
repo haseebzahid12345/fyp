@@ -22,7 +22,7 @@
 
             <!-- Image Container -->
             <div class="image-container">
-              <!-- Optional image code here -->
+              <img  src="../assets/images/Capture.PNG" alt="Profile Image">
             </div>
             
             <!-- Information Container -->
@@ -31,16 +31,12 @@
                 <!-- <fa-icon  class="fa-2x" [icon]="heart"></fa-icon> -->
              
               <div class="profile-info d-flex align-items-start">
-                <img class="profile-image" src="../assets/images/haseebpicc.jpg" alt="Profile Image">
+                <img class="profile-image" src="../assets/images/profile_dropdown_logo/user.png" alt="Profile Image">
                 <div class="name-title">
                   <h3 class="card-name">{{ data.firstname }}</h3>
                   <p class="card-title">{{ data.title }}</p>
                 </div>
                 <fa-icon [ngClass]="{'heart-active': data.heartActive}" class="heart-icon fa-2x" [icon]="heart" (click)="toggleHeart(data)"></fa-icon>
-           
-
-
-                
               </div>
               <div class="price-position">
                 <p class="card-text">Rs:{{ data.price }}</p>
