@@ -41,6 +41,7 @@ import { CardDetailComponent } from './card-detail/card-detail.component';
 import { FormsModule } from '@angular/forms';
 import { ChatPageComponent } from './chat-page/chat-page.component';
 import { MessageTableComponent } from './message-table/message-table.component';
+import { SampleComponent } from './sample/sample.component';
 
 
 @NgModule({
@@ -82,6 +83,7 @@ import { MessageTableComponent } from './message-table/message-table.component';
     CardDetailComponent,
     ChatPageComponent,
     MessageTableComponent,
+    SampleComponent,
    
 
   ],

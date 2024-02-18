@@ -34,7 +34,7 @@ import { UpdateaccountComponent } from './updateaccount/updateaccount.component'
 import { CardDetailComponent } from './card-detail/card-detail.component';
 import { ChatPageComponent } from './chat-page/chat-page.component';
 import { MessageTableComponent } from './message-table/message-table.component';
-
+import { SampleComponent } from './sample/sample.component';
 const routes: Routes = [
   {
   path: 'chat-page/:id', 
@@ -172,6 +172,11 @@ const routes: Routes = [
     path: 'signup',
     component:SignupComponent,
   },
+  {
+    path: 'sample',
+    component:SampleComponent,
+  },
+
 ];
 
 @NgModule({
