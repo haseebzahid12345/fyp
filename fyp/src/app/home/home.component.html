@@ -34,7 +34,7 @@
                 <img class="profile-image" src="../assets/images/profile_dropdown_logo/user.png" alt="Profile Image">
                 <div class="name-title">
                   <h3 class="card-name">{{ data.firstname }}</h3>
-                  <p class="card-title">{{ data.title }}</p>
+                  <p class="card-title">I will {{ data.title }}</p>
                 </div>
                 <fa-icon [ngClass]="{'heart-active': data.heartActive}" class="heart-icon fa-2x" [icon]="heart" (click)="toggleHeart(data)"></fa-icon>
               </div>

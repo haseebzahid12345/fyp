@@ -37,7 +37,7 @@ toggleHeart(data: any) {
   // Only proceed if the heart is currently inactive
   if (!data.heartActive) {
     data.heartActive = true; // Activate the heart icon when clicked
-
+    console.log(data.objectId,"i got objectId for favourites");
     this.addToFavourites(data).finally(() => {
       // Deactivate the heart icon after the operation (regardless of success or failure)
       data.heartActive = true;
@@ -47,6 +47,7 @@ toggleHeart(data: any) {
 
 async addToFavourites(data: any): Promise<void> {
   try {
+    console.log(data.objectId,"ok i objeded");
     const response = await this.parseService.addFavourite(data.objectId , this.user.objectId);
     alert(response.message); // Show the message from the response
   } catch (error) {

@@ -104,6 +104,7 @@ export class ParseService {
 
   async addFavourite(CardObjectId: string, currentUserObjectId: string): Promise<any> {
     const params = { CardObjectId, currentUserObjectId };
+    console.log(CardObjectId)
     return await Parse.Cloud.run('addFavourite', params);
   }
   
