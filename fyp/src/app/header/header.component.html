@@ -110,11 +110,15 @@
           <button routerLink="/sample"class="search-button">
             <fa-icon class="fa" [icon]="search"></fa-icon>
           </button>
-        </div>
+         </div>
 
-        <img src="assets\images\profile_dropdown_logo\user.png" (clickOutside)="clickedOutside()" class="user_pic"
-          (click)="toggleMenu()" />
-      </div>
+        <!-- <img src="assets\images\profile_dropdown_logo\user.png" (clickOutside)="clickedOutside()" class="user_pic"
+          (click)="toggleMenu()" /> -->
+     
+      <div *ngIf="pictur" class="image-container d-flex justify-content-center">
+        <img [src]="pictur | safeResourceUrl" class="rounded-circle" alt="Profile Image" style="height: 10vh; width: 5vw; border-radius: 1rem;">
+    </div>
+ </div> 
     </div>
   </nav>
 

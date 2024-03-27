@@ -1,10 +1,13 @@
 import { Component ,OnInit } from '@angular/core';
 import { ParseService } from '../services/parse.service';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
+
+
 import {  } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
+  
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit{
@@ -14,7 +17,7 @@ export class HomeComponent implements OnInit{
 
   constructor(private parseService: ParseService) {}
 
-
+  images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
 
 ngOnInit() {
   this.loadCardData();

@@ -160,6 +160,26 @@ export class ParseService {
     }
   }
 
+  async update_submit_profile(image : string){
+    const params = {image ,userId :this.currentUser.objectId}
+    const result = await Parse.Cloud.run("update_image_student",params)
+    return result;
+
+  }
+ 
+
+  async getMUserById(id: string): Promise<any> {
+    try {
+      const response = await Parse.Cloud.run('getMUserById', { id });
+      return response;
+    } catch (error) {
+      console.error('Error fetching MUser by ID from Cloud Code', error);
+      throw error;
+    }
+  }
+
+
+
 
   async sendMessage(senderId: string, receiverId: string, text: string) {
     try {
