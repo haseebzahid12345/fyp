@@ -16,7 +16,10 @@ export class ChatPageComponent {
   cardId: string = '';
   TeacherID: string = '';
   StudentID:string = '';
-  teacherCatchId:string = '';
+  teacherCatchId:string = ''; 
+  pictur: string = '';
+  
+
 
   conversationId: string = ''; 
   constructor(private route: ActivatedRoute, private parseService: ParseService) {}
@@ -32,8 +35,12 @@ export class ChatPageComponent {
        this.getCardDetails();
       
     });
+    
   }
 
+    
+
+  
   async loadMessages() {
     if (!this.conversationId) return;
     this.messages = await this.parseService.getMessages(this.conversationId);
@@ -72,6 +79,7 @@ export class ChatPageComponent {
         this.TeacherID = cardDetails.data.user.userId;
         console.log(cardDetails.data.user.userId);
         this.StudentID = await this.parseService.user.objectId;
+      
       const conversationResult = await this.getConversationID(this.TeacherID, this.StudentID);
       if(conversationResult){
         this.conversationId = conversationResult;
@@ -88,8 +96,12 @@ export class ChatPageComponent {
       else {
 
         
-          console.log(this.teacherCatchId);
+       
+        
+         
           const teacherDetails = await this.parseService.getTeacherById(this.cardId);
+          console.log(this.cardId);
+        
            
             this.teacherName = teacherDetails.data.get("firstname");
             this.StudentID= await this.parseService.user.objectId;
@@ -98,6 +110,11 @@ export class ChatPageComponent {
             this.conversationId = conversationResult;
             console.log(this.conversationId,'123','successs');
             await this.loadMessages();
+              const profileResult = await this.parseService.getProfileById(this.cardId);
+
+       
+          this.pictur = profileResult.data.pictur;
+          console.log(this.pictur , "pictur");
     
           }
           else {

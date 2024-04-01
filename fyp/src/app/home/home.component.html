@@ -12,7 +12,7 @@
 
   <div class="container">
     <div class="row mt-5 pt-5">
-      <div *ngFor="let data of teacherData; let i = index" class="col-sm-6 col-md-6 col-lg-6 col-6 mb-4" [routerLink]="['/card-detail', data.objectId]">
+      <div *ngFor="let data of teacherData; let i = index" class="col-sm-6 col-md-6 col-lg-6 col-6 mb-4" >
         <div class="card text-center shadow">
           <div class="card-body d-flex flex-column position-relative">
             <!-- Displaying the Unique ObjectId -->
@@ -31,10 +31,12 @@
                 <!-- <fa-icon  class="fa-2x" [icon]="heart"></fa-icon> -->
              
               <div class="profile-info d-flex align-items-start">
-                <img class="profile-image" src="../assets/images/profile_dropdown_logo/user.png" alt="Profile Image">
+              
+                  <img [src]="data.image | safeResourceUrl" class="rounded-circle" alt="Profile Image" style="height: 10vh; width: 5vw; border-radius: 1rem;">
+              
                 <div class="name-title">
-                  <h3 class="card-name">{{ data.firstname }}</h3>
-                  <p class="card-title">I will {{ data.title }}</p>
+                  <h3 class="card-name">I will {{ data.title }}</h3>
+                  <p class="card-title">{{ data.firstname }}</p>
                 </div>
                 <fa-icon [ngClass]="{'heart-active': data.heartActive}" class="heart-icon fa-2x" [icon]="heart" (click)="toggleHeart(data)"></fa-icon>
               </div>

@@ -23,6 +23,7 @@ export class CardDetailComponent implements OnInit {
   type : string = '';
   category : string = '';
   subcategory :  string = '';
+  teacherId : string = "";
 
   constructor(private route: ActivatedRoute, private parseService: ParseService) {}
 
@@ -53,6 +54,7 @@ async getCardDetails() {
       this.cardName = cardDetails.data.user.firstname;
       this.category = cardDetails.data.category ;
       this.subcategory = cardDetails.data.subcategory ;
+      this.teacherId = cardDetails.data.user.userId;
      
     } else {
       // Handle the error case

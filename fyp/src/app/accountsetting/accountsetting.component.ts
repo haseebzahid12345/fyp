@@ -25,6 +25,7 @@ export class AccountsettingComponent {
     } else {
       // User clicked 'Cancel', do not delete the account
       console.log("Account deletion cancelled.");
+      alert("Account deletion cancelled.");
     }
   }
 }

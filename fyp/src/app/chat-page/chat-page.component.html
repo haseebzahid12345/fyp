@@ -2,17 +2,14 @@
 
 <div class="chat-container">
   <!-- Chat Header with Name -->
-  <div class="chat-header">
-    <h2>{{ teacherName }}</h2>
-  </div>
+  <div class="chat-header d-flex align-items-center">
+    <img [src]="pictur | safeResourceUrl" class="rounded-circle" alt="Profile Image" style="height: 10vh; width: 5vw; border-radius: 1rem;">
+    <h2 class="ms-3">{{ teacherName }}</h2>
+</div>
 
-  <li class="active bounceInDown">
-    <a href="#" class="clearfix">
-    <img src="https://bootdey.com/img/Content/user_1.jpg" alt class="img-circle">
-   
+
+  
     
-    </a>
-    </li>
 
   <!-- Messages Container -->
   <div class="chat-messages" #scrollContainer>

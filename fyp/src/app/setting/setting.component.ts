@@ -12,26 +12,18 @@ export class SettingComponent {
   pictur:string="";
   selectedFile: File | null = null;
   fileBinaryString: string | null = null;
-  name : any;
  
   constructor(private parseService: ParseService ,  private router: Router) {}
   ngOnInit() {
-    this.user = this.parseService.user.objectId;
-    this.name = this.parseService.user;
-    console.log(this.user);
+    this.user = this.parseService.user;
     this.fetchMUserData();
   }
 
   async fetchMUserData() {
     try {
-      const result = await this.parseService.getMUserById(this.user);
-      
+      const result = await this.parseService.getMUserById(this.user.objectId);    
       if (result.status === 1) {
-
-    
        this.pictur = result.image;
-       console.log(this.pictur);
-       
       } else {
      
       }
@@ -42,7 +34,7 @@ export class SettingComponent {
  async update_profile_image(){
 
     if (!this.fileBinaryString) {
-      alert('No file selected or file processing error.');
+      alert('N+o file selected or file processing error.');
       return;
     }
 
