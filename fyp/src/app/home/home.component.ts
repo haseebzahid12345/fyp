@@ -16,9 +16,9 @@ export class HomeComponent implements OnInit{
   heart=faHeart;
   pictur:string="";
 
-  constructor(private parseService: ParseService) {}
+  constructor(private parseService: ParseService ) {}
 
-  images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
+ 
 
 ngOnInit() {
   this.loadCardData();

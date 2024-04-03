@@ -101,3 +101,19 @@
     background-color: #000; 
   }
    */
+
+   .custom-carousel {
+    margin-top: 20px; /* Adjust top margin if needed */
+}
+
+.picsum-img-wrapper img {
+    width: 100%; /* Ensure images in carousel are full width within the column */
+    object-fit: cover; /* Optional: Adjust how images fit within their defined height */
+}
+  
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Prevents inline spacing */
+  }
+  
