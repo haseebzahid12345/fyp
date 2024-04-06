@@ -36,8 +36,8 @@ export class CardDetailComponent implements OnInit {
 // In your Angular component (e.g., card-detail.component.ts)
 async getCardDetails() {
   try {
-    const cardDetails = await this.parseService.getGigById(this.cardId);
-   
+    const cardDetails = await this.parseService.getGigByIdd(this.cardId);
+    console.log(cardDetails);
     if (cardDetails.status === 1) {
      console.log(cardDetails)
       this.cardTitle = cardDetails.data.title;

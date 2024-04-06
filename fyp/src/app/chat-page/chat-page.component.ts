@@ -79,12 +79,16 @@ export class ChatPageComponent {
         this.TeacherID = cardDetails.data.user.userId;
         console.log(cardDetails.data.user.userId);
         this.StudentID = await this.parseService.user.objectId;
+        const profileResult = await this.parseService.getProfileById(this.cardId);
+       
+        this.pictur = profileResult.data.pictur;
       
       const conversationResult = await this.getConversationID(this.TeacherID, this.StudentID);
       if(conversationResult){
         this.conversationId = conversationResult;
         console.log(this.conversationId,'123','successs');
         await this.loadMessages();
+       
 
       }
       else {
@@ -93,35 +97,35 @@ export class ChatPageComponent {
 
         // Handle other card details
       } 
-      else {
+      // else {
 
         
        
         
          
-          const teacherDetails = await this.parseService.getTeacherById(this.cardId);
-          console.log(this.cardId);
+      //     const teacherDetails = await this.parseService.getTeacherById(this.cardId);
+      //     console.log(this.cardId);
         
            
-            this.teacherName = teacherDetails.data.get("firstname");
-            this.StudentID= await this.parseService.user.objectId;
-            const conversationResult = await this.getConversationID(this.cardId, this.StudentID);
-          if(conversationResult){
-            this.conversationId = conversationResult;
-            console.log(this.conversationId,'123','successs');
-            await this.loadMessages();
-              const profileResult = await this.parseService.getProfileById(this.cardId);
+      //       this.teacherName = teacherDetails.data.get("firstname");
+      //       this.StudentID= await this.parseService.user.objectId;
+      //       const conversationResult = await this.getConversationID(this.cardId, this.StudentID);
+      //     if(conversationResult){
+      //       this.conversationId = conversationResult;
+      //       console.log(this.conversationId,'123','successs');
+      //       await this.loadMessages();
+      //         const profileResult = await this.parseService.getProfileById(this.cardId);
 
        
-          this.pictur = profileResult.data.pictur;
-          console.log(this.pictur , "pictur");
+      //     this.pictur = profileResult.data.pictur;
+      //     console.log(this.pictur , "pictur");
     
-          }
-          else {
-            console.log('No conversation found');
-          }
+      //     }
+      //     else {
+      //       console.log('No conversation found');
+      //     }
  
-      }
+      // }
 
   }
 

@@ -117,7 +117,7 @@ export class ParseService {
     try {
         
         const results = await Parse.Cloud.run("getGigData" );
-        console.log('Results from Cloud Code:', results);
+        // console.log('Results from Cloud Code:', results);
         
         return results;
     } catch (error) {
@@ -131,7 +131,8 @@ export class ParseService {
       if (this.currentUser && this.currentUser.objectId) {
         const params = { userId: this.currentUser.objectId };
         const results = await Parse.Cloud.run("getFavorites", params);
-        console.log('Favorites from Cloud Code:', results);
+        console.log(results);
+        // console.log('Favorites from Cloud Code:', results);
         return results;
       } else {
         throw new Error('No user is currently logged in.');
@@ -155,6 +156,16 @@ export class ParseService {
   }
 
   async getGigById(id: string): Promise<any> {
+    try {
+      const response = await Parse.Cloud.run('getGigByUserId', { id });
+      return response;
+    } catch (error) {
+      console.error('Error fetching card by ID from Cloud Code', error);
+      throw error;
+    }
+  }
+
+  async getGigByIdd(id: string): Promise<any> {
     try {
       const response = await Parse.Cloud.run('getGigById', { id });
       return response;
