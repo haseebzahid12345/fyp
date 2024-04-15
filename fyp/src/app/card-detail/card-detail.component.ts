@@ -24,6 +24,9 @@ export class CardDetailComponent implements OnInit {
   category : string = '';
   subcategory :  string = '';
   teacherId : string = "";
+  image1 : string = "";
+  image2 : string = "";
+  image3 : string = "";
 
   constructor(private route: ActivatedRoute, private parseService: ParseService) {}
 
@@ -55,6 +58,9 @@ async getCardDetails() {
       this.category = cardDetails.data.category ;
       this.subcategory = cardDetails.data.subcategory ;
       this.teacherId = cardDetails.data.user.userId;
+      this.image1 = cardDetails.data.image1;
+      this.image2 = cardDetails.data.image2;
+      this.image3 = cardDetails.data.image3;
      
     } else {
       // Handle the error case

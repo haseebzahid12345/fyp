@@ -13,9 +13,7 @@ export class LoginComponent {
 
   constructor(private parseService: ParseService, private router: Router)
    { 
-    Parse.initialize('myAppId', 'myMasterKey');
-(Parse as any).serverURL = 'http://localhost:1336/parse';
-console.log("Comnstructor");
+   
    }
 
  async onLogin(email: string, password: string) {

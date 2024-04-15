@@ -21,7 +21,7 @@
 
             <!-- Image Container -->
             <div class="image-container">
-              <img  src="../assets/images/Capture.PNG" alt="Profile Image">
+              <img  [src]="data.image1" alt="Profile Image">
             </div>
             
             <!-- Information Container -->
@@ -37,7 +37,7 @@
                   <h3 class="card-name">I will {{ data.title }}</h3>
                   <p class="card-title">{{ data.firstname }}</p>
                 </div>
-                <fa-icon [ngClass]="{'heart-active': data.heartActive}" class="heart-icon fa-2x" [icon]="heart" (click)="toggleHeart(data)"></fa-icon>
+                <fa-icon [ngClass]="{'heart-active': data.heartActive}" class="heart-icon fa-2x" [icon]="heart" (click)="toggleHeart($event ,data)"></fa-icon>
               </div>
               <div class="price-position">
                 <p class="card-text">Rs:{{ data.price }}</p>

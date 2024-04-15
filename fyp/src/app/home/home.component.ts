@@ -38,7 +38,9 @@ async loadCardData(){
   }
 }
 
-toggleHeart(data: any) {
+toggleHeart(event: MouseEvent ,data: any) {
+  event.stopPropagation();
+  
   // Only proceed if the heart is currently inactive
   if (!data.heartActive) {
     data.heartActive = true; // Activate the heart icon when clicked
