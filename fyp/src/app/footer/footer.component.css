@@ -1,35 +1,50 @@
-/* body {
-    background: #3A3E4B;
-} */
-       /* Custom styles for the footer */
-       .footer {
-        background-color:  #3A3E4B;
-        color: #fff;
-        padding: 10px 0;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-    }
 
-    .footer a {
-        color: #fff;
-    }
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-    .footer-icons {
-        text-align: center;
-    }
+  .footer {
+    position: fixed; /* Fix the footer's position relative to the viewport */
+    left: 0; /* Align the footer to the left edge of the viewport */
+    bottom: 0; /* Align the footer to the bottom of the viewport */
+    width: 100%; /* Ensure the footer spans the full width of the viewport */
+    background-color: #000; /* Footer background color */
+    color: #fff; /* Footer text color */
+    text-align: center; /* Center the footer content */
+    padding: 8px 0; /* Padding inside the footer */
+  }
+  
 
-    .footer-icons i {
-        font-size: 20px;
-        margin-left: 10px;
-    }
+  .footer-icons {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    transition: transform 0.3s ease-in-out; /* Added animation transition */
+  }
 
-    .footer-icons i:first-child {
-        margin-left: 0;
-    }
+  .footer-icons:hover {
+    text-decoration: none; /* Remove underline on hover */
+    transform: scale(1.2); /* Added scale animation on hover */
+  }
 
-    /* Add padding to the bottom of the body to account for the fixed footer */
-    body {
-        padding-bottom: 70px; 
-        /* Adjust this value as needed */
-    }
+  .footer-icons fa-icon {
+    margin-bottom: 5px;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .col-2 {
+    flex: 0 0 20%;
+    text-align: center;
+  }

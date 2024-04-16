@@ -2,8 +2,25 @@ body {
     background: #3A3E4B;
     
   }
-  
-  
+  .container {
+    min-height: 90vh; /* Adjust based on your needs */
+}
+@media (max-width: 576px) {
+  .my-3 {
+      margin-bottom: 30px; /* Increase the bottom margin */
+  }
+  .btn-lg {
+      margin-top: 10px; /* Adjust the top margin of the button for spacing */
+  }
+  /* Ensure the container has enough space */
+  .container {
+      padding-bottom: 20px; /* Add more padding at the bottom */
+  }
+}
+
+
+
+
   .brand {
     color: #FF9138;
   }
