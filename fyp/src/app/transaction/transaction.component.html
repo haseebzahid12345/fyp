@@ -1,0 +1,22 @@
+<!-- TransactionComponent HTML -->
+<div class="container mt-5">
+    <div class="card">
+      <div class="card-header">
+        Order Summary
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Selected Service</h5>
+        <p class="card-text">Thank you for your selection. Below is the summary of your order:</p>
+  
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Service Fee: <strong>${{ price }} {{cardId}}{{studentId}}{{teacherId}}</strong></li>
+          <!-- Add other billing details here if necessary -->
+        </ul>
+  
+        <div class="text-center mt-4">
+          <button class="btn btn-primary" (click)="confirmOrder()">Confirm Order</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

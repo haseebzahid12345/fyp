@@ -1,13 +1,46 @@
 <app-header></app-header>
 
 <html lang="en">
-<head>
-  <!-- Add Bootstrap CSS link -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
- 
-</head>
+
 <body>
 
+  <div class="row">
+    <div class="col">
+      <ngb-carousel class="custom-carousel">
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper" style="height: 300px; /* Adjust this value as needed */">
+            <img src="../../assets/images/1.3.jpg" alt="Random third slide" class="img-fluid" />
+        </div>
+          
+          <div class="carousel-caption">
+            <h3>First slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper" style="height: 300px; /* Adjust this value as needed */">
+            <img src="../../assets/images/1.2.jpg" alt="Random third slide" class="img-fluid" />
+        </div>
+          
+          <div class="carousel-caption">
+            <h3>Second slide label</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper" style="height: 300px; /* Adjust this value as needed */">
+            <img src="../../assets/images/1.1.jpg" alt="Random third slide" class="img-fluid" />
+        </div>
+        
+          <div class="carousel-caption">
+            <h3>Third slide label</h3>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+          </div>
+        </ng-template>
+      </ngb-carousel> 
+      
+    </div>
+</div>
 
   <div class="container">
     <div class="row mt-5 pt-5">
@@ -51,43 +84,7 @@
 
 
 
-  <div class="row">
-    <div class="col">
-      <ngb-carousel class="custom-carousel">
-        <ng-template ngbSlide>
-          <div class="picsum-img-wrapper" style="height: 300px; /* Adjust this value as needed */">
-            <img src="../../assets/images/1.3.jpg" alt="Random third slide" class="img-fluid" />
-        </div>
-          
-          <div class="carousel-caption">
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-          </div>
-        </ng-template>
-        <ng-template ngbSlide>
-          <div class="picsum-img-wrapper" style="height: 300px; /* Adjust this value as needed */">
-            <img src="../../assets/images/1.2.jpg" alt="Random third slide" class="img-fluid" />
-        </div>
-          
-          <div class="carousel-caption">
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </div>
-        </ng-template>
-        <ng-template ngbSlide>
-          <div class="picsum-img-wrapper" style="height: 300px; /* Adjust this value as needed */">
-            <img src="../../assets/images/1.1.jpg" alt="Random third slide" class="img-fluid" />
-        </div>
-        
-          <div class="carousel-caption">
-            <h3>Third slide label</h3>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-          </div>
-        </ng-template>
-      </ngb-carousel> 
-      
-    </div>
-</div>
+ 
 
 
 
