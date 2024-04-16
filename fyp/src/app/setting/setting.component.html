@@ -89,6 +89,25 @@
               </tr>
             </thead>
             <tbody>
+              
+
+              <tr>
+                <td>
+                
+                <br>
+                <br>
+                <div class="form-outline mb-4">
+                    <label class="fw-bold my-1 py-1">Profile Picture</label>
+                    <div *ngIf="pictur" class="image-container d-flex justify-content-center">
+                      <img [src]="pictur | safeResourceUrl" class="rounded-circle" alt="Profile Image" style="height: 20vh; width: 10vw; border-radius: 1rem;">
+                  </div>
+                  <br>
+                  <br>
+                    <input type="file" (change)="onFileChanged($event)" class="form-control form-control-lg">
+                    <button (click)="update_profile_image()">change profile image</button>
+                  </div>
+                </td>
+              </tr>
               <tr>
                 <td>
                   <a *ngIf="user" style="font-size: larger;">
@@ -210,4 +229,4 @@
 </html>
 
 
-<app-footer></app-footer>
+<!-- <app-footer></app-footer> -->

@@ -40,9 +40,10 @@ export class FavoritesComponent implements OnInit {
     }
   }
 
-  async removeFavorite(objectId: string): Promise<void> {
+  async removeFavorite(event: MouseEvent, objectId: string): Promise<void> {
     try {
       console.log(objectId);
+      event.stopPropagation();
      
        await this.parseService.removeFavorite(objectId);
       
@@ -60,3 +61,4 @@ export class FavoritesComponent implements OnInit {
     }
   }
 }
+

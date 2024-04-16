@@ -25,7 +25,7 @@ const result = await this.parseService.signup(name,email,password);
     alert('user created successfully ');
     this.router.navigate(['/login']);
     }
-  
   }
+  
 }
 

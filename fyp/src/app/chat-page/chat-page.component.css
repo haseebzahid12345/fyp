@@ -8,11 +8,14 @@
 }
 
 .chat-header {
-  background-color:orange;
+  background-color: orange;
   color: white;
   padding: 10px 20px;
   text-align: left;
+  display: flex; /* Make this a flex container */
+  align-items: center; /* Align items vertically in the center */
 }
+
 
 .chat-messages {
   flex-grow: 1;

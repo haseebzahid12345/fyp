@@ -26,6 +26,7 @@ export class ParseService {
   async signup(name: string, email: string, password: string) {
     const params = { name , email, password };
     const status =  await Parse.Cloud.run('addUserStudent', params);  
+    console.log(status , "this is status");
     return status;
     
   }
@@ -83,6 +84,16 @@ export class ParseService {
     }
   }
 
+  async getProfileById(id: string): Promise<any> {
+    try {
+      const response = await Parse.Cloud.run('getProfileById', { id });
+      return response;
+    } catch (error) {
+      console.error('Error fetching profile by ID from Cloud Code', error);
+      throw error;
+    }
+  }
+
   async updateCurrentUser(name: string) {
     if (this.currentUser && this.currentUser.objectId) {
       const params = { objectId: this.currentUser.objectId , name};
@@ -93,26 +104,20 @@ export class ParseService {
     }
   }
 
-  async getCurrentUserName() {
-    if (this.currentUser && this.currentUser.objectId) {
-      const params = { objectId: this.currentUser.objectId };
-      const result = await Parse.Cloud.run('current_user_name' , params)
-      return result;
-     
-  }
-}
+
 
   async addFavourite(CardObjectId: string, currentUserObjectId: string): Promise<any> {
     const params = { CardObjectId, currentUserObjectId };
+    console.log(CardObjectId , currentUserObjectId)
     return await Parse.Cloud.run('addFavourite', params);
   }
   
 
-  async getGigData(userId : string): Promise<any[]> {
+  async getGigData(): Promise<any[]> {
     try {
-        const params = {userId};
-        const results = await Parse.Cloud.run("getGigData" , params);
-        console.log('Results from Cloud Code:', results);
+        
+        const results = await Parse.Cloud.run("getGigData" );
+        // console.log('Results from Cloud Code:', results);
         
         return results;
     } catch (error) {
@@ -126,7 +131,8 @@ export class ParseService {
       if (this.currentUser && this.currentUser.objectId) {
         const params = { userId: this.currentUser.objectId };
         const results = await Parse.Cloud.run("getFavorites", params);
-        console.log('Favorites from Cloud Code:', results);
+        console.log(results);
+        // console.log('Favorites from Cloud Code:', results);
         return results;
       } else {
         throw new Error('No user is currently logged in.');
@@ -151,6 +157,16 @@ export class ParseService {
 
   async getGigById(id: string): Promise<any> {
     try {
+      const response = await Parse.Cloud.run('getGigByUserId', { id });
+      return response;
+    } catch (error) {
+      console.error('Error fetching card by ID from Cloud Code', error);
+      throw error;
+    }
+  }
+
+  async getGigByIdd(id: string): Promise<any> {
+    try {
       const response = await Parse.Cloud.run('getGigById', { id });
       return response;
     } catch (error) {
@@ -158,6 +174,26 @@ export class ParseService {
       throw error;
     }
   }
+
+  async update_submit_profile(image : string){
+    const params = {image ,userId :this.currentUser.objectId}
+    const result = await Parse.Cloud.run("update_image_student",params)
+    return result;
+
+  }
+ 
+
+  async getMUserById(id: string): Promise<any> {
+    try {
+      const response = await Parse.Cloud.run('getMUserById', { id });
+      return response;
+    } catch (error) {
+      console.error('Error fetching MUser by ID from Cloud Code', error);
+      throw error;
+    }
+  }
+
+
 
 
   async sendMessage(senderId: string, receiverId: string, text: string) {
@@ -182,7 +218,7 @@ export class ParseService {
     }
   }
 
-  async getTeacherNamesByIds(teacherIds: string[]): Promise<string[]> {
+  async getTeacherDataByIds(teacherIds: string[]): Promise<string[]> {
     const params = { teacherIds };
     const response = await Parse.Cloud.run('getTeacherNamesByIds', params);
     console.log(response, 'name gets in parse')
@@ -200,8 +236,8 @@ export class ParseService {
     }
   }
 
-  async getTeacherIdsByStudentId(studentId: string): Promise<string[]> {
-    const params = { studentId };
+  async getTeacherIdsByStudentId(): Promise<string[]> {
+    const params = { studentId : this.currentUser.objectId};
     const studentIds = await Parse.Cloud.run('getTeacherIdsByStudent', params);
     // Filter out any null or undefined values just in case
     // return studentIds.filter(id => id != null && id !== undefined);

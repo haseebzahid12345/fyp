@@ -21,9 +21,42 @@
               <p><strong>Experience:</strong> {{ experience }}</p>
               <p><strong>Category:</strong> {{ category }}</p>
               <p><strong>Subcategory:</strong> {{ subcategory }}</p>
+              <ngb-carousel class="custom-carousel">
+                <ng-template ngbSlide>
+                  
+                  <div class="picsum-img-wrapper" style="height: 300px; /* Adjust this value as needed */">
+                    <img [src]="image1 | safeResourceUrl" alt=" ist third slide" class="img-fluid" />
+                </div>
+                  
+                  <div class="carousel-caption">
+                    <h3>First slide label</h3>
+                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                  </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                  <div class="picsum-img-wrapper" style="height: 300px; /* Adjust this value as needed */">
+                    <img [src]="image2 | safeResourceUrl" alt="2nd  slide" class="img-fluid" />
+                </div>
+                  
+                  <div class="carousel-caption">
+                    <h3>Second slide label</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                  <div class="picsum-img-wrapper" style="height: 300px; /* Adjust this value as needed */">
+                    <img [src]="image3 | safeResourceUrl" alt="3rd slide" class="img-fluid" />
+                </div>
+                
+                  <div class="carousel-caption">
+                    <h3>Third slide label</h3>
+                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                  </div>
+                </ng-template>
+              </ngb-carousel> 
             </div>
             <div class="text-center">
-              <button class="btn btn-primary" [routerLink]="['/chat-page', cardId]">Message</button>
+              <button class="btn btn-primary" [routerLink]="['/chat-page', teacherId]">Message</button>
             </div>
           </div>
         </div>

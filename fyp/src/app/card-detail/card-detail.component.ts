@@ -23,6 +23,10 @@ export class CardDetailComponent implements OnInit {
   type : string = '';
   category : string = '';
   subcategory :  string = '';
+  teacherId : string = "";
+  image1 : string = "";
+  image2 : string = "";
+  image3 : string = "";
 
   constructor(private route: ActivatedRoute, private parseService: ParseService) {}
 
@@ -35,8 +39,8 @@ export class CardDetailComponent implements OnInit {
 // In your Angular component (e.g., card-detail.component.ts)
 async getCardDetails() {
   try {
-    const cardDetails = await this.parseService.getGigById(this.cardId);
-   
+    const cardDetails = await this.parseService.getGigByIdd(this.cardId);
+    console.log(cardDetails);
     if (cardDetails.status === 1) {
      console.log(cardDetails)
       this.cardTitle = cardDetails.data.title;
@@ -53,6 +57,10 @@ async getCardDetails() {
       this.cardName = cardDetails.data.user.firstname;
       this.category = cardDetails.data.category ;
       this.subcategory = cardDetails.data.subcategory ;
+      this.teacherId = cardDetails.data.user.userId;
+      this.image1 = cardDetails.data.image1;
+      this.image2 = cardDetails.data.image2;
+      this.image3 = cardDetails.data.image3;
      
     } else {
       // Handle the error case

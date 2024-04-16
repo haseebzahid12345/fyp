@@ -1,20 +1,24 @@
 import { Component ,OnInit } from '@angular/core';
 import { ParseService } from '../services/parse.service';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
+
+
 import {  } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
+  
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit{
   teacherData: any[] = [];
   user: any;
   heart=faHeart;
+  pictur:string="";
 
-  constructor(private parseService: ParseService) {}
+  constructor(private parseService: ParseService ) {}
 
-
+ 
 
 ngOnInit() {
   this.loadCardData();
@@ -24,29 +28,43 @@ ngOnInit() {
 async loadCardData(){
   try {
     console.log('inside function');
-    const responseData = await this.parseService.getGigData(this.user);
-    console.log(responseData);
+    const responseData = await this.parseService.getGigData();
     this.teacherData = responseData;
+    
+    
     console.log('inside function q');
   } catch (error) {
     console.error('Error loading teacher Data', error);
   }
 }
 
-toggleHeart(data: any) {
+toggleHeart(event: MouseEvent ,data: any) {
+  event.stopPropagation();
+  
   // Only proceed if the heart is currently inactive
   if (!data.heartActive) {
     data.heartActive = true; // Activate the heart icon when clicked
-
+    console.log(data.objectId,"i got objectId for favourites");
+    
     this.addToFavourites(data).finally(() => {
-      // Deactivate the heart icon after the operation (regardless of success or failure)
-      data.heartActive = true;
+      data.heartActive = false;
     });
   }
+  else if (data.heartActive) {
+    data.heartActive = false; // Activate the heart icon when clicked
+    console.log(data.userId, data.objectId , this.user.objectId , "i got objectId for favourites");
+    // this.addToFavourites(data).finally(() => {
+     
+    //   data.heartActive = true;
+    // });
+    
+  }
+
 }
 
 async addToFavourites(data: any): Promise<void> {
   try {
+    console.log(data.objectId,"ok i objeded");
     const response = await this.parseService.addFavourite(data.objectId , this.user.objectId);
     alert(response.message); // Show the message from the response
   } catch (error) {
