@@ -102,13 +102,25 @@
 
         <div class="search-bar">
           <input type="text" placeholder="Search..." class="search-input" />
-          <button routerLink="/sample"class="search-button">
-            <fa-icon class="fa" [icon]="search"></fa-icon>
-          </button>
-         </div>
+          <div class="dropdown">
+            <button class="btn search-button dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+              <fa-icon class="fa" [icon]="search"></fa-icon>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <li *ngFor="let category of categories">
+                <a class="dropdown-item" href="#" (click)="setActiveCategory(category)">{{ category.category }}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div *ngIf="activeCategory">
+          <h5>{{ activeCategory.category }}</h5>
+          <ul>
+            <li *ngFor="let subcategory of activeCategory.subcategories">{{ subcategory }}</li>
+          </ul>
+        </div>
 
-        <!-- <img src="assets\images\profile_dropdown_logo\user.png" (clickOutside)="clickedOutside()" class="user_pic"
-          (click)="toggleMenu()" /> -->
+      
      
       <div *ngIf="pictur" class="image-container d-flex justify-content-center">
         <img [src]="pictur | safeResourceUrl" class="rounded-circle" alt="Profile Image" style="height: 10vh; width: 5vw; border-radius: 1rem;">

@@ -35,7 +35,12 @@ import { CardDetailComponent } from './card-detail/card-detail.component';
 import { ChatPageComponent } from './chat-page/chat-page.component';
 import { MessageTableComponent } from './message-table/message-table.component';
 import { SampleComponent } from './sample/sample.component';
+import { TransactionComponent } from './transaction/transaction.component';
 const routes: Routes = [
+  {
+    path: 'transaction', 
+    component: TransactionComponent
+    },
   {
   path: 'chat-page/:id', 
   component: ChatPageComponent

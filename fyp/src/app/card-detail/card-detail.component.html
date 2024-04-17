@@ -14,9 +14,35 @@
               <p><strong>Card Title:</strong> {{ cardTitle }}</p>
               <p><strong>Card ID:</strong> {{ cardId }}</p>
               <p><strong>Name:</strong> {{ cardName }}</p>
-              <p><strong>Price Levels:</strong> {{ level1_price }} | {{ level2_price }} | {{ level3_price }}</p>
-              <p><strong>Description:</strong> {{ level1_description }} | {{ level2_description }} | {{ level3_description }}</p>
-              <p><strong>Skill Level:</strong> {{ skillLevel }}</p>
+
+              <div>
+                <h4>Select a Price Level:</h4>
+                <div class="btn-group" role="group">
+                  <button type="button" class="btn btn-outline-primary"[class.active]="activePriceButton === level1_price"
+                  (click)="toggleButton(level1_price)" (dblclick)="toggleButton(level1_price)">
+                    <span>{{ level1_price }} Rs</span>
+                    <span class="orderDays">{{ orderDay1 }} days </span>
+                    <span class="price-description">{{ level1_description }}</span>
+                   
+                  </button>
+                  <button type="button" class="btn btn-outline-primary" [class.active]="activePriceButton === level2_price"
+                  (click)="toggleButton(level2_price)" (dblclick)="toggleButton(level2_price)">
+                    <span>{{ level2_price }} Rs</span>
+                    <span class="orderDays">{{ orderDay2 }} days </span>
+                    <span class="price-description">{{ level2_description }}</span>
+                  </button>
+                  <button type="button" class="btn btn-outline-primary" [class.active]="activePriceButton === level3_price"
+                  (click)="toggleButton(level3_price)" (dblclick)="toggleButton(level3_price)">
+                    <span>{{ level3_price }} Rs</span>
+                    <span class="orderDays">{{ orderDay3 }} days</span>
+                    <span class="price-description">{{ level3_description }}</span>
+                  </button>
+                </div>
+              </div>
+              
+
+              <p><strong>Skill 
+                Level:</strong> {{ skillLevel }}</p>
               <p><strong>Type:</strong> {{ type }}</p>
               <p><strong>Experience:</strong> {{ experience }}</p>
               <p><strong>Category:</strong> {{ category }}</p>
@@ -57,6 +83,10 @@
             </div>
             <div class="text-center">
               <button class="btn btn-primary" [routerLink]="['/chat-page', teacherId]">Message</button>
+            </div>
+            <div *ngIf="isOrderButtonVisible" class="text-center mt-4">
+              <button class="btn btn-success" [routerLink]="['/transaction']" [queryParams]="{ price: selectedPrice , cardId : cardId , teacherId:teacherId }">Order It</button>
+
             </div>
           </div>
         </div>

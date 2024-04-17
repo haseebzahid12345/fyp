@@ -27,15 +27,40 @@ export class CardDetailComponent implements OnInit {
   image1 : string = "";
   image2 : string = "";
   image3 : string = "";
+  orderDay1: string="";
+  orderDay2:string="";
+  orderDay3:string = "";
+  selectedPrice: string = '';
+  isOrderButtonVisible: boolean = false;
+  activePriceButton: string | null = null;
+
+  // Existing properties and methods remain unchanged
+
+
 
   constructor(private route: ActivatedRoute, private parseService: ParseService) {}
 
   ngOnInit() {
     this.cardId = this.route.snapshot.paramMap.get('id') as string;
-
+    
     this.getCardDetails();
   }
 
+  selectPrice(price: string) {
+    this.selectedPrice = price;
+     console.log(this.selectedPrice);
+    this.isOrderButtonVisible = true; 
+    this.activePriceButton = price; // Show the button when a price is selected
+  }
+
+  toggleButton(price: string) {
+    if (this.activePriceButton === price) {
+      this.activePriceButton = null;  // Reset on double-click
+      this.selectedPrice = '';
+    } else {
+      this.selectPrice(price);  // Set new price on click
+    }
+  }
 // In your Angular component (e.g., card-detail.component.ts)
 async getCardDetails() {
   try {
@@ -61,6 +86,10 @@ async getCardDetails() {
       this.image1 = cardDetails.data.image1;
       this.image2 = cardDetails.data.image2;
       this.image3 = cardDetails.data.image3;
+      this.orderDay1 = cardDetails.data.orderDay1;
+      this.orderDay2  = cardDetails.data.orderDay2;
+      this.orderDay3  = cardDetails.data.orderDay3;
+      console.log(this.orderDay1);
      
     } else {
       // Handle the error case
