@@ -1,35 +1,50 @@
-/* body {
-    background: #3A3E4B;
-} */
-       /* Custom styles for the footer */
-       .footer {
-        background-color:  #3A3E4B;
-        color: #fff;
-        padding: 10px 0;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-    }
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100%; /* Set body height to 100% */
+  position: relative; 
+  }
 
-    .footer a {
-        color: #fff;
-    }
+  .footer {
+    background-color: #000; 
+    color: #fff;
+    padding: 8px 0;
+    position: fixed; /* Set footer position to fixed */
+  bottom: 0; /* Position the footer at the bottom of the screen */
+  width: 100%;
+  }
 
-    .footer-icons {
-        text-align: center;
-    }
+  .footer-icons {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    transition: transform 0.3s ease-in-out; 
+  }
 
-    .footer-icons i {
-        font-size: 20px;
-        margin-left: 10px;
-    }
+  .footer-icons:hover {
+    text-decoration: none; 
+    transform: scale(1.2); 
+  }
 
-    .footer-icons i:first-child {
-        margin-left: 0;
-    }
+  .footer-icons fa-icon {
+    margin-bottom: 5px;
+  }
 
-    /* Add padding to the bottom of the body to account for the fixed footer */
-    body {
-        padding-bottom: 70px; 
-        /* Adjust this value as needed */
-    }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .col-2 {
+    flex: 0 0 calc(16.666% - 20px); /* Adjusted flex basis to create equal spacing */
+    text-align: center;
+    margin-bottom: 0; /* Remove margin-bottom */
+  }
+  

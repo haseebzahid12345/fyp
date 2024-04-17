@@ -31,6 +31,7 @@ export class CardDetailComponent implements OnInit {
   orderDay2:string="";
   orderDay3:string = "";
   selectedPrice: string = '';
+  orderDays:string='';
   isOrderButtonVisible: boolean = false;
   activePriceButton: string | null = null;
 
@@ -42,7 +43,6 @@ export class CardDetailComponent implements OnInit {
 
   ngOnInit() {
     this.cardId = this.route.snapshot.paramMap.get('id') as string;
-    
     this.getCardDetails();
   }
 
@@ -53,12 +53,19 @@ export class CardDetailComponent implements OnInit {
     this.activePriceButton = price; // Show the button when a price is selected
   }
 
-  toggleButton(price: string) {
+  orderDaysSelected(order: string) {
+    this.orderDays = order;
+     console.log(this.orderDays);
+   // Show the button when a price is selected
+  }
+
+  toggleButton(price: string,order:string) {
     if (this.activePriceButton === price) {
       this.activePriceButton = null;  // Reset on double-click
       this.selectedPrice = '';
     } else {
-      this.selectPrice(price);  // Set new price on click
+      this.selectPrice(price); 
+      this.orderDaysSelected(order); // Set new price on click
     }
   }
 // In your Angular component (e.g., card-detail.component.ts)
@@ -100,12 +107,7 @@ async getCardDetails() {
   }
 }
 
-// async getConversationID(TeacherID : string ,  StudentID :  string ){
-//   const id_get = await this.parseService.getConversationID(TeacherID, StudentID);
-//   console.log(id_get);
-//     return id_get;
-   
-// }
+
 
 
 

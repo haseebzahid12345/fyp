@@ -31,6 +31,18 @@ export class ParseService {
     
   }
 
+  async getOrders(): Promise<any[]> {
+    try {
+        const params = {userId: this.user.objectId}
+        const results = await Parse.Cloud.run("getOrders", params);
+        console.log('Results from Cloud Code:', results);
+        return results;
+    } catch (error) {
+        console.error('Error fetching orders from Cloud Code', error);
+        throw error; // Propagate the error to the calling code if needed
+    }
+  }
+
   async login(email: string, password: string) {
     const params = { email, password };
     const response = await Parse.Cloud.run('loginStudent', params);
@@ -171,6 +183,18 @@ export class ParseService {
       return response;
     } catch (error) {
       console.error('Error fetching card by ID from Cloud Code', error);
+      throw error;
+    }
+  }
+
+  async orderPlace(cardId:string,teacherId:string,studentId:string,price:string,orderDay:string,title:string) {
+    try {
+      const params = { cardId,teacherId,studentId,price,orderDay,title };
+      console.log( cardId,teacherId,studentId,price,orderDay);
+      const response = await Parse.Cloud.run('orderPlace',params );
+      return response;
+    } catch (error) {
+      console.error('Error taking order', error);
       throw error;
     }
   }

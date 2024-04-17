@@ -44,10 +44,16 @@ import { MessageTableComponent } from './message-table/message-table.component';
 import { SampleComponent } from './sample/sample.component';
 import { SafeResourceUrlPipe } from './safe-resource-url.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { OrdersComponent } from './orders/orders.component';
+import { HistoryOrdersComponent } from './history-orders/history-orders.component';
+import { CurrentOrdersComponent } from './current-orders/current-orders.component';
 
 
 @NgModule({
   declarations: [
+    CurrentOrdersComponent,
+    HistoryOrdersComponent,
+    OrdersComponent,
     AppComponent,
     AboutusComponent,
     AccountComponent,
@@ -87,6 +93,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MessageTableComponent,
     SampleComponent,
     SafeResourceUrlPipe,
+   
   
 
   ],
