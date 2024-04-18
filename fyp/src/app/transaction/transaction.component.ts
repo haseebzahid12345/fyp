@@ -13,6 +13,10 @@ export class TransactionComponent implements OnInit {
   cardId : string ='';
   studentId: any;
   teacherId:string='';
+  orderDay:string ='';
+  title:string='';
+  name:string=''
+  image:string=''
   constructor(private route: ActivatedRoute , private router: Router , private service: ParseService) {}
    
   ngOnInit() {
@@ -21,15 +25,27 @@ export class TransactionComponent implements OnInit {
       this.cardId = params['cardId'];
       this.teacherId = params['teacherId'];
       this.studentId = this.service.user.objectId;
+      this.orderDay= params['orderDay'];
+      this.title = params['title'];
+    
     });
   }
   
 
 
-  confirmOrder() {
+  async confirmOrder() {
     console.log("Order confirmed with price:", this.price);
-    
-    alert('Order has been confirmed!'); // Example action
+    const result = await this.service.orderPlace(this.cardId,this.teacherId,this.studentId,this.price,this.orderDay,this.title)
+    if(result.status===0){
+      alert("your order has been placed before");
+    }
+    else if(result.status===-1){
+      alert('error in placing error')
+    }
+    else{
+      alert('Order has been confirmed!');
+    }
+   // Example action
     // this.router.navigate(['/confirmation']); // Redirect to a confirmation page, if exists
   }
 }

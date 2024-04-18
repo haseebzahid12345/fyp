@@ -36,7 +36,23 @@ import { ChatPageComponent } from './chat-page/chat-page.component';
 import { MessageTableComponent } from './message-table/message-table.component';
 import { SampleComponent } from './sample/sample.component';
 import { TransactionComponent } from './transaction/transaction.component';
+import { OrdersComponent } from './orders/orders.component';
+import { HistoryOrdersComponent } from './history-orders/history-orders.component';
+import { CurrentOrdersComponent } from './current-orders/current-orders.component';
 const routes: Routes = [
+  {
+    path: 'orders', 
+    component: OrdersComponent
+    },
+    {
+      path: 'historyOrders', 
+      component: HistoryOrdersComponent
+      },
+      {
+        path: 'currentOrders', 
+        component: CurrentOrdersComponent
+        },
+  
   {
     path: 'transaction', 
     component: TransactionComponent

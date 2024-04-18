@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 body {
     font-family: 'Arial', sans-serif;
@@ -34,6 +35,42 @@ body {
     margin-bottom: 5px;
   }
 
+=======
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100%; /* Set body height to 100% */
+  position: relative; 
+  }
+
+  .footer {
+    background-color: #000; 
+    color: #fff;
+    padding: 8px 0;
+    position: fixed; /* Set footer position to fixed */
+  bottom: 0; /* Position the footer at the bottom of the screen */
+  width: 100%;
+  }
+
+  .footer-icons {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    transition: transform 0.3s ease-in-out; 
+  }
+
+  .footer-icons:hover {
+    text-decoration: none; 
+    transform: scale(1.2); 
+  }
+
+  .footer-icons fa-icon {
+    margin-bottom: 5px;
+  }
+
+>>>>>>> a34033b47edf0b8b3e63115facbee524b92a6acf
   .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -41,6 +78,7 @@ body {
 
   .row {
     display: flex;
+<<<<<<< HEAD
     justify-content: space-around;
   }
 
@@ -48,3 +86,14 @@ body {
     flex: 0 0 20%;
     text-align: center;
   }
+=======
+    justify-content: space-between;
+  }
+
+  .col-2 {
+    flex: 0 0 calc(16.666% - 20px); /* Adjusted flex basis to create equal spacing */
+    text-align: center;
+    margin-bottom: 0; /* Remove margin-bottom */
+  }
+  
+>>>>>>> a34033b47edf0b8b3e63115facbee524b92a6acf
