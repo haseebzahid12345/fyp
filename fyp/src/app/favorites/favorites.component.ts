@@ -23,12 +23,25 @@ import { ParseService } from '../services/parse.service';
 })
 export class FavoritesComponent implements OnInit {
   favoriteCards: any[] = [];
+  liveResult:any;
  
 
   constructor(private parseService: ParseService) {}
 
   ngOnInit() {
+    this.liveQuery();
     this.loadFavorites();
+    
+  }
+  async liveQuery()
+  {
+    try {
+      this.liveResult = await this.parseService.liveQueryFavourite();
+      console.log(this.liveResult);
+    } catch (error) {
+      console.error('Error live query in parse service', error);
+      // Handle error (e.g., show an error message)
+    }
   }
 
   async loadFavorites() {

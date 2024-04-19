@@ -43,6 +43,8 @@ export class ParseService {
     }
   }
 
+
+
   async login(email: string, password: string) {
     const params = { email, password };
     const response = await Parse.Cloud.run('loginStudent', params);
@@ -52,6 +54,11 @@ export class ParseService {
       localStorage.setItem(this.USER_KEY, JSON.stringify(response));
     }
     return response.status;
+  }
+
+  async liveQueryFavourite(){
+    const response = await Parse.Cloud.run('subscribeToFavourites');
+    return response;
   }
 
   async getConversationID(TeacherID: string, StudentID: string) {
