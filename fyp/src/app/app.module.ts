@@ -47,6 +47,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OrdersComponent } from './orders/orders.component';
 import { HistoryOrdersComponent } from './history-orders/history-orders.component';
 import { CurrentOrdersComponent } from './current-orders/current-orders.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -103,7 +104,8 @@ import { CurrentOrdersComponent } from './current-orders/current-orders.componen
     AppRoutingModule,
     FontAwesomeModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
     
   ],
   providers: [],

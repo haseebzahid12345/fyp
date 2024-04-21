@@ -31,6 +31,14 @@ export class ParseService {
     
   }
 
+  async updateOrder(id: string, rating: number, review: string , completionPercent: number) {
+    const params = { id ,rating: rating.toString() , review , completionPercent:completionPercent.toString()};
+    const status =  await Parse.Cloud.run('updateOrders', params);  
+    console.log(status , "this is status");
+    return status;
+    
+  }
+
   async getOrders(): Promise<any[]> {
     try {
         const params = {userId: this.user.objectId}
@@ -225,6 +233,18 @@ export class ParseService {
   }
 
 
+  async getHistoryOrders(): Promise<any[]> {
+    try {
+        const params = {userId: this.user.objectId}
+        const results = await Parse.Cloud.run("getHistoryOrdersStudent", params);
+        console.log('Results from Cloud Code:', results);
+        return results;
+    } catch (error) {
+        console.error('Error fetching orders from Cloud Code', error);
+        throw error; // Propagate the error to the calling code if needed
+    }
+  }
+
 
 
   async sendMessage(senderId: string, receiverId: string, text: string) {
@@ -276,6 +296,8 @@ export class ParseService {
   
     return studentIds;
   }
+
+
 
 }
 
