@@ -39,7 +39,6 @@ import { CardDetailComponent } from './card-detail/card-detail.component';
 import { FormsModule } from '@angular/forms';
 import { ChatPageComponent } from './chat-page/chat-page.component';
 import { MessageTableComponent } from './message-table/message-table.component';
-import { SampleComponent } from './sample/sample.component';
 import { SafeResourceUrlPipe } from './safe-resource-url.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OrdersComponent } from './orders/orders.component';
@@ -118,7 +117,6 @@ import { SearchResultComponent } from './search-result/search-result.component';
     CardDetailComponent,
     ChatPageComponent,
     MessageTableComponent,
-    SampleComponent,
     SafeResourceUrlPipe,
    
   
