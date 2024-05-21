@@ -169,6 +169,29 @@
     cursor: pointer;
 }
 
+/* header.component.css */
+.suggestions {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 8px;
+    list-style-type: none;
+    padding: 0;
+    width: 300px;
+    z-index: 1000;
+  }
+  
+  .suggestions li {
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+  
+  .suggestions li:hover {
+    background-color: #f0f0f0;
+  }
+  
+
 
 
 

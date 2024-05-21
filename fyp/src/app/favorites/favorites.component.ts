@@ -1,17 +1,3 @@
-// import { Component } from '@angular/core';
-
-// @Component({
-//   selector: 'app-favorites',
-//   templateUrl: './favorites.component.html',
-//   styleUrls: ['./favorites.component.css']
-// })
-// export class FavoritesComponent {
-
-// }
-
-
-
-
 import { Component, OnInit } from '@angular/core';
 import { ParseService } from '../services/parse.service';
 
@@ -29,19 +15,16 @@ export class FavoritesComponent implements OnInit {
   constructor(private parseService: ParseService) {}
 
   ngOnInit() {
-    this.liveQuery();
+    this.subscribeToLiveQuery();
     this.loadFavorites();
     
   }
-  async liveQuery()
-  {
-    try {
-      this.liveResult = await this.parseService.liveQueryFavourite();
-      console.log(this.liveResult);
-    } catch (error) {
-      console.error('Error live query in parse service', error);
-      // Handle error (e.g., show an error message)
-    }
+  subscribeToLiveQuery() {
+    this.parseService.subscribeToFavourites().then(subscription => {
+      // Subscription is active now, you can store it if you need to unsubscribe later
+    }).catch(error => {
+      console.error('Error subscribing to favourites', error);
+    });
   }
 
   async loadFavorites() {
@@ -55,9 +38,8 @@ export class FavoritesComponent implements OnInit {
 
   async removeFavorite(event: MouseEvent, objectId: string): Promise<void> {
     try {
-      console.log(objectId);
       event.stopPropagation();
-     
+      console.log(objectId);
        await this.parseService.removeFavorite(objectId);
       
       console.log('inside favourutes removal');

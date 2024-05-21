@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ParseService } from '../services/parse.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-history-orders',
@@ -19,7 +20,7 @@ export class HistoryOrdersComponent {
   user: any;
   orderId: string = '';
 
-  constructor(private parseService: ParseService ,private fb: FormBuilder) { }
+  constructor(private parseService: ParseService ,private fb: FormBuilder,public datePipe: DatePipe) { }
 
   ngOnInit() {
     this.loadOrders();

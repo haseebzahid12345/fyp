@@ -2,9 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
-import { AccountComponent } from './account/account.component';
 import { CodeverificationComponent } from './codeverification/codeverification.component';
-import { CommunityandlegalComponent } from './communityandlegal/communityandlegal.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { EarningsComponent } from './earnings/earnings.component';
 import { FilterstudentComponent } from './filterstudent/filterstudent.component';
@@ -39,7 +37,61 @@ import { TransactionComponent } from './transaction/transaction.component';
 import { OrdersComponent } from './orders/orders.component';
 import { HistoryOrdersComponent } from './history-orders/history-orders.component';
 import { CurrentOrdersComponent } from './current-orders/current-orders.component';
+import { BusinessComponent } from './business/business.component';
+import { WritingTranslationComponent } from './writing-translation/writing-translation.component';
+import { ProgrammingTechComponent } from './programming-tech/programming-tech.component';
+import { VideoAnimationComponent } from './video-animation/video-animation.component';
+import { MusicAudioComponent } from './music-audio/music-audio.component';
+import { LifestyleComponent } from './lifestyle/lifestyle.component';
+import { EducationLearningComponent } from './education-learning/education-learning.component';
+import { DigitalMarketingComponent } from './digital-marketing/digital-marketing.component';
+import { CategoryDisplayComponent } from './category-display/category-display.component';
+import { BackHeaderComponent } from './back-header/back-header.component';
+import { CancelOrdersComponent } from './cancel-orders/cancel-orders.component';
+import { IncompleteOrdersComponent } from './incomplete-orders/incomplete-orders.component';
+import { SearchResultComponent } from './search-result/search-result.component';
 const routes: Routes = [
+  { path: 'search-result', 
+  component: SearchResultComponent
+ },
+  { path: 'incompleteOrders', 
+  component: IncompleteOrdersComponent
+ },
+ { path: 'cancelOrders', 
+ component: CancelOrdersComponent
+},
+  { path: 'categoryDisplay', 
+  component: CategoryDisplayComponent
+ },
+ { path: 'back', 
+ component: BackHeaderComponent
+},
+  { path: 'business', 
+  component: BusinessComponent
+ },
+  { path: 'digital-marketing', 
+  component: DigitalMarketingComponent 
+},
+
+  { path: 'lifestyle',
+   component: LifestyleComponent
+   },
+
+  { path: 'music-audio', 
+  component: MusicAudioComponent 
+},
+  { path: 'programming-tech',
+   component: ProgrammingTechComponent
+   },
+  { path: 'video-animation', 
+  component: VideoAnimationComponent
+},
+  { path: 'writing-translation', 
+  component: WritingTranslationComponent 
+},
+  { path: 'education-learning', 
+  component: EducationLearningComponent
+ },
   {
     path: 'orders', 
     component: OrdersComponent
@@ -109,17 +161,10 @@ const routes: Routes = [
     path: 'aboutus',
     component:AboutusComponent,
   },
-  {
-    path: 'account',
-    component:AccountComponent,
-  },
+ 
   {
     path: 'codeverification',
     component:CodeverificationComponent,
-  },
-  {
-    path: 'communityandlegal',
-    component:CommunityandlegalComponent,
   },
   {
     path: 'contactus',

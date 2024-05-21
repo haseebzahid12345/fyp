@@ -1,70 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-  <style>
-    body {
-      padding-top: 76px;
-      background-color: #f8f9fa;
-    }
-
-    .fixed-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      background-color: #000;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 76px;
-      padding: 0 20px;
-    }
-
-    .navbar-brand,
-    .navbar-text {
-      color: #fff;
-    }
-
-    .navbar-brand:hover {
-      color: #fff;
-    }
-
-    .container {
-      margin-top: 76px;
-    }
-
-    .shadow-container {
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      margin-top: 20px;
-    }
-
-    .img-thumbnail {
-      height: 300px;
-      width: 350px;
-    }
-  </style>
-
-  <title>About Us</title>
-</head>
-
-<body>
-
-  <header class="fixed-header">
-    <a routerLink="/urgentoptions" class="navbar-brand" href="#" style="color: #fff;">
-      <!-- Placeholder for back arrow -->
-      <fa-icon class="fa" [icon]="back"></fa-icon> 
-    </a>
-    <!-- <span class="navbar-text text-center" style="color: #fff;"></span> -->
-  </header>
-
+<app-back-header></app-back-header>
   <div class="container mt-4">
     <div class="row justify-content-evenly">
       <div class="col-md-12 col-12 col-lg-12">
@@ -115,6 +51,4 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="src/script.js"></script>
 
-</body>
 
-</html>

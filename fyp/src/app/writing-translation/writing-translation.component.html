@@ -1,0 +1,10 @@
+<div class="container">
+    <h2>{{ category.name }} Subcategories</h2>
+    <div class="list-group">
+      <a href="#" *ngFor="let subcategory of category.subcategories"
+         class="list-group-item list-group-item-action"
+         (click)="onClickSubcategory(subcategory)" [routerLink]="['/categoryDisplay']" [queryParams]="{ subcategory : subcategory , category : category.name }">
+        {{ subcategory }}
+      </a>
+    </div>
+  </div>

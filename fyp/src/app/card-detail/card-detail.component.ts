@@ -7,7 +7,7 @@ import { ParseService } from '../services/parse.service';
   templateUrl: './card-detail.component.html',
   styleUrls: ['./card-detail.component.css']
 })
-export class CardDetailComponent implements OnInit {
+export class CardDetailComponent implements OnInit { 
   cardTitle: string = '';
   cardId: string = '';
   cardName: string = '';
@@ -34,24 +34,44 @@ export class CardDetailComponent implements OnInit {
   orderDays:string='';
   isOrderButtonVisible: boolean = false;
   activePriceButton: string | null = null;
+  // In CardDetailComponent class
+reviews: { review: string; studentName: string }[] = [];  // Add this property to store reviews
 
-  // Existing properties and methods remain unchanged
+
 
 
 
   constructor(private route: ActivatedRoute, private parseService: ParseService) {}
 
   ngOnInit() {
+    // cardId ko hum ne home ke card se yha pr liya ha
     this.cardId = this.route.snapshot.paramMap.get('id') as string;
     this.getCardDetails();
+    this.getHistoryOrderDetails();
   }
+
 
   selectPrice(price: string) {
     this.selectedPrice = price;
-     console.log(this.selectedPrice);
     this.isOrderButtonVisible = true; 
-    this.activePriceButton = price; // Show the button when a price is selected
+    this.activePriceButton = price; 
   }
+
+
+  async getHistoryOrderDetails(){ 
+    try {
+      // ....(4)....  //cardId ko de kr hum all "success: true" aur reviews me cardId ko jis ne
+      // bhi review diya ha wo ....."reviews"..... aur us ka ...."name"..... aae ga,, agar koi issue ho
+      //to  "success: false"   message: `Error fetching order details: ${error.message}
+      const historyDetails = await this.parseService.getHistoryOrderDetails(this.cardId);
+      if (historyDetails && historyDetails.reviews) {
+        this.reviews = historyDetails.reviews;
+      }
+    } catch (error) {
+      console.error('Error fetching history details', error);
+    }
+  }
+  
 
   orderDaysSelected(order: string) {
     this.orderDays = order;
@@ -71,6 +91,11 @@ export class CardDetailComponent implements OnInit {
 // In your Angular component (e.g., card-detail.component.ts)
 async getCardDetails() {
   try {
+
+
+    // ....20.....// cardId de kr hum gig ki status:1 ....aur hum gig ke table ki almost all info and userId teacher ki aur name teacher ka
+    // aur agar issue ho ga to ye info aae gi status: 0,
+    //  message: "Error fetching card by ID",
     const cardDetails = await this.parseService.getGigByIdd(this.cardId);
     console.log(cardDetails);
     if (cardDetails.status === 1) {
