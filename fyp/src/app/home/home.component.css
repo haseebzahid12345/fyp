@@ -81,20 +81,17 @@
 
 /* Styles for the heart icon */
 .heart-icon {
-  margin-left: auto; /* Aligns icon to the right */
-  cursor: pointer; /* Changes cursor to pointer on hover */
-}
-
-  /* .carousel-img {
-    height: 500px; 0
-    object-fit: contain;
-    background-color: #000;
+    margin-left: auto;
+    cursor: pointer; /* Changes cursor to pointer on hover */
   }
   
-  .carousel-inner {
-    background-color: #000; 
+  /* Styles when the heart icon is active */
+  .heart-active {
+    color: red; /* Change color to red when active */
   }
-   */
+  
+
+
 
    .custom-carousel {
     margin-top: 20px; /* Adjust top margin if needed */
@@ -111,3 +108,106 @@
     display: block; /* Prevents inline spacing */
   }
   
+
+  .category-nav .nav {
+    display: flex;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .category-nav .nav-link {
+    margin-right: 15px;
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .category-nav .nav-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+  }
+  
+  
+  .orange-border {
+    border: 2px solid orange; /* Adjust the color and width as needed */
+  }
+
+
+  .filter-panel {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background: white;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+  .filter-panel.open {
+    transform: translateX(0);
+  }
+  .filter-icon-container {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+
+
+  
+  .average-rating{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+  } 
+  .rating-text {
+    margin-top: 5px; /* Space between star icon and text */
+  }
+  
+
+  .rating-heart-container {
+    display: flex;
+    align-items: center;
+    margin-top: 10px; /* Adjust as needed */
+  }
+  
+
+  .heart-price-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 10px; /* Space between heart-price and average-rating containers */
+}
+
+.heart-icon {
+  cursor: pointer; /* Changes cursor to pointer on hover */
+}
+
+.heart-active {
+  color: red; /* Change color to red when active */
+}
+
+.price-text {
+  margin-top: 5px; /* Space between heart icon and price text */
+}
+
+/* Styles for the average rating and star icon */
+.average-rating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rating-text {
+  margin-top: 5px; /* Space between star icon and text */
+}
+
+/* Container for heart, price, rating, and star icons */
+.icon-info-container {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 10px; /* Adjust as needed */
+}

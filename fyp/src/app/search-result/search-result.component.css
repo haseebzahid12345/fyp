@@ -1,0 +1,213 @@
+/* Styles for the overall card body */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  /* Styles for the image container */
+  .image-container {
+    display: flex; /* Ensures the container can use flex properties */
+    justify-content: center; /* Centers the image horizontally */
+    align-items: center; /* Centers the image vertically */
+    background-color: grey; /* Default background color for when there's no image */
+    height: 200px; /* Default height, adjust as needed */
+    width: 100%; /* Adjust the width as needed or set a specific width */
+    overflow: hidden; /* Ensures no part of the image spills out of the container */
+  }
+  
+  .image-container img {
+    height: 100%; /* Make the image height equal to the container's height */
+    width: 100%; /* Make the image width equal to the container's width */
+    object-fit: cover; /* Adjust this to 'contain' if you want to see the whole image without cutting */
+  }
+  
+  /* Styles for the information container */
+  .info-container {
+    flex-grow: 1; /* Adjust this value to change the size ratio */
+  }
+  
+  /* Styles for the profile information section */
+  .profile-info {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  /* Styles for the profile image */
+  .profile-image {
+    border-radius: 50%; /* Makes the image circular */
+    width: 60px; /* Adjust size as needed */
+    height: 60px; /* Adjust size as needed */
+    margin-right: 10px; /* Space between image and text */
+  }
+  
+  /* Container for the name and title */
+  .name-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  /* Styles for the name (H3) element */
+  .card-name {
+    margin-bottom: 0; /* Remove default margin to bring title closer */
+  }
+  
+  /* Styles for the title (P) element */
+  .card-title {
+    margin-top: 0; /* Remove default margin */
+  }
+  
+  /* Styles for the price position */
+  .price-position {
+    position: absolute;
+    bottom: 10px; /* adjust as needed */
+    right: 10px; /* adjust as needed */
+  }
+  
+
+  .card-object-id {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #333;
+    background-color: #f0f0f0;
+    padding: 3px 6px;
+    border-radius: 3px;
+    font-size: 0.8em;
+}
+
+
+
+/* Styles for the heart icon */
+.heart-icon {
+    margin-left: auto;
+    cursor: pointer; /* Changes cursor to pointer on hover */
+  }
+  
+  /* Styles when the heart icon is active */
+  .heart-active {
+    color: red; /* Change color to red when active */
+  }
+  
+
+
+
+   .custom-carousel {
+    margin-top: 20px; /* Adjust top margin if needed */
+}
+
+.picsum-img-wrapper img {
+    width: 100%; /* Ensure images in carousel are full width within the column */
+    object-fit: cover; /* Optional: Adjust how images fit within their defined height */
+}
+  
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Prevents inline spacing */
+  }
+  
+
+  .category-nav .nav {
+    display: flex;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .category-nav .nav-link {
+    margin-right: 15px;
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .category-nav .nav-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+  }
+  
+  
+  .orange-border {
+    border: 2px solid orange; /* Adjust the color and width as needed */
+  }
+
+
+  .filter-panel {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background: white;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+  .filter-panel.open {
+    transform: translateX(0);
+  }
+  .filter-icon-container {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+
+
+  
+  .average-rating{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+  } 
+  .rating-text {
+    margin-top: 5px; /* Space between star icon and text */
+  }
+  
+
+  .rating-heart-container {
+    display: flex;
+    align-items: center;
+    margin-top: 10px; /* Adjust as needed */
+  }
+  
+
+  .heart-price-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 10px; /* Space between heart-price and average-rating containers */
+}
+
+.heart-icon {
+  cursor: pointer; /* Changes cursor to pointer on hover */
+}
+
+.heart-active {
+  color: red; /* Change color to red when active */
+}
+
+.price-text {
+  margin-top: 5px; /* Space between heart icon and price text */
+}
+
+/* Styles for the average rating and star icon */
+.average-rating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rating-text {
+  margin-top: 5px; /* Space between star icon and text */
+}
+
+/* Container for heart, price, rating, and star icons */
+.icon-info-container {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 10px; /* Adjust as needed */
+}

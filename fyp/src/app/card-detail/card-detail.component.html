@@ -9,7 +9,7 @@
           <div class="card-body p-4 p-lg-5 text-black">
 
             <!-- Card Content -->
-           
+
             <div class="card-info">
               <p><strong>Card Title:</strong> {{ cardTitle }}</p>
               <p><strong>Card ID:</strong> {{ cardId }}</p>
@@ -18,42 +18,50 @@
               <div>
                 <h4>Select a Price Level:</h4>
                 <div class="btn-group" role="group">
-                  <button type="button" class="btn btn-outline-primary"[class.active]="activePriceButton === level1_price"
-                  (click)="toggleButton(level1_price,orderDay1)" (dblclick)="toggleButton(level1_price,orderDay1)">
+                  <!-- First Button: Always displayed -->
+                  <button type="button" class="btn btn-outline-primary"
+                    [class.active]="activePriceButton === level1_price" (click)="toggleButton(level1_price, orderDay1)"
+                    (dblclick)="toggleButton(level1_price, orderDay1)">
                     <span>{{ level1_price }} Rs</span>
                     <span class="orderDays">{{ orderDay1 }} days </span>
                     <span class="price-description">{{ level1_description }}</span>
-                   
                   </button>
-                  <button type="button" class="btn btn-outline-primary" [class.active]="activePriceButton === level2_price"
-                  (click)="toggleButton(level2_price,orderDay2)" (dblclick)="toggleButton(level2_price,orderDay2)">
+
+                  <!-- Second Button: Conditionally displayed -->
+                  <button *ngIf="level2_price" type="button" class="btn btn-outline-primary"
+                    [class.active]="activePriceButton === level2_price" (click)="toggleButton(level2_price, orderDay2)"
+                    (dblclick)="toggleButton(level2_price, orderDay2)">
                     <span>{{ level2_price }} Rs</span>
                     <span class="orderDays">{{ orderDay2 }} days </span>
                     <span class="price-description">{{ level2_description }}</span>
                   </button>
-                  <button type="button" class="btn btn-outline-primary" [class.active]="activePriceButton === level3_price"
-                  (click)="toggleButton(level3_price,orderDay3)" (dblclick)="toggleButton(level3_price,orderDay3)">
+
+                  <!-- Third Button: Conditionally displayed -->
+                  <button *ngIf="level3_price" type="button" class="btn btn-outline-primary"
+                    [class.active]="activePriceButton === level3_price" (click)="toggleButton(level3_price, orderDay3)"
+                    (dblclick)="toggleButton(level3_price, orderDay3)">
                     <span>{{ level3_price }} Rs</span>
                     <span class="orderDays">{{ orderDay3 }} days</span>
                     <span class="price-description">{{ level3_description }}</span>
                   </button>
+
                 </div>
               </div>
-              
 
-              <p><strong>Skill 
-                Level:</strong> {{ skillLevel }}</p>
+
+              <p><strong>Skill
+                  Level:</strong> {{ skillLevel }}</p>
               <p><strong>Type:</strong> {{ type }}</p>
               <p><strong>Experience:</strong> {{ experience }}</p>
               <p><strong>Category:</strong> {{ category }}</p>
               <p><strong>Subcategory:</strong> {{ subcategory }}</p>
               <ngb-carousel class="custom-carousel">
                 <ng-template ngbSlide>
-                  
+
                   <div class="picsum-img-wrapper" style="height: 300px; /* Adjust this value as needed */">
                     <img [src]="image1 | safeResourceUrl" alt=" ist third slide" class="img-fluid" />
-                </div>
-                  
+                  </div>
+
                   <div class="carousel-caption">
                     <h3>First slide label</h3>
                     <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
@@ -62,8 +70,8 @@
                 <ng-template ngbSlide>
                   <div class="picsum-img-wrapper" style="height: 300px; /* Adjust this value as needed */">
                     <img [src]="image2 | safeResourceUrl" alt="2nd  slide" class="img-fluid" />
-                </div>
-                  
+                  </div>
+
                   <div class="carousel-caption">
                     <h3>Second slide label</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -72,22 +80,33 @@
                 <ng-template ngbSlide>
                   <div class="picsum-img-wrapper" style="height: 300px; /* Adjust this value as needed */">
                     <img [src]="image3 | safeResourceUrl" alt="3rd slide" class="img-fluid" />
-                </div>
-                
+                  </div>
+
                   <div class="carousel-caption">
                     <h3>Third slide label</h3>
                     <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
                   </div>
                 </ng-template>
-              </ngb-carousel> 
+              </ngb-carousel>
             </div>
             <div class="text-center">
               <button class="btn btn-primary" [routerLink]="['/chat-page', teacherId]">Message</button>
             </div>
             <div *ngIf="isOrderButtonVisible" class="text-center mt-4">
-              <button class="btn btn-success" [routerLink]="['/transaction']" [queryParams]="{ price: selectedPrice , cardId : cardId , teacherId:teacherId , orderDay:orderDays ,title:cardTitle  }">Order It</button>
+              <button class="btn btn-success" [routerLink]="['/transaction']"
+                [queryParams]="{ price: selectedPrice , cardId : cardId , teacherId:teacherId , orderDay:orderDays ,title:cardTitle  }">Order
+                It</button>
 
             </div>
+            <div *ngIf="reviews.length > 0" class="reviews-section">
+              <h3>Reviews</h3>
+              <ul class="list-group">
+                <li *ngFor="let review of reviews" class="list-group-item">
+                  <strong>{{ review.studentName }}</strong>: "{{ review.review }}"
+                </li>
+              </ul>
+            </div>
+
           </div>
         </div>
       </div>

@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row mt-5 pt-5">
+      <div *ngFor="let data of gigs; let i = index" class="col-sm-6 col-md-6 col-lg-6 col-6 mb-4" [routerLink]="['/card-detail', data.objectId]">
+        <div class="card text-center shadow">
+          <div class="card-body d-flex flex-column position-relative">
+            <!-- Displaying the Unique ObjectId -->
+            <div class="card-object-id">
+              ID: {{ data.objectId }}
+            </div>
+
+            <!-- Image Container -->
+            <div class="image-container">
+              <img  [src]="data.image1" alt="Profile Image">
+            </div>
+            
+            <!-- Information Container -->
+            <div class="info-container">
+              
+                <!-- <fa-icon  class="fa-2x" [icon]="heart"></fa-icon> -->
+             
+              <div class="profile-info d-flex align-items-start">
+              
+                  <img [src]="data.profileImage | safeResourceUrl" class="rounded-circle" alt="Profile Image" style="height: 10vh; width: 5vw; border-radius: 1rem;">
+              
+                <div class="name-title">
+                  <h3 class="card-name">I will {{ data.title }}</h3>
+                  <p class="card-title">{{ data.userName }}</p>
+                </div>
+                <fa-icon [ngClass]="{'heart-active': data.heartActive}" class="heart-icon fa-2x" [icon]="heart" (click)="toggleHeart($event ,data)"></fa-icon>
+              </div>
+              <div class="price-position">
+                <p class="card-text">Rs:{{ data.homePrice }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

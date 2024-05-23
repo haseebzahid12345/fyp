@@ -1,8 +1,5 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  
+
 
   <style>
     /* Custom CSS for the container and table */
@@ -38,8 +35,7 @@
       color: #000;
     }
   </style>
-</head>
-<body>
+
 
 
   <!-- -------------- -->
@@ -69,8 +65,7 @@
               <tr>
                 <td>
                   <a routerLink="/historyOrders">
-                    <i class="bi bi-person"></i>
-                    History of orders
+                    History ofcompleted orders
                   </a>
                 </td>
                 <td>
@@ -82,6 +77,30 @@
                   <a routerLink="/currentOrders">
                     <i class="bi bi-star"></i>
                     Current orders
+                  </a>
+                </td>
+                <td>
+                  <i class="bi bi-chevron-right"></i>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <a routerLink="/cancelOrders">
+                    <i class="bi bi-star"></i>
+                    Cancel orders
+                  </a>
+                </td>
+                <td>
+                  <i class="bi bi-chevron-right"></i>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <a routerLink="/incompleteOrders">
+                    <i class="bi bi-star"></i>
+                    incpomplete orders 
                   </a>
                 </td>
                 <td>
@@ -106,8 +125,7 @@
 
 
 
-</body>
-</html>
+
 <app-footer></app-footer>
 
 

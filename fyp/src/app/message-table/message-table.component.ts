@@ -11,9 +11,6 @@ export class MessageTableComponent {
   teacherData: any[] = [];
   constructor(private parseService: ParseService,private router: Router) {}
   async ngOnInit() {
-    // try {
-     
-
         const teacherIds = await this.parseService.getTeacherIdsByStudentId();
         console.log(teacherIds, 'student arrays matching with teacher id');
 
@@ -24,12 +21,7 @@ export class MessageTableComponent {
         // Extracting only the names
         // Assuming students is an array of objects with a 'name' property
         // this.studentNames = (students as any[]).map(student => student.name);
-        
         console.log(this.teacherData, 'student names');
-      
-    // } catch (error) {
-    //   console.error('Errorjklk:', error);
-    // }
   }
 
    

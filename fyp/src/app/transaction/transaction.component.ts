@@ -9,6 +9,7 @@ import { ParseService } from '../services/parse.service';
   styleUrl: './transaction.component.css'
 })
 export class TransactionComponent implements OnInit {
+  private sessionKey = 'appSessionId'; 
   price: string='';
   cardId : string ='';
   studentId: any;
@@ -20,6 +21,7 @@ export class TransactionComponent implements OnInit {
   constructor(private route: ActivatedRoute , private router: Router , private service: ParseService) {}
    
   ngOnInit() {
+    // this.service.pageView(localStorage['appSessionId'],"/transaction");
     this.route.queryParams.subscribe(params => {
       this.price = params['price'];
       this.cardId = params['cardId'];
@@ -30,7 +32,9 @@ export class TransactionComponent implements OnInit {
     
     });
   }
-  
+  // sessionId(sessionId: string) {
+  //   localStorage.setItem(this.sessionKey, sessionId);
+  // }
 
 
   async confirmOrder() {

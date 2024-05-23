@@ -1,1 +1,106 @@
-<p>history-orders works!</p>
+<div class="container mt-4">
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+  
+        <!-- Shadow Container -->
+        <div class="shadow p-3">
+  
+          <!-- Table -->
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+              <thead class="table-dark">
+                <tr>
+                  <th colspan="12" class="text-center">History Orders</th>
+                </tr>
+                <tr class="fw-bold">
+                  <th>#</th>
+                  <th>orderId</th>
+                  <th>Title</th>
+                  <th>Order Placed on</th>
+                  <th>Order Completed on</th>
+                  <th>Completion Time</th>
+                  <th>Given Time</th>
+                  <th>Price</th>
+                  <th>Review</th>
+                  <th>Rating</th>
+                  <th>Completion Process Stage</th>
+                  <th>Save</th>
+                </tr>
+              </thead>
+  
+              <tbody>
+                <tr *ngFor="let order of orders; let i = index">
+                  <td>{{ i + 1 }}</td>
+                  <td>{{ order.objectId }}</td>
+                  <td>{{ order.title }}</td>
+                  <td>{{ datePipe.transform(order.orderDate, 'EEE MMM dd yyyy') }}</td>
+                  <td>{{ datePipe.transform(order.completion, 'EEE MMM dd yyyy') }}</td>
+                  <td>{{ order.timeCompletion }}</td>
+                  <td>{{ order.orderDay }} days</td>
+                  <td>{{ order.price }}</td>
+                  <td *ngIf="order.review == 'null'">
+                    <textarea [(ngModel)]="order.tempReview" rows="4" cols="50"></textarea>           
+                  </td>
+                  <td *ngIf="order.review !== 'null'">
+                    {{order.review}}          
+                  </td>
+
+                  <td  *ngIf="order.rating == 'null'"class="star-rating">
+                    <div>
+                      <span *ngFor="let star of [1, 2, 3, 4, 5]; let j = index" (click)="updateRating(order, j + 1)">
+                        <span [class.selected]="j + 1 <= order.tempRate" class="star">&#9733;</span>
+                      </span>
+                    </div>
+                    <span>{{ order.tempRate }}</span> stars
+                  </td>
+                  <td *ngIf="order.rating !== 'null'">{{order.rating}} stars</td>
+                  <td *ngIf="order.completionConfirm  == 'null'">
+                    <label>
+                      <input type="radio" name="completionPercent{{order.objectId}}"  [(ngModel)]="order.tempCompletionConfirm" value="0">
+                      0% Complete
+                    </label>
+                    <label>
+                      <input type="radio" name="completionPercent{{order.objectId}}" [(ngModel)]="order.tempCompletionConfirm" value="20">
+                      20% Complete
+                    </label>
+                    <label>
+                      <input type="radio"  name="completionPercent{{order.objectId}}" [(ngModel)]="order.tempCompletionConfirm" value="40">
+                      40% Complete
+                    </label>
+                    <label>
+                      <input type="radio" name="completionPercent{{order.objectId}}" [(ngModel)]="order.tempCompletionConfirm" value="60">
+                      60% Complete
+                    </label>
+                    <label>
+                      <input type="radio" name="completionPercent{{order.objectId}}"  [(ngModel)]="order.tempCompletionConfirm" value="80">
+                      80% Complete
+                    </label>
+                    <label>
+                      <input type="radio" name="completionPercent{{order.objectId}}" [(ngModel)]="order.tempCompletionConfirm" value="100">
+                      100% Complete
+                    </label>
+                  </td>
+                  <td *ngIf="order.completionConfirm  !== 'null'">{{order.completionConfirm}} percent completed</td>
+                  
+                  <td *ngIf="order.completionConfirm == 'null' || order.rating == 'null' || order.review == 'null'">
+                    <button  class="btn btn-primary" (click)="saveOrder(order)">Save</button>
+                  </td>
+                  <td *ngIf="order.completionConfirm !== 'null' && order.rating !== 'null' && order.review !== 'null'">
+                    <button  class="btn btn-success">Saved</button>
+                  </td>
+
+                </tr>
+                
+              </tbody>
+            </table>
+          </div>
+  
+        </div>
+  
+      </div>
+    </div>
+  </div>
+
+
+  
+

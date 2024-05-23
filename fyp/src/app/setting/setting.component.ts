@@ -1,6 +1,14 @@
 import { Component , OnInit} from '@angular/core';
 import { ParseService } from '../services/parse.service';
+import { faAngleRight} from '@fortawesome/free-solid-svg-icons';
+import { faGear } from '@fortawesome/free-solid-svg-icons';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faLongArrowAltLeft } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
+import { faShield} from '@fortawesome/free-solid-svg-icons';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-setting',
   templateUrl: './setting.component.html',
@@ -8,6 +16,14 @@ import { Router } from '@angular/router';
 })
 export class SettingComponent {
   
+  arrow=faAngleRight;
+  envelop = faEnvelope;
+  gear = faGear;
+  star = faStar;
+  heart = faHeart;
+  info = faShield;
+  circleInfo = faInfoCircle
+  logouts = faLongArrowAltLeft;
   user: any;
   pictur:string="";
   selectedFile: File | null = null;
