@@ -49,7 +49,12 @@ import { BackHeaderComponent } from './back-header/back-header.component';
 import { CancelOrdersComponent } from './cancel-orders/cancel-orders.component';
 import { IncompleteOrdersComponent } from './incomplete-orders/incomplete-orders.component';
 import { SearchResultComponent } from './search-result/search-result.component';
+import { GooglePayComponent } from './google-pay/google-pay.component';
+
 const routes: Routes = [
+  { path: 'googlePay', 
+  component: GooglePayComponent
+ },
   { path: 'search-result', 
   component: SearchResultComponent
  },
@@ -206,7 +211,7 @@ const routes: Routes = [
     component:PaymentComponent,
   },
   {
-    path: 'paymentcard',
+    path: 'paymentCard',
     component:PaymentcardComponent,
   },
   {

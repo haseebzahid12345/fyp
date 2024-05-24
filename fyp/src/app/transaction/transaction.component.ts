@@ -9,7 +9,6 @@ import { ParseService } from '../services/parse.service';
   styleUrl: './transaction.component.css'
 })
 export class TransactionComponent implements OnInit {
-  private sessionKey = 'appSessionId'; 
   price: string='';
   cardId : string ='';
   studentId: any;
@@ -48,6 +47,7 @@ export class TransactionComponent implements OnInit {
     }
     else{
       alert('Order has been confirmed!');
+      this.router.navigate(['/paymentCard']);
     }
    // Example action
     // this.router.navigate(['/confirmation']); // Redirect to a confirmation page, if exists
