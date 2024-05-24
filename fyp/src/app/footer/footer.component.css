@@ -1,3 +1,41 @@
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .footer {
+    position: fixed; /* Fix the footer's position relative to the viewport */
+    left: 0; /* Align the footer to the left edge of the viewport */
+    bottom: 0; /* Align the footer to the bottom of the viewport */
+    width: 100%; /* Ensure the footer spans the full width of the viewport */
+    background-color: #000; /* Footer background color */
+    color: #fff; /* Footer text color */
+    text-align: center; /* Center the footer content */
+    padding: 8px 0; /* Padding inside the footer */
+  }
+  
+
+  .footer-icons {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    transition: transform 0.3s ease-in-out; /* Added animation transition */
+  }
+
+  .footer-icons:hover {
+    text-decoration: none; /* Remove underline on hover */
+    transform: scale(1.2); /* Added scale animation on hover */
+  }
+
+  .footer-icons fa-icon {
+    margin-bottom: 5px;
+  }
+
+
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -31,6 +69,7 @@ body {
   .footer-icons fa-icon {
     margin-bottom: 5px;
   }
+
 
   .container {
     max-width: 1200px;
