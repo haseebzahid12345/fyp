@@ -1,4 +1,4 @@
-<section>
+<section class="custom-background">
   <div class="container py-5">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-md-8 col-lg-6">
@@ -11,24 +11,25 @@
             <!-- Card Content -->
 
             <div class="card-info">
-              <p><strong>Card Title:</strong> {{ cardTitle }}</p>
-              <p><strong>Card ID:</strong> {{ cardId }}</p>
-              <p><strong>Name:</strong> {{ cardName }}</p>
-
+              <div class="info-container">
+                <p><strong>Card Title:</strong> {{ cardTitle }}</p>
+                <p><strong>Card ID:</strong> {{ cardId }}</p>
+                <p><strong>Name:</strong> {{ cardName }}</p>
+              </div>
               <div>
                 <h4>Select a Price Level:</h4>
                 <div class="btn-group" role="group">
                   <!-- First Button: Always displayed -->
-                  <button type="button" class="btn btn-outline-primary"
+                  <button type="button" class="btn btn-outline-primary  info-container mb-5 " 
                     [class.active]="activePriceButton === level1_price" (click)="toggleButton(level1_price, orderDay1)"
                     (dblclick)="toggleButton(level1_price, orderDay1)">
                     <span>{{ level1_price }} Rs</span>
                     <span class="orderDays">{{ orderDay1 }} days </span>
-                    <span class="price-description">{{ level1_description }}</span>
+                    <span class="price-description ">{{ level1_description }}</span>
                   </button>
 
                   <!-- Second Button: Conditionally displayed -->
-                  <button *ngIf="level2_price" type="button" class="btn btn-outline-primary"
+                  <button *ngIf="level2_price" type="button" class="btn btn-outline-primary mb-5   info-container"
                     [class.active]="activePriceButton === level2_price" (click)="toggleButton(level2_price, orderDay2)"
                     (dblclick)="toggleButton(level2_price, orderDay2)">
                     <span>{{ level2_price }} Rs</span>
@@ -37,7 +38,7 @@
                   </button>
 
                   <!-- Third Button: Conditionally displayed -->
-                  <button *ngIf="level3_price" type="button" class="btn btn-outline-primary"
+                  <button *ngIf="level3_price" type="button" class="btn btn-outline-primary mb-5 ml-5   info-container"
                     [class.active]="activePriceButton === level3_price" (click)="toggleButton(level3_price, orderDay3)"
                     (dblclick)="toggleButton(level3_price, orderDay3)">
                     <span>{{ level3_price }} Rs</span>
@@ -48,13 +49,16 @@
                 </div>
               </div>
 
-
-              <p><strong>Skill
+              
+                <p class="info-container mt-2"><strong>Skill
                   Level:</strong> {{ skillLevel }}</p>
-              <p><strong>Type:</strong> {{ type }}</p>
-              <p><strong>Experience:</strong> {{ experience }}</p>
-              <p><strong>Category:</strong> {{ category }}</p>
-              <p><strong>Subcategory:</strong> {{ subcategory }}</p>
+              <p class="info-container"><strong>Type:</strong> {{ type }}</p>
+              <p  class="info-container"><strong>Experience:</strong> {{ experience }}</p>
+              <p  class="info-container"><strong>Category:</strong> {{ category }}</p>
+              <p class="info-container"><strong>Subcategory:</strong> {{ subcategory }}</p>
+
+              
+             
               <ngb-carousel class="custom-carousel">
                 <ng-template ngbSlide>
 

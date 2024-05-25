@@ -1,4 +1,38 @@
 
+       /* agar ham foter ke dot ko remove kar de ge tu vo fixed tu ho jae ga lekin vo home page ko hide are ga */
+       .footer {
+        background-color:  #3A3E4B;
+        color: #fff;
+        padding: 10px 0;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        
+        
+    }
+
+    .footer a {
+        color: #fff;
+    }
+
+    .footer-icons {
+        text-align: center;
+    }
+
+    .footer-icons i {
+        font-size: 20px;
+        margin-left: 10px;
+    }
+
+    .footer-icons i:first-child {
+        margin-left: 0;
+    }
+
+    /* Add padding to the bottom of the body to account for the fixed footer */
+    body {
+        padding-bottom: 70px; 
+        
+    }
 
 body {
     font-family: 'Arial', sans-serif;
@@ -45,14 +79,7 @@ body {
   position: relative; 
   }
 
-  .footer {
-    background-color: #000; 
-    color: #fff;
-    padding: 8px 0;
-    position: fixed; /* Set footer position to fixed */
-  bottom: 0; /* Position the footer at the bottom of the screen */
-  width: 100%;
-  }
+ 
 
   .footer-icons {
     color: #fff;

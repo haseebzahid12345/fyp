@@ -1,130 +1,145 @@
-<!-- header.component.html -->
-<style>
-  .navbar {
-    background-color: transparent;
-    transition: background-color 0.5s ease, box-shadow 0.5s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  }
 
-  .navbar:hover {
-    background-color: rgba(58, 62, 75, 0.8);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-  }
 
-  .navbar-brand img {
-    height: 50px;
-    filter: brightness(0);
-    transition: filter 0.3s ease;
-  }
 
-  .navbar:hover .navbar-brand img {
-    filter: brightness(1);
-  }
-
-  .search-bar {
-    position: relative;
-    margin-right: 20px;
-  }
-
-  .search-input {
-    width: 300px;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 5px;
-    background-color: #20232a;
-    color: #fff;
-    outline: none;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-
-  .search-button {
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding: 8px;
-    border: none;
-    border-radius: 0 5px 5px 0;
-    background-color: orangered;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-  }
-
-  .search-button:hover {
-    background-color: orangered;
-    color: #fff;
-    transform: scale(1.1);
-  }
-
-  .user_pic {
-    cursor: pointer;
-  }
-
-  .filter-icon {
-    color: gray;
-    transition: color 0.3s ease, transform 0.3s ease;
-  }
-
-  .filter-icon:hover {
-    color: #fff;
-    transform: scale(1.1);
-  }
-
-  .suggestions {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    position: absolute;
-    background-color: white;
-    width: 100%;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-  }
-
-  .suggestions li {
-    padding: 8px 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-
-  .suggestions li:hover {
-    background-color: #333;
-    color:orangered
-  }
-</style>
+<html>
 
 <body>
-  <nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container px-5">
-      <a class="navbar-brand" href="#">
-        <img src="assets/images/logo2.svg" alt="Logo" class="d-inline-block align-top" />
-      </a>
+    <nav class="navbar navbar-expand-lg pt-4 fixed-top" style="background-color: #3A3E4B;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="assets\images\logo2.svg" alt="Logo" height="50" class="d-inline-block align-top" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul id="nav-length" class="navbar-nav justify-content-between border-top border-2 text-center">
+                  <li class="nav-item">
+                    <div class="search-bar mt-2">
+                      <input type="text" placeholder="Search..." class="search-input" [(ngModel)]="searchTerm" (input)="onSearchChange()" />
+                      <button class="btn search-button" type="button">
+                        <fa-icon class="fa" [icon]="search"></fa-icon>
+                      </button>
+                      <ul class="suggestions" *ngIf="filteredTitles.length > 0">
+                        <li *ngFor="let title of filteredTitles" (click)="onSuggestionClick(title.title)">{{ title.title }}</li>
+                    </ul>
+                      
+                    </div>
+                  </li>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <div class="search-bar">
-              <input type="text" placeholder="Search..." class="search-input" [(ngModel)]="searchTerm" (input)="onSearchChange()" />
-              <button class="btn search-button" type="button">
-                <fa-icon class="fa" [icon]="search"></fa-icon>
-              </button>
-              <ul class="suggestions" *ngIf="filteredTitles.length > 0">
-                <li *ngFor="let title of filteredTitles" (click)="onSuggestionClick(title.title)">{{ title.title }}</li>
-              </ul>
+
+
+
+
+                    <li class="nav-item"><a class="nav-link border-hover py-3 text-white" aria-current="page" href="#"
+                            [routerLink]="['/home']">Home</a></li>
+                    <li class="nav-item">
+                        
+                            <a class="nav-link border-hover py-3 text-white" href="#"
+                            routerLink="/message-table">Messages</a>
+                        
+                    </li>
+
+
+                    <li class="nav-item"><a class="nav-link border-hover py-3 text-white" href="#"
+                      routerLink="/setting">Profile</a></li>
+                        <li class="nav-item"><a class="nav-link border-hover py-3 text-white" 
+                            href="#" routerLink="/urgentoptions"
+                            >Urgent offer</a></li>
+                            
+                          
+                            <div *ngIf="pictur" class="image-container d-flex justify-content-center mt-2 ">
+                              <img [src]="pictur | safeResourceUrl" class="rounded-circle" alt="Profile Image" style="height: 6vh; width: 3vw; border-radius: 1rem;">
+                            </div> 
+                   
+                   
+
+
+                </ul>
+                
+    
+
+                
             </div>
-          </li>
+        </div>
+    </nav>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+    <li class="nav-item">
+                  
+      <a class="nav-link border-hover py-3 text-white" 
+      href="#"routerLink="/home" >Home</a>
+  
+    </li>
+    <li class="nav-item">
+                  
+      <a class="nav-link border-hover py-3 text-white" 
+      href="#" routerLink="/message-table">Messages</a>
+  
+    </li>
+    <li class="nav-item">
+                  
+      <a class="nav-link border-hover py-3 text-white" 
+      href="#"routerLink="/setting">Profile</a>
+  
+    </li>
+    <li class="nav-item">
+                  
+      <a class="nav-link border-hover py-3 text-white" 
+      href="#"routerLink="/urgentoptions" >Urgent</a>
+  
+    </li>
+   
+
+
+
+
+
+
+
+  
+    <li class="nav-item">
+      <div class="search-bar">
+        <input type="text" placeholder="Search..." class="search-input" [(ngModel)]="searchTerm" (input)="onSearchChange()" />
+        <button class="btn search-button" type="button">
+          <fa-icon class="fa" [icon]="search"></fa-icon>
+        </button>
+        <ul class="suggestions" *ngIf="filteredTitles.length > 0">
+            <li *ngFor="let title of filteredTitles" (click)="onSuggestionClick(title.title)">{{ title.title }}</li>
         </ul>
       </div>
+    </li>
+    
+  </ul>
+</div>
 
-      <div *ngIf="pictur" class="image-container d-flex justify-content-center">
-        <img [src]="pictur | safeResourceUrl" class="rounded-circle" alt="Profile Image" style="height: 10vh; width: 5vw; border-radius: 1rem;">
-      </div>
-    </div>
-  </nav>
-</body>
+<div *ngIf="pictur" class="image-container d-flex justify-content-center">
+  <img [src]="pictur | safeResourceUrl" class="rounded-circle" alt="Profile Image" style="height: 10vh; width: 5vw; border-radius: 1rem;">
+</div> -->

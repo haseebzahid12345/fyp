@@ -1,3 +1,97 @@
+.navbar {
+    background-color: gray;
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .navbar:hover {
+    background-color: rgba(58, 62, 75, 0.8);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .navbar-brand img {
+    height: 50px;
+    filter: brightness(0);
+    transition: filter 0.3s ease;
+  }
+
+  .navbar:hover .navbar-brand img {
+    filter: brightness(1);
+  }
+
+  .search-bar {
+    position: relative;
+    margin-right: 20px;
+  }
+
+  .search-input {
+    width: 300px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #20232a;
+    color: #fff;
+    outline: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .search-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 8px;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    background-color: orangered;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  }
+
+  .search-button:hover {
+    background-color: orangered;
+    color: #fff;
+    transform: scale(1.1);
+  }
+
+  .user_pic {
+    cursor: pointer;
+  }
+
+  .filter-icon {
+    color: rgb(176, 176, 176);
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+
+  
+
+  .suggestions {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }
+
+  .suggestions li {
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .suggestions li:hover {
+    background-color: #333;
+    color:orangered
+  }
+
+
+
+
+/* ////////////////////////////// */
 .user_pic{
     width: 35px;
     border-radius: 50%;
@@ -143,59 +237,10 @@
     #sign-in {
         border-radius: 50px;
     }
-
-    /* Add these styles to your existing CSS */
-.search-bar {
-    display: flex;
-    align-items: center;
-    margin-left: 20px;
 }
 
-.search-input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    outline: none;
-    width: 250px;
-}
-
-.search-button {
-    background: #FF9138;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    margin-left: -40px;
-    color: white;
-    cursor: pointer;
-}
-
-/* header.component.css */
-.suggestions {
-    position: absolute;
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-top: 8px;
-    list-style-type: none;
-    padding: 0;
-    width: 300px;
-    z-index: 1000;
-  }
-  
-  .suggestions li {
-    padding: 8px 16px;
-    cursor: pointer;
-  }
-  
-  .suggestions li:hover {
-    background-color: #f0f0f0;
-  }
-  
 
 
-
-
-}
 
 
 

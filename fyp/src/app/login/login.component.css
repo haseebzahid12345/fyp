@@ -1,0 +1,6 @@
+.custom-background {
+  background-image: url('src/assets/images/meetings-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

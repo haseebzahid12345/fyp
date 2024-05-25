@@ -1,4 +1,59 @@
 /* Styles for the overall card body */
+
+
+
+
+.custom-background {
+  background-image: url('src/assets/images/meetings-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.info-container {
+  margin-bottom: 20px; /* Adjust margin as needed */
+}
+.mahi {
+  text-align: center; /* Center the text */
+  text-align: center; /* Center the text */
+  font-weight: bold; /* Make the text bold */
+  margin-top: 50px;
+}
+
+@media screen and (max-width: 768px) {
+  .mahi {
+    font-size: 16px; /* Adjust font size for smaller screens */
+  }
+}
+
+.profile-info {
+  background-color: #f8f9fa; /* Background color of the box */
+  border: 1px solid #dee2e6; /* Border color */
+  border-radius: 10px; /* Border radius */
+  padding: 10px; /* Padding inside the box */
+}
+
+.info-box {
+  /* Add additional styling for the box containing title and name */
+}
+
+
+.custom-carousel .picsum-img-wrapper {
+  height: 300px; /* Default height */
+  margin-top: 83px;
+}
+
+@media (max-width: 768px) {
+  .custom-carousel .picsum-img-wrapper {
+    height: 200px; /* Adjust height for smaller screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .custom-carousel .picsum-img-wrapper {
+    height: 150px; /* Adjust height for extra small screens */
+  }
+}
+
 .card-body {
   display: flex;
   flex-direction: column;

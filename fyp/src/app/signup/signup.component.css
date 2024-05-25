@@ -1,0 +1,121 @@
+.custom-background {
+    background-image: url('src/assets/images/meetings-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('src/assets/images/meetings-bg.jpg');
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .container {
+    max-width: 700px;
+  }
+
+  .card {
+    border-radius: 2rem;
+  }
+
+  .card-body {
+    padding: 2rem;
+  }
+
+  img {
+    height: 60px;
+    margin-bottom: 1rem;
+  }
+
+  h5 {
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-outline {
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+
+  input {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.3s ease;
+  }
+
+  input:focus {
+    border-color: #6d6c71;
+  }
+
+  button {
+    background-color: #a9a9a9;
+    color: #212529;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #e0a800;
+  }
+
+  p {
+    color: #0d1785;
+    margin-bottom: 0.5rem;
+  }
+
+  a {
+    color: #0d1785;
+  }
+
+  .form-check {
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 575.98px) {
+    img {
+      display: none; /* Hide the logo on screens smaller than 576px */
+    }
+
+    h5 {
+      margin-top: 0.5rem; /* Adjust the margin for better spacing without the logo */
+    }
+  }
+
+  @media (min-width: 576px) {
+    img {
+      display: block; /* Show the logo on screens 576px and larger */
+    }
+  }
+
+  @media (max-width: 767px) {
+    /* Styles for smaller screens */
+    /* Adjust as needed */
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    /* Styles for medium-sized screens */
+    /* Adjust as needed */
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    /* Styles for larger screens */
+    /* Adjust as needed */
+  }

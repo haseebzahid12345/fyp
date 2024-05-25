@@ -1,6 +1,39 @@
-body {
-  background-color: #f0f2f5;
+/* Styles for the info-container */
+
+.custom-background {
+  background-image: url('src/assets/images/meetings-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
+
+.info-container {
+  background-color: #ffffff; /* White background for the container */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 10px; /* Rounded corners */
+  padding: 20px; /* Padding inside the container */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  margin-bottom: 20px; /* Margin at the bottom */
+}
+
+/* Style for the text inside the container */
+.info-container p {
+  margin: 10px 0; /* Vertical margin for spacing between paragraphs */
+  font-size: 1rem; /* Font size */
+  line-height: 1.6; /* Line height */
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 .card {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
