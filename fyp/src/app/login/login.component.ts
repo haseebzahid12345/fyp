@@ -1,7 +1,6 @@
 import { Component , NgZone } from '@angular/core';
 import { ParseService } from '../services/parse.service'; // Update with the actual path
 import { Router } from '@angular/router';
-import { GeocodingService, GeocodeResponse } from '../services/geocoding.service';
 import { AppComponent } from '../app.component';
 import { HomeComponent } from '../home/home.component';
 import { CardDetailComponent } from '../card-detail/card-detail.component';
@@ -18,7 +17,7 @@ export class LoginComponent {
   country : string = '';
   city : string = '';
 
-  constructor(private parseService: ParseService, private router: Router , private geocodingService: GeocodingService, private ngZone: NgZone , public app:AppComponent , public home : HomeComponent , public cardDetails : CardDetailComponent , public transaction : TransactionComponent)
+  constructor(private parseService: ParseService, private router: Router , private ngZone: NgZone , public app:AppComponent , public home : HomeComponent , public cardDetails : CardDetailComponent , public transaction : TransactionComponent)
    { 
    
    }

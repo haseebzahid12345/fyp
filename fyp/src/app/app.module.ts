@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { GooglePayButtonModule } from '@google-pay/button-angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
@@ -46,7 +46,6 @@ import { HistoryOrdersComponent } from './history-orders/history-orders.componen
 import { CurrentOrdersComponent } from './current-orders/current-orders.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
-import { GeocodingService } from './services/geocoding.service'; 
 import { HttpClientModule } from '@angular/common/http';
 import { TransactionComponent } from './transaction/transaction.component';
 import { BusinessComponent } from './business/business.component';
@@ -63,9 +62,12 @@ import { BackHeaderComponent } from './back-header/back-header.component';
 import { IncompleteOrdersComponent } from './incomplete-orders/incomplete-orders.component';
 import { CancelOrdersComponent } from './cancel-orders/cancel-orders.component';
 import { SearchResultComponent } from './search-result/search-result.component';
+import { GooglePayComponent } from './google-pay/google-pay.component';
 
 @NgModule({
   declarations: [
+    
+    GooglePayComponent,
     SearchResultComponent,
     IncompleteOrdersComponent,
     CancelOrdersComponent,
@@ -129,12 +131,15 @@ import { SearchResultComponent } from './search-result/search-result.component';
     FontAwesomeModule,
     FormsModule,
     NgbModule,
+    GooglePayButtonModule,
     ReactiveFormsModule,
     HttpClientModule,
     
   ],
-  providers: [DatePipe ,GeocodingService,HomeComponent,CardDetailComponent,TransactionComponent],
-  bootstrap: [AppComponent]
+  providers: [DatePipe ,HomeComponent,CardDetailComponent,TransactionComponent],
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+ 
 
 })
 export class AppModule { 
