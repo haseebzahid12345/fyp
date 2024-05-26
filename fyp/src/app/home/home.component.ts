@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit{
     { name: 'Business', imageUrl: '../../assets/images/business.png', routeName: 'business' },
     { name: 'Digital Marketing', imageUrl: '../../assets/images/digitalMarketing.png', routeName: 'digital-marketing' },
     { name: 'Lifestyle', imageUrl: '../../assets/images/lifestyles.png', routeName: 'lifestyle' },
-    { name: 'Music & Audio', imageUrl: '../../assets/images/audio.png', routeName: 'music-audio' },
+    { name: 'Music & Audio', imageUrl: '../../assets/images/1065269.png', routeName: 'music-audio' },
     { name: 'Programming & Tech', imageUrl: '../../assets/images/programming.png', routeName: 'programming-tech' },
     { name: 'Video & Animation', imageUrl: '../../assets/images/video.png', routeName: 'video-animation' },
     { name: 'Writing & Translation', imageUrl: '../../assets/images/writing.png', routeName: 'writing-translation' },

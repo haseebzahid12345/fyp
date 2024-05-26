@@ -319,6 +319,18 @@ export class ParseService {
     }
   }
 
+  async orderPlaceTransaction(cardId: string, teacherId: string, studentId: string, price: string, orderDay: string, title: string) {
+    try {
+      const params = { cardId, teacherId, studentId, price, orderDay, title };
+      console.log(cardId, teacherId, studentId, price, orderDay);
+      const response = await Parse.Cloud.run('orderPlaceTransaction', params);
+      return response;
+    } catch (error) {
+      console.error('Error taking order', error);
+      throw error;
+    }
+  }
+
   // (22)
   async update_submit_profile(image: string) {
     const params = { image, userId: this.currentUser.objectId }

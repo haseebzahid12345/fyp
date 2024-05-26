@@ -18,35 +18,47 @@
               </div>
               <div>
                 <h4>Select a Price Level:</h4>
-                <div class="btn-group" role="group">
+                <div class="container">
                   <!-- First Button: Always displayed -->
-                  <button type="button" class="btn btn-outline-primary  info-container mb-5 " 
-                    [class.active]="activePriceButton === level1_price" (click)="toggleButton(level1_price, orderDay1)"
-                    (dblclick)="toggleButton(level1_price, orderDay1)">
-                    <span>{{ level1_price }} Rs</span>
-                    <span class="orderDays">{{ orderDay1 }} days </span>
-                    <span class="price-description ">{{ level1_description }}</span>
-                  </button>
-
+                  <div class="row mb-3">
+                    <div class="col">
+                      <button type="button" class="btn btn-outline-primary info-container"
+                        [class.active]="activePriceButton === level1_price" (click)="toggleButton(level1_price, orderDay1)"
+                        (dblclick)="toggleButton(level1_price, orderDay1)">
+                        <span>{{ level1_price }} Rs</span>
+                        <span class="orderDays">{{ orderDay1 }} days</span>
+                        <span class="price-description">{{ level1_description }}</span>
+                      </button>
+                    </div>
+                  </div>
+                
                   <!-- Second Button: Conditionally displayed -->
-                  <button *ngIf="level2_price" type="button" class="btn btn-outline-primary mb-5   info-container"
-                    [class.active]="activePriceButton === level2_price" (click)="toggleButton(level2_price, orderDay2)"
-                    (dblclick)="toggleButton(level2_price, orderDay2)">
-                    <span>{{ level2_price }} Rs</span>
-                    <span class="orderDays">{{ orderDay2 }} days </span>
-                    <span class="price-description">{{ level2_description }}</span>
-                  </button>
-
+                  <div class="row mb-3" *ngIf="level2_price">
+                    <div class="col">
+                      <button type="button" class="btn btn-outline-primary info-container"
+                        [class.active]="activePriceButton === level2_price" (click)="toggleButton(level2_price, orderDay2)"
+                        (dblclick)="toggleButton(level2_price, orderDay2)">
+                        <span>{{ level2_price }} Rs</span>
+                        <span class="orderDays">{{ orderDay2 }} days</span>
+                        <span class="price-description">{{ level2_description }}</span>
+                      </button>
+                    </div>
+                  </div>
+                
                   <!-- Third Button: Conditionally displayed -->
-                  <button *ngIf="level3_price" type="button" class="btn btn-outline-primary mb-5 ml-5   info-container"
-                    [class.active]="activePriceButton === level3_price" (click)="toggleButton(level3_price, orderDay3)"
-                    (dblclick)="toggleButton(level3_price, orderDay3)">
-                    <span>{{ level3_price }} Rs</span>
-                    <span class="orderDays">{{ orderDay3 }} days</span>
-                    <span class="price-description">{{ level3_description }}</span>
-                  </button>
-
+                  <div class="row mb-3" *ngIf="level3_price">
+                    <div class="col">
+                      <button type="button" class="btn btn-outline-primary info-container"
+                        [class.active]="activePriceButton === level3_price" (click)="toggleButton(level3_price, orderDay3)"
+                        (dblclick)="toggleButton(level3_price, orderDay3)">
+                        <span>{{ level3_price }} Rs</span>
+                        <span class="orderDays">{{ orderDay3 }} days</span>
+                        <span class="price-description">{{ level3_description }}</span>
+                      </button>
+                    </div>
+                  </div>
                 </div>
+                
               </div>
 
               

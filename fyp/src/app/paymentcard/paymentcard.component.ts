@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component , OnInit } from '@angular/core';
+import { ActivatedRoute , Router} from '@angular/router';
+import { ParseService } from '../services/parse.service';
+
 
 @Component({
   selector: 'app-paymentcard',
@@ -6,9 +9,29 @@ import { Component } from '@angular/core';
   styleUrls: ['./paymentcard.component.css']
 })
 export class PaymentcardComponent {
+  price: string='';
+  cardId : string ='';
+  studentId: any;
+  teacherId:string='';
+  orderDay:string ='';
+  titles:string='';
+  constructor(private route: ActivatedRoute , private router: Router , private service: ParseService) {}
+
+  ngOnInit() {
+    // this.service.pageView(localStorage['appSessionId'],"/transaction");
+    this.route.queryParams.subscribe(params => {
+      this.price = params['price'];
+      this.cardId = params['cardId'];
+      this.teacherId = params['teacherId'];
+      this.studentId = this.service.user.objectId;
+      this.orderDay= params['orderDay'];
+      this.titles = params['title'];
+    
+    });
+  }
   title = 'AngularGooglePlay';
   buttonColor = 'black';
-  buttonType = 'buy';  // Updated to match the HTML example
+  buttonType = 'buy';
   isCustomSize = 250;
   buttonHeight = 50;
   isTop = window === window.top;
@@ -41,11 +64,30 @@ export class PaymentcardComponent {
       totalPrice: "100.00",
       currencyCode: "USD",
       countryCode: "US"
-    }
+    },
+    callbackIntents: ["PAYMENT_AUTHORIZATION"]
   };
 
   onLoadPaymentData(event: any): void {
-    // alert("successfully purchase done");
-    console.log("load payment data by skillMentor", event.detail);
+    console.log("Payment data loaded", event.detail);
+    this.onPaymentAuthorized(event);
   }
+
+ onPaymentAuthorized(event: any) {
+    console.log("Payment authorized", event.detail);
+    setTimeout(async () => {
+    
+      const result = await this.service.orderPlaceTransaction(this.cardId,this.teacherId,this.studentId,this.price,this.orderDay,this.title);
+      if(result.status===0){
+        alert('Your order has been placed!');
+      }
+      else if(result.status===1){
+        alert('Transaction successful!');
+      }
+    }, 1000); // 3000 milliseconds = 3 seconds
+  }
+
+  // onPaymentDataChanged(event: any): void {
+  //   console.log("Payment data changed", event.detail);
+  // }
 }

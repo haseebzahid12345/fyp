@@ -34,8 +34,8 @@ export class CardDetailComponent implements OnInit {
   orderDays:string='';
   isOrderButtonVisible: boolean = false;
   activePriceButton: string | null = null;
-  // In CardDetailComponent class
-reviews: { review: string; studentName: string }[] = [];  // Add this property to store reviews
+  // In CardDetailComponent class  
+  reviews: { review: string; studentName: string }[] = [];  // Add this property to store reviews
 
 
 

@@ -44,10 +44,21 @@ export class TransactionComponent implements OnInit {
     }
     else if(result.status===-1){
       alert('error in placing error')
-    }
-    else{
-      alert('Order has been confirmed!');
-      this.router.navigate(['/paymentCard']);
+    }   
+    else if(result.status===1){
+      const confirmation = confirm('Are you sure you want to confirm the order? This action cannot be undone.');
+      if (confirmation) {
+        alert('Order has been confirmed. now pay to place the order');
+        this.router.navigate(['/paymentCard'], {
+          queryParams: { 
+            price: this.price, 
+            cardId: this.cardId, 
+            teacherId: this.teacherId, 
+            orderDay: this.orderDay, 
+            title: this.title
+          }
+        });
+      }
     }
    // Example action
     // this.router.navigate(['/confirmation']); // Redirect to a confirmation page, if exists
