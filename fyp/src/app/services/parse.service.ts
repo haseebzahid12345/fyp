@@ -27,7 +27,7 @@ export class ParseService {
 
   constructor() {
     Parse.initialize('myAppId', 'myMasterKey');
-    (Parse as any).serverURL = 'http://localhost:1336/parse';
+    (Parse as any).serverURL = 'https://fyp-teachers-backed.onrender.com';
     (Parse as any).liveQueryServerURL = 'ws://localhost:1337/parse';
     // Retrieve the user from local storage on service initialization
     const storedUser = localStorage.getItem(this.USER_KEY);
